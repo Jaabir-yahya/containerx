@@ -1,0 +1,89 @@
+@startuml ContainerX-Expanded
+!define SUCCESS_COLOR #lightgreen
+!define ERROR_COLOR #ffcccc
+skinparam sequenceMessageAlign center
+skinparam roundcorner 20
+skinparam maxmessagesize 200
+title ContainerX Full Workflow (Meter → Metal + Add-Ons)
+actor "Dev/SME App" as APP #lightblue
+box "ContainerX Backend" #lightgrey
+  participant "Kong Gateway" as KONG
+  participant "Auth Service" as AUTH
+  participant "Wallet Check" as WALL
+  participant "FastAPI Core" as API
+  database "PostgreSQL" as DB
+  participant "Kill Bill Billing" as KB
+  participant "Meter Engine" as MTR
+  participant "Monitoring (Prometheus/Grafana)" as MON
+end box
+database "Anonymized Data Lake" as LAKE
+actor "External APIs (KRA/M-Pesa/NTSA/TransUnion)" as EXT #orange
+actor "User Webhook" as WH
+participant "Edge Container (Solar/K3s)" as EDGE #green
+actor "Bank/FMCG Buyer" as BUYER #yellow
+== Authentication ==
+APP -> KONG: POST /auth {phone}
+KONG -> AUTH: validate
+AUTH -> EXT: M-Pesa OTP send/verify
+EXT --> AUTH: OTP ok
+AUTH -> APP: JWT (24h) [SUCCESS_COLOR]
+== Metered Core Call (e.g., /invoice) ==
+APP -> KONG: POST /invoice {data} + JWT
+alt insufficient wallet
+  KONG -> WALL: deduct 3.5 KES
+  WALL -> KB: balance < fee
+  KB --> APP: 402 Payment Required [ERROR_COLOR]
+else sufficient
+  KONG -> WALL: deduct 3.5 KES [SUCCESS_COLOR]
+  WALL -> KB: ok → log to DB
+  API -> EXT: POST KRA eTIMS (invoice JSON)
+  EXT --> API: QR PNG url + validation
+  API -> LAKE: SHA-256 anonymized (SKU, float)
+  API -> WH: webhook invoice.validated
+  API --> APP: 201 {qr_url} [SUCCESS_COLOR]
+end
+== Add-On Calls (V2) ==
+APP -> API: POST /pay {txn} [SUCCESS_COLOR]
+API -> EXT: Daraja C2B/B2B
+EXT --> API: receipt
+API -> WH: webhook pay.settled
+APP -> API: GET /inventory {sku} [SUCCESS_COLOR]
+API -> DB: qty/expiry query
+API --> APP: 200 {data}
+APP -> API: POST /dispatch {manifest} [SUCCESS_COLOR]
+API -> EXT: NTSA PDF gen + OR-Tools opt
+EXT --> API: PDF url
+API -> WH: webhook dispatched
+APP -> API: POST /co2 {km} [SUCCESS_COLOR]
+API -> MTR: calc kg CO2e
+MTR --> APP: 200 {kg}
+APP -> API: POST /forecast {data} [SUCCESS_COLOR]
+API -> MTR: PyTorch predict (sell-through)
+MTR --> APP: 200 {predictions}
+APP -> API: POST /backup [SUCCESS_COLOR]
+API -> DB: MinIO snapshot
+API --> APP: 202 {url}
+APP -> API: GET /credit {hash} [SUCCESS_COLOR]
+API -> EXT: TransUnion cache
+EXT --> API: score
+API --> APP: 200 {0-100}
+== White-Label/Fork Flow ==
+APP -> API: POST /white-label {fork_data} [SUCCESS_COLOR]
+API -> KB: USD 120 + 6% GMV rake
+API -> EDGE: ArgoCD deploy fork
+EDGE --> APP: 201 {fork_url}
+== Monitoring & Scaling ==
+API -> MON: Prometheus metrics (uptime, calls)
+MON -> APP: Public dashboard
+alt scale needed
+  API -> EDGE: K3s cluster auto-scale
+  EDGE -> EXT: Starlink + solar power
+end
+== Data Flywheel & Monetization ==
+LAKE -> MTR: aggregate (SKU velocity, liquidity)
+MTR -> BUYER: Sell indices (e.g., Velocity-Index USD 250/mo) [SUCCESS_COLOR]
+MTR -> KB: cron GMV rakes/carbon credits
+== Error/Offline Pivot ==
+note over APP, EDGE: Offline queue (Workbox sync) for POS apps
+note over API: Pivot if KRA downtime >45d: Offline QR gen
+@enduml
