@@ -1,0 +1,60 @@
+@startuml ContainerX-Sequence
+!define SUCCESS_COLOR #lightgreen
+!define ERROR_COLOR #ffcccc
+skinparam sequenceMessageAlign center
+skinparam roundcorner 20
+skinparam maxmessagesize 200
+title ContainerX API Flow (Meter → Metal)
+
+actor "Dev/SME App" as APP #lightblue
+box "ContainerX Backend" #lightgrey
+  participant "Kong Gateway" as KONG
+  participant "Auth Service" as AUTH
+  participant "Wallet Check" as WALL
+  participant "FastAPI Core" as API
+  database "PostgreSQL" as DB
+  participant "Kill Bill" as KB
+  participant "Meter Engine" as MTR
+end box
+database "Anonymized Lake" as LAKE
+actor "External APIs" as EXT #orange
+actor "User Webhook" as WH
+
+== Authentication ==
+APP -> KONG: POST /auth {phone}
+KONG -> AUTH: validate
+AUTH -> EXT: M-Pesa OTP
+EXT --> AUTH: OTP ok
+AUTH -> APP: JWT (24h)
+
+== Metered Call Example ==
+APP -> KONG: POST /invoice + JWT
+alt insufficient wallet
+  KONG -> WALL: deduct 3.5 KES
+  WALL -> KB: balance < 3.5
+  KB --> APP: 402 Payment Required [ERROR_COLOR]
+else sufficient wallet
+  KONG -> WALL: deduct 3.5 KES [SUCCESS_COLOR]
+  WALL -> KB: balance ok
+  KB -> DB: log call
+  API -> EXT: POST KRA eTIMS sandbox
+  EXT --> API: QR PNG url
+  API -> LAKE: SHA-256 anonymised
+  API -> WH: webhook invoice.validated
+  API --> APP: 201 {qr_url} [SUCCESS_COLOR]
+end alt
+
+== Additional Calls ==
+APP -> API: POST /pay …
+API -> EXT: Daraja C2B
+EXT --> API: receipt
+API -> WH: webhook paid
+
+APP -> API: POST /dispatch …
+API -> EXT: NTSA PDF
+API -> WH: webhook dispatched
+
+== Data Flywheel ==
+LAKE -> MTR: aggregate velocity
+MTR -> BANK: sell Velocity-Index (USD 250/mo)
+@enduml
