@@ -233,6 +233,38 @@ def init_db():
     )
     """)
 
+    # UCOS: Payment references table (for M-Pesa idempotency)
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS payment_references (
+            reference TEXT PRIMARY KEY,
+            payment_id TEXT NOT NULL,
+            commitment_id TEXT,
+            order_id TEXT,
+            amount REAL NOT NULL,
+            method TEXT NOT NULL,
+            status TEXT NOT NULL,
+            webhook_data TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            FOREIGN KEY (payment_id) REFERENCES payments(id)
+        )
+    """)
+
+    # UCOS: Offline queue for network outages
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS offline_queue (
+            id TEXT PRIMARY KEY,
+            entity_type TEXT NOT NULL,
+            entity_id TEXT NOT NULL,
+            action TEXT NOT NULL,
+            data TEXT NOT NULL,
+            status TEXT NOT NULL,
+            retry_count INTEGER DEFAULT 0,
+            created_at TEXT NOT NULL,
+            processed_at TEXT
+        )
+    """)
+
     # Migration: If old 'stock' table exists, migrate data to 'inventory'
     cur.execute("""
     SELECT name FROM sqlite_master 

@@ -209,6 +209,45 @@ Everything else is future.
 - ✅ End-to-end auto-enforcement testing
 - ✅ Pizza delivery scenario added
 
+### **PHASE 2.5: HORIZONTAL COVERAGE (8 Nairobi Commerce Scenarios)**
+
+**Goal**: Cover 80% of Nairobi commerce patterns before Phase 3 economics
+
+**Status**: 1/8 scenarios complete (2025-01-01)
+
+**Scenario 1: M-Pesa Retry & Reconciliation** ✅ COMPLETE (2025-01-01)
+- ✅ PaymentReferenceService with idempotency keys
+- ✅ Webhook reconciliation for delayed callbacks
+- ✅ Network outage queuing
+- ✅ Complete audit trail
+- ✅ Tests: 4/4 passing
+
+**Scenarios 2-8: Pending**
+- [ ] Scenario 2: Cash + M-Pesa Hybrid Payments
+- [ ] Scenario 3: Partial Fulfillment with Proportional Settlement
+- [ ] Scenario 4: Network Outage Resilience
+- [ ] Scenario 5: Capacity-Based Queuing
+- [ ] Scenario 6: Trust-Based SLA & Pricing
+- [ ] Scenario 7: Dispute Escalation Paths
+- [ ] Scenario 8: Repeat Customer Recognition
+
+**Why These 8?**
+These scenarios cover 80% of real Nairobi commerce:
+- Payment failures (30% of issues) → Scenario 1
+- Mixed payments (20% of transactions) → Scenario 2
+- Partial fulfillment (15% of orders) → Scenario 3
+- Network outages (10% downtime) → Scenario 4
+- Capacity limits (10% seller protection) → Scenario 5
+- Trust economics (8% differentiation) → Scenario 6
+- Disputes (5% conflict resolution) → Scenario 7
+- Loyalty (2% repeat customers) → Scenario 8
+
+**Implementation Pattern**: Scenario-first development
+1. Write failing scenario test
+2. Implement required services
+3. Verify all tests pass
+4. Update documentation
+
 ### **PHASE 3: ECONOMIC LAYER (Weeks 5-6)**
 **Goal**: Implement prepaid credits and virtual currency system
 

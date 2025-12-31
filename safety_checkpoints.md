@@ -34,15 +34,37 @@ This document tracks which Nairobi business scenarios must pass before any commi
    - Customer orders, seller misses SLA, auto-refund
    - **Status**: ✅ Complete, 2/2 tests passing
 
+### **Phase 2.5: Horizontal Coverage (8 Nairobi Scenarios)**
+
+6. **M-Pesa Retry & Reconciliation** (`tests/scenarios/mpesa_retry_network_outage.py`) ✅ COMPLETE (2025-01-01)
+   - Idempotent payment recording (same reference = same payment)
+   - Webhook reconciliation for delayed callbacks
+   - Network outage queuing
+   - **Status**: ✅ Complete, 4/4 tests passing
+
 ### **Future Scenarios (TO ADD)**
 
-6. **Vegetable Market** (TODO)
+7. **Cash + M-Pesa Hybrid Payments** (TODO)
    - Mama Mboga scenario
-   - Cash + M-Pesa mixed payments
+   - Mixed payment methods in same transaction
 
-7. **M-Pesa Retry Failure** (TODO)
-   - Network issues, retry logic
-   - Payment reconciliation
+8. **Partial Fulfillment** (TODO)
+   - Proportional settlement (80% delivered = 80% payment)
+
+9. **Network Outage Resilience** (TODO)
+   - Offline transaction queuing and reconciliation
+
+10. **Capacity-Based Queuing** (TODO)
+    - Seller capacity limits and fair queuing
+
+11. **Trust-Based SLA & Pricing** (TODO)
+    - Dynamic pricing based on trust scores
+
+12. **Dispute Escalation** (TODO)
+    - Evidence attachment and resolution paths
+
+13. **Repeat Customer Recognition** (TODO)
+    - Loyalty tracking and preferential treatment
 
 ---
 
@@ -69,14 +91,16 @@ If scenarios fail:
 
 ## Last Validated
 
-- **Date**: 2025-12-31
-- **Commit**: 3ecae81 (TimerService threading fix)
+- **Date**: 2025-01-01
+- **Commit**: Scenario 1 (M-Pesa Retry & Reconciliation) complete
 - **Scenarios Passing**: 
   - Minimal Safety: 2/2 ✅
   - Event Sourcing Physics: 3/3 ✅
   - Trust Math Physics: 2/2 ✅
   - Pizza Delivery: 2/2 ✅
-  - TimerService: 4/5 ✅ (1 logic bug, non-blocking)
+  - TimerService: 5/5 ✅
+  - M-Pesa Retry & Reconciliation: 4/4 ✅
 - **Total Critical**: 7/7 ✅
 - **Phase 2**: ✅ Complete
+- **Phase 2.5**: 1/8 scenarios complete (M-Pesa Retry)
 

@@ -31,7 +31,27 @@
 2. ✅ **AutoRefundEngine**: Reacts to TIMER_FIRED events, triggers auto-refunds
 3. ✅ **Event integration**: End-to-end commitment → timer → auto-refund flow
 
-**NEXT PRIORITY (PHASE 3):**
+**NEXT PRIORITY: HORIZONTAL COVERAGE (8 Nairobi Commerce Scenarios)**
+
+Before Phase 3, implementing 8 essential scenarios covering 80% of Nairobi commerce patterns:
+
+**✅ Scenario 1: M-Pesa Retry & Reconciliation (COMPLETE - 2025-01-01)**
+- ✅ PaymentReferenceService with idempotency keys
+- ✅ Webhook reconciliation for delayed callbacks
+- ✅ Network outage queuing
+- ✅ Complete audit trail
+- ✅ Tests: 4/4 passing
+
+**⏳ Scenario 2-8: Pending**
+- [ ] Scenario 2: Cash + M-Pesa Hybrid Payments
+- [ ] Scenario 3: Partial Fulfillment with Proportional Settlement
+- [ ] Scenario 4: Network Outage Resilience
+- [ ] Scenario 5: Capacity-Based Queuing
+- [ ] Scenario 6: Trust-Based SLA & Pricing
+- [ ] Scenario 7: Dispute Escalation Paths
+- [ ] Scenario 8: Repeat Customer Recognition
+
+**PHASE 3 (After Horizontal Coverage):**
 1. **CreditService**: Prepaid credits system
 2. **M-Pesa integration**: Credit package purchases
 3. **Trust-based pricing**: Dynamic SLA adjustments
