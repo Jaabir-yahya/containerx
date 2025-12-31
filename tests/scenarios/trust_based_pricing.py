@@ -26,7 +26,7 @@ def test_trust_based_sla_adjustment(cleanup):
     )
     
     # Trust service calculates trust (would adjust SLA in TimerService)
-    trust_score = trust_service.get_trust_score("trusted_seller_001")
+    trust_score = trust_service.get_trust_stats("trusted_seller_001").get("current_trust", 0.5)
     assert 0.05 <= trust_score <= 0.95, "Trust score should be in bounds"
     
     print("✅ Trust-based SLA adjustment works")

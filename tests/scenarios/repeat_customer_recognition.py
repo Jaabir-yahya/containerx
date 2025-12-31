@@ -35,10 +35,13 @@ def test_repeat_customer_recognition(cleanup):
     
     # System should recognize repeat customer
     # (Loyalty tracking would be implemented in Phase 3)
+    # Check commitments created (metadata is in COMMITMENT_CREATED events)
     cur.execute("""
         SELECT COUNT(*) FROM event_log
-        WHERE json_extract(metadata, '$.customer_id') = ?
-    """, (customer_id,))
+        WHERE action = 'COMMITMENT_CREATED'
+          AND json_extract(metadata, '$.metadata') LIKE ?
+    """, (f'%{customer_id}%',))
     
-    assert cur.fetchone()[0] >= 2, "Should track repeat customer"
+    count = cur.fetchone()[0]
+    assert count >= 2, f"Should track repeat customer, got {count}"
     print("✅ Repeat customer recognition works")
