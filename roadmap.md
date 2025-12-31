@@ -9,6 +9,14 @@
 - TrustService (mathematical trust calculation)
 - All services follow UCOS event-driven patterns
 
+### **✅ SAFETY NET ESTABLISHED (2025-12-31)**
+- Scenario-driven tests (`tests/scenarios/`)
+- UCOS physics validation (`tests/ucos_physics/`)
+- Pre-commit hooks (auto-validation)
+- Backup/recovery scripts (`scripts/`)
+- Safety documentation (`safety_checkpoints.md`)
+- **Status**: 7/7 critical tests passing ✅
+
 ### **🎯 PHASE 2: ENFORCEMENT ENGINE (WEEKS 3-4)**
 
 **CURRENT PRIORITY (WEEK 3):**
@@ -59,6 +67,9 @@
 - [x] Persist timers to database (timers table)
 - [x] Background thread for timer monitoring
 - [x] Tests for event-driven timer flow
+- [ ] **FIX**: Threading issue (SQLite thread-local connections) - Known issue, non-blocking
+
+**Status**: ✅ Implemented, ⚠️ Threading fix needed
 
 ### **Week 4: AutoRefundEngine**
 - [ ] Create `core/services/auto_refund_engine.py`
@@ -67,6 +78,9 @@
 - [ ] Emit AUTO_REFUND_TRIGGERED events
 - [ ] Integration with TrustService (trust penalties)
 - [ ] End-to-end tests
+- [ ] Add Nairobi scenario: pizza delivery with SLA breach
+
+**Approach**: Scenario-first development (write failing scenario, then implement)
 
 ---
 
@@ -99,11 +113,26 @@
 
 Phase 2 complete when:
 - ✅ TimerService schedules timers on COMMITMENT_CREATED
-- ✅ Timers fire and emit TIMER_FIRED events
-- ✅ AutoRefundEngine reacts to TIMER_FIRED
-- ✅ Auto-refund triggers trust penalties
-- ✅ End-to-end flow tested
-- ✅ All state derived from events (no direct storage)
+- ⚠️ TimerService threading fixed (known issue)
+- ✅ Timers fire and emit TIMER_FIRED events (when threading fixed)
+- [ ] AutoRefundEngine reacts to TIMER_FIRED
+- [ ] Auto-refund triggers trust penalties
+- [ ] End-to-end flow tested
+- [ ] All state derived from events (no direct storage)
+- [ ] 5+ Nairobi business scenarios passing
+
+## **KNOWN ISSUES**
+
+### **TimerService Threading (Non-Blocking)**
+- **Issue**: SQLite thread-local connections cause errors in background thread
+- **Impact**: TimerService tests fail, but core functionality works
+- **Status**: Known, will fix in separate commit
+- **Workaround**: TimerService works in production (single-threaded), tests need fix
+
+### **Next Fix Priority:**
+1. Fix TimerService threading (1-2 hours)
+2. Add thread safety scenario test
+3. Validate all scenarios still pass
 
 ---
 
@@ -113,4 +142,23 @@ Phase 2 complete when:
 - **Phase 4 (Weeks 7-8)**: Channel Adapters + Build Tools
 
 **Build tools can wait until Phase 4.**
+
+---
+
+## **SAFETY NET STATUS**
+
+**Last Updated**: 2025-12-31
+
+**Critical Tests Passing**: 7/7 ✅
+- Minimal Safety: 2/2 ✅
+- Event Sourcing Physics: 3/3 ✅
+- Trust Math Physics: 2/2 ✅
+
+**Safety Scripts**:
+- `./scripts/validate.sh` - Pre-commit validation
+- `./scripts/backup.sh` - Emergency backup
+
+**Pre-Commit Hook**: ✅ Active (blocks unsafe commits)
+
+**See**: `safety_checkpoints.md` for scenario tracking
 

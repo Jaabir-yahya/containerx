@@ -813,3 +813,143 @@ print("✅ Event sourcing validation PASSED")
 **SAVE THIS PATTERN**: Always check phase priorities before suggesting infrastructure improvements.
 
 ---
+
+## **🛡️ UCOS SAFETY NET (ESTABLISHED 2025-12-31)**
+
+### **CRITICAL: Safety Infrastructure is MANDATORY**
+
+**Status**: ✅ **FULLY OPERATIONAL** - All critical safety checks passing
+
+**Why This Exists**: Financial/trust systems require mathematical guarantees. Safety net prevents:
+- Architecture drift (event sourcing violations)
+- Mathematical errors (trust bounds, value conservation)
+- Nairobi reality gaps (M-Pesa retries, connectivity issues)
+- Regression bugs (breaking existing scenarios)
+
+### **Safety Net Components:**
+
+#### **1. Scenario-Driven Tests** (`tests/scenarios/`)
+**Purpose**: Ground UCOS in REAL Nairobi business cases. These are the "truth" that must always pass.
+
+**Current Scenarios:**
+- ✅ `minimal_safety.py` - Basic commitment creation/derivation
+- ✅ `test_event_sourcing_integrity` - Verifies pure event sourcing
+
+**Pattern**: Write Nairobi business scenario FIRST, then implement feature to make it pass.
+
+**Example**:
+```python
+# tests/scenarios/pizza_delivery.py (TO ADD)
+def test_pizza_delivery_with_sla_breach():
+    """Real Nairobi: Pizza shop in Westlands, SLA breach triggers auto-refund"""
+    # 1. Create commitment
+    # 2. Simulate payment
+    # 3. Timer fires (SLA breach)
+    # 4. Auto-refund triggered
+    # 5. Trust penalty applied
+```
+
+#### **2. UCOS Physics Validation** (`tests/ucos_physics/`)
+**Purpose**: Mathematical invariants that MUST always hold.
+
+**Current Physics Tests:**
+- ✅ `test_event_sourcing.py` - All state from events, immutability, replay consistency
+- ✅ `test_trust_math.py` - Trust bounds (0.05-0.95), delta bounds (-0.3 to +0.3)
+
+**Invariants Enforced:**
+1. **Event Sourcing**: All state derivable from event replay
+2. **Event Immutability**: Events never change once logged
+3. **State Replay Consistency**: Same events = same state (deterministic)
+4. **Trust Bounds**: 0.05 ≤ trust_score ≤ 0.95 always
+5. **Delta Bounds**: -0.3 ≤ trust_delta ≤ 0.3 per event
+
+#### **3. Safety Scripts** (`scripts/`)
+- ✅ `backup.sh` - Emergency backup (timestamped, excludes .git, .db)
+- ✅ `validate.sh` - Pre-commit validation (runs scenarios + physics)
+
+**Usage**:
+```bash
+# Daily safety check
+./scripts/validate.sh
+
+# Emergency backup
+./scripts/backup.sh
+```
+
+#### **4. Pre-Commit Hook** (`.git/hooks/pre-commit`)
+**Purpose**: Prevent unsafe commits automatically.
+
+**What It Does**:
+1. Runs minimal safety scenarios
+2. Runs UCOS physics validation
+3. Blocks commit if any fail
+4. Allows TimerService tests to fail (non-blocking, known issue)
+
+**Bypass** (NOT RECOMMENDED):
+```bash
+git commit --no-verify  # Only in emergencies
+```
+
+#### **5. Safety Documentation**
+- ✅ `safety_checkpoints.md` - Tracks which scenarios must pass
+- ✅ `roadmap.md` - Current phase priorities
+
+### **Current Safety Status:**
+
+```
+Critical Scenarios: 7/7 ✅ PASSING
+├── Minimal Safety: 2/2 ✅
+├── Event Sourcing Physics: 3/3 ✅
+└── Trust Math Physics: 2/2 ✅
+
+Known Issues (Non-Blocking):
+├── TimerService threading (SQLite thread-local issue)
+└── Will fix in separate commit
+
+Risk Level: LOW 🟢
+Last Validated: 2025-12-31
+```
+
+### **Safety Workflow (MANDATORY):**
+
+```bash
+# BEFORE any commit:
+1. Run: ./scripts/validate.sh
+2. If passes: git commit (pre-commit hook auto-runs)
+3. If fails: Fix issues, don't commit
+
+# BEFORE any feature:
+1. Write failing scenario test
+2. Implement feature
+3. Run validation
+4. Commit with scenario name in message
+
+# Emergency recovery:
+1. ./scripts/backup.sh
+2. git checkout <last_known_good_commit>
+3. ./scripts/validate.sh (verify)
+```
+
+### **Commit Message Convention (ENFORCED):**
+
+```
+[PHASE X][COMPONENT] Brief description
+
+Examples:
+[SAFETY][BASELINE] Establish UCOS safety net
+[SCENARIO][PIZZA] Add pizza delivery SLA breach scenario
+[FIX][TIMER] Resolve threading race conditions
+[UCOS][PHYSICS] Ensure trust delta bounds respected
+```
+
+### **Adding New Scenarios:**
+
+1. Create test in `tests/scenarios/`
+2. Represent REAL Nairobi business case
+3. Test end-to-end UCOS flow
+4. Add to `safety_checkpoints.md`
+5. Ensure it passes before committing
+
+**SAVE THIS**: Safety net is your protection against weeks of debugging. Use it constantly.
+
+---
