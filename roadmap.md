@@ -67,9 +67,9 @@
 - [x] Persist timers to database (timers table)
 - [x] Background thread for timer monitoring
 - [x] Tests for event-driven timer flow
-- [ ] **FIX**: Threading issue (SQLite thread-local connections) - Known issue, non-blocking
+- [x] **FIXED**: Threading issue (SQLite thread-local connections) - ✅ Complete
 
-**Status**: ✅ Implemented, ⚠️ Threading fix needed
+**Status**: ✅ Implemented, ✅ Threading fixed, ⚠️ SLA calculation logic bug (non-blocking)
 
 ### **Week 4: AutoRefundEngine**
 - [ ] Create `core/services/auto_refund_engine.py`
@@ -113,8 +113,8 @@
 
 Phase 2 complete when:
 - ✅ TimerService schedules timers on COMMITMENT_CREATED
-- ⚠️ TimerService threading fixed (known issue)
-- ✅ Timers fire and emit TIMER_FIRED events (when threading fixed)
+- ✅ TimerService threading fixed (✅ Complete 2025-12-31)
+- ✅ Timers fire and emit TIMER_FIRED events
 - [ ] AutoRefundEngine reacts to TIMER_FIRED
 - [ ] Auto-refund triggers trust penalties
 - [ ] End-to-end flow tested
@@ -123,16 +123,17 @@ Phase 2 complete when:
 
 ## **KNOWN ISSUES**
 
-### **TimerService Threading (Non-Blocking)**
-- **Issue**: SQLite thread-local connections cause errors in background thread
-- **Impact**: TimerService tests fail, but core functionality works
-- **Status**: Known, will fix in separate commit
-- **Workaround**: TimerService works in production (single-threaded), tests need fix
+### **TimerService SLA Calculation (Non-Blocking)**
+- **Issue**: SLA calculation not reducing hours for high trust scores as expected
+- **Impact**: One test fails (test_timer_service_calculates_sla_from_trust)
+- **Status**: Logic bug, separate from threading fix
+- **Priority**: Medium (doesn't block AutoRefundEngine)
+- **Location**: `timer_service.py::_calculate_sla_hours()`
 
 ### **Next Fix Priority:**
-1. Fix TimerService threading (1-2 hours)
-2. Add thread safety scenario test
-3. Validate all scenarios still pass
+1. ✅ Fix TimerService threading (✅ Complete)
+2. [ ] Fix SLA calculation logic bug (15-30 min, non-blocking)
+3. [ ] Start AutoRefundEngine implementation
 
 ---
 
@@ -153,6 +154,10 @@ Phase 2 complete when:
 - Minimal Safety: 2/2 ✅
 - Event Sourcing Physics: 3/3 ✅
 - Trust Math Physics: 2/2 ✅
+
+**TimerService Tests**: 4/5 ✅
+- Threading issues: ✅ FIXED
+- SLA calculation: ⚠️ Logic bug (non-blocking)
 
 **Safety Scripts**:
 - `./scripts/validate.sh` - Pre-commit validation

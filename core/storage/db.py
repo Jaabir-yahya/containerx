@@ -43,16 +43,27 @@ def get_db():
 
 # Global override for testing
 _db_override = None
+_db_override_path = None  # Store the database path for background threads
 
 def set_db_override(conn):
     """Set database connection override (for testing)."""
-    global _db_override
+    global _db_override, _db_override_path
     _db_override = conn
+    # Get the database file path from the connection (for background threads)
+    try:
+        db_info = conn.execute("PRAGMA database_list").fetchone()
+        if db_info and db_info[2]:  # file path is in position 2
+            _db_override_path = db_info[2]
+        else:
+            _db_override_path = None
+    except:
+        _db_override_path = None
 
 def clear_db_override():
     """Clear database connection override."""
-    global _db_override
+    global _db_override, _db_override_path
     _db_override = None
+    _db_override_path = None
 
 @contextmanager
 def get_db_connection():
