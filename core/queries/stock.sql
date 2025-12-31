@@ -1,0 +1,1 @@
+SELECT * FROM stock ORDER BY rowid DESC LIMIT 10;

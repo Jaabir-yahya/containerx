@@ -1,0 +1,1739 @@
+{
+  "name": "Multi-Vendor Marketplace - Downtown",
+  "description": "A Nairobi online marketplace connecting vendors with customers across Vendor Marketplace.",
+  "modules": [
+    "sales",
+    "inventory",
+    "payments",
+    "multi_vendor",
+    "reviews",
+    "analytics"
+  ],
+  "inventory": {
+    "PHONES": {
+      "quantity": 3,
+      "unit": "units",
+      "category": "electronics",
+      "last_updated": "2025-12-26T23:49:44.076704"
+    },
+    "LAPTOPS": {
+      "quantity": 4,
+      "unit": "units",
+      "category": "electronics",
+      "last_updated": "2025-12-27T10:49:44.076707"
+    },
+    "HEADPHONES": {
+      "quantity": 50,
+      "unit": "units",
+      "category": "electronics",
+      "last_updated": "2025-12-27T08:49:44.076709"
+    },
+    "CHARGERS": {
+      "quantity": 15,
+      "unit": "units",
+      "category": "electronics",
+      "last_updated": "2025-12-27T13:49:44.076711"
+    },
+    "CABLES": {
+      "quantity": 13,
+      "unit": "units",
+      "category": "electronics",
+      "last_updated": "2025-12-27T16:49:44.076712"
+    },
+    "SHIRTS": {
+      "quantity": 32,
+      "unit": "units",
+      "category": "fashion",
+      "last_updated": "2025-12-26T21:49:44.076714"
+    },
+    "SHOES": {
+      "quantity": 6,
+      "unit": "units",
+      "category": "fashion",
+      "last_updated": "2025-12-27T06:49:44.076716"
+    },
+    "BAGS": {
+      "quantity": 4,
+      "unit": "units",
+      "category": "fashion",
+      "last_updated": "2025-12-26T23:49:44.076718"
+    },
+    "ACCESSORIES": {
+      "quantity": 7,
+      "unit": "units",
+      "category": "fashion",
+      "last_updated": "2025-12-27T02:49:44.076720"
+    },
+    "UTENSILS": {
+      "quantity": 13,
+      "unit": "units",
+      "category": "home",
+      "last_updated": "2025-12-27T09:49:44.076722"
+    },
+    "FURNITURE": {
+      "quantity": 4,
+      "unit": "units",
+      "category": "home",
+      "last_updated": "2025-12-27T17:49:44.076724"
+    },
+    "DECOR": {
+      "quantity": 13,
+      "unit": "units",
+      "category": "home",
+      "last_updated": "2025-12-27T02:49:44.076726"
+    },
+    "APPLIANCES": {
+      "quantity": 48,
+      "unit": "units",
+      "category": "home",
+      "last_updated": "2025-12-27T17:49:44.076728"
+    }
+  },
+  "customers": [
+    {
+      "id": "CUST_7c8ab9f8",
+      "name": "James Kiprotich",
+      "phone": "0710069992",
+      "email": null,
+      "payment_preference": "cash",
+      "total_orders": 1,
+      "total_spent": 2123,
+      "last_order": "2025-12-24T18:49:44.076736",
+      "preferred_payment": "bank",
+      "return_rate": 2
+    },
+    {
+      "id": "CUST_1d12c81e",
+      "name": "Michael Otieno",
+      "phone": "0732665676",
+      "email": null,
+      "payment_preference": "cash",
+      "total_orders": 9,
+      "total_spent": 2132,
+      "last_order": "2025-11-27T18:49:44.076743",
+      "preferred_payment": "mpesa",
+      "return_rate": 0
+    },
+    {
+      "id": "CUST_e24c460a",
+      "name": "James Kiprotich",
+      "phone": "0742307313",
+      "email": null,
+      "payment_preference": "mixed",
+      "total_orders": 10,
+      "total_spent": 3142,
+      "last_order": "2025-12-17T18:49:44.076748",
+      "preferred_payment": "card",
+      "return_rate": 2
+    },
+    {
+      "id": "CUST_077b1a6e",
+      "name": "Grace Achieng",
+      "phone": "0714433258",
+      "email": null,
+      "payment_preference": "cash",
+      "total_orders": 7,
+      "total_spent": 8114,
+      "last_order": "2025-12-10T18:49:44.076754",
+      "preferred_payment": "bank",
+      "return_rate": 0
+    },
+    {
+      "id": "CUST_664795f9",
+      "name": "Paul Kipkoech",
+      "phone": "0736044541",
+      "email": null,
+      "payment_preference": "mixed",
+      "total_orders": 14,
+      "total_spent": 2538,
+      "last_order": "2025-12-14T18:49:44.076759",
+      "preferred_payment": "card",
+      "return_rate": 1
+    },
+    {
+      "id": "CUST_8dcc31e2",
+      "name": "Grace Achieng",
+      "phone": "0790712278",
+      "email": null,
+      "payment_preference": "mpesa",
+      "total_orders": 7,
+      "total_spent": 9194,
+      "last_order": "2025-12-22T18:49:44.076764",
+      "preferred_payment": "mpesa",
+      "return_rate": 2
+    },
+    {
+      "id": "CUST_4f804229",
+      "name": "Ann Wairimu",
+      "phone": "0777892541",
+      "email": null,
+      "payment_preference": "cash",
+      "total_orders": 8,
+      "total_spent": 9043,
+      "last_order": "2025-12-13T18:49:44.076769",
+      "preferred_payment": "bank",
+      "return_rate": 3
+    },
+    {
+      "id": "CUST_c95bd50e",
+      "name": "Grace Achieng",
+      "phone": "0735201833",
+      "email": null,
+      "payment_preference": "cash",
+      "total_orders": 5,
+      "total_spent": 7335,
+      "last_order": "2025-12-23T18:49:44.076774",
+      "preferred_payment": "card",
+      "return_rate": 1
+    },
+    {
+      "id": "CUST_55486113",
+      "name": "Ann Wairimu",
+      "phone": "0774579002",
+      "email": null,
+      "payment_preference": "mixed",
+      "total_orders": 13,
+      "total_spent": 12767,
+      "last_order": "2025-12-09T18:49:44.076779",
+      "preferred_payment": "card",
+      "return_rate": 2
+    },
+    {
+      "id": "CUST_56f92fec",
+      "name": "Lucy Adhiambo",
+      "phone": "0758886606",
+      "email": null,
+      "payment_preference": "mixed",
+      "total_orders": 11,
+      "total_spent": 4123,
+      "last_order": "2025-12-18T18:49:44.076784",
+      "preferred_payment": "mpesa",
+      "return_rate": 3
+    },
+    {
+      "id": "CUST_71597337",
+      "name": "Paul Kipkoech",
+      "phone": "0767442438",
+      "email": null,
+      "payment_preference": "mpesa",
+      "total_orders": 14,
+      "total_spent": 10877,
+      "last_order": "2025-12-25T18:49:44.076789",
+      "preferred_payment": "card",
+      "return_rate": 0
+    },
+    {
+      "id": "CUST_94936314",
+      "name": "Rose Chebet",
+      "phone": "0790614192",
+      "email": null,
+      "payment_preference": "mixed",
+      "total_orders": 5,
+      "total_spent": 2887,
+      "last_order": "2025-12-23T18:49:44.076794",
+      "preferred_payment": "card",
+      "return_rate": 0
+    }
+  ],
+  "orders": [
+    {
+      "id": "MP_ORDER_9f62c93b",
+      "customer_id": "CUST_71597337",
+      "vendor": "HomeStore",
+      "items": [
+        {
+          "sku": "ACCESSORIES",
+          "quantity": 1,
+          "price_per_unit": 14540,
+          "total": 14540,
+          "vendor": "HomeStore"
+        },
+        {
+          "sku": "SHIRTS",
+          "quantity": 1,
+          "price_per_unit": 10029,
+          "total": 10029,
+          "vendor": "HomeStore"
+        },
+        {
+          "sku": "APPLIANCES",
+          "quantity": 1,
+          "price_per_unit": 9810,
+          "total": 9810,
+          "vendor": "HomeStore"
+        },
+        {
+          "sku": "CHARGERS",
+          "quantity": 1,
+          "price_per_unit": 33659,
+          "total": 33659,
+          "vendor": "HomeStore"
+        }
+      ],
+      "total_amount": 68038,
+      "status": "DELIVERED",
+      "created_at": "2025-12-26T16:49:44.076804",
+      "shipping_address": "Nairobi, Kilimani",
+      "notes": "Marketplace order from HomeStore"
+    },
+    {
+      "id": "MP_ORDER_4fc36b27",
+      "customer_id": "CUST_56f92fec",
+      "vendor": "HomeStore",
+      "items": [
+        {
+          "sku": "LAPTOPS",
+          "quantity": 1,
+          "price_per_unit": 33940,
+          "total": 33940,
+          "vendor": "HomeStore"
+        },
+        {
+          "sku": "CABLES",
+          "quantity": 1,
+          "price_per_unit": 11470,
+          "total": 11470,
+          "vendor": "HomeStore"
+        },
+        {
+          "sku": "FURNITURE",
+          "quantity": 1,
+          "price_per_unit": 29221,
+          "total": 29221,
+          "vendor": "HomeStore"
+        },
+        {
+          "sku": "APPLIANCES",
+          "quantity": 1,
+          "price_per_unit": 42292,
+          "total": 42292,
+          "vendor": "HomeStore"
+        }
+      ],
+      "total_amount": 116923,
+      "status": "DELIVERED",
+      "created_at": "2025-12-26T12:49:44.076812",
+      "shipping_address": "Nairobi, Westlands",
+      "notes": "Marketplace order from HomeStore"
+    },
+    {
+      "id": "MP_ORDER_6394ccd0",
+      "customer_id": "CUST_e24c460a",
+      "vendor": "GadgetWorld",
+      "items": [
+        {
+          "sku": "UTENSILS",
+          "quantity": 1,
+          "price_per_unit": 47783,
+          "total": 47783,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "BAGS",
+          "quantity": 1,
+          "price_per_unit": 2167,
+          "total": 2167,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "LAPTOPS",
+          "quantity": 1,
+          "price_per_unit": 15482,
+          "total": 15482,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "LAPTOPS",
+          "quantity": 1,
+          "price_per_unit": 32061,
+          "total": 32061,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "SHIRTS",
+          "quantity": 1,
+          "price_per_unit": 48998,
+          "total": 48998,
+          "vendor": "GadgetWorld"
+        }
+      ],
+      "total_amount": 146491,
+      "status": "PENDING",
+      "created_at": "2025-12-25T19:49:44.076819",
+      "shipping_address": "Nairobi, Karen",
+      "notes": "Marketplace order from GadgetWorld"
+    },
+    {
+      "id": "MP_ORDER_a62aaef5",
+      "customer_id": "CUST_55486113",
+      "vendor": "GadgetWorld",
+      "items": [
+        {
+          "sku": "SHOES",
+          "quantity": 1,
+          "price_per_unit": 10983,
+          "total": 10983,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "APPLIANCES",
+          "quantity": 1,
+          "price_per_unit": 48176,
+          "total": 48176,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "SHIRTS",
+          "quantity": 1,
+          "price_per_unit": 20649,
+          "total": 20649,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "FURNITURE",
+          "quantity": 1,
+          "price_per_unit": 10634,
+          "total": 10634,
+          "vendor": "GadgetWorld"
+        }
+      ],
+      "total_amount": 90442,
+      "status": "SHIPPED",
+      "created_at": "2025-12-25T20:49:44.076826",
+      "shipping_address": "Nairobi, Kilimani",
+      "notes": "Marketplace order from GadgetWorld"
+    },
+    {
+      "id": "MP_ORDER_1efc9906",
+      "customer_id": "CUST_664795f9",
+      "vendor": "GadgetWorld",
+      "items": [
+        {
+          "sku": "UTENSILS",
+          "quantity": 1,
+          "price_per_unit": 38017,
+          "total": 38017,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "DECOR",
+          "quantity": 1,
+          "price_per_unit": 27583,
+          "total": 27583,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "CHARGERS",
+          "quantity": 1,
+          "price_per_unit": 33907,
+          "total": 33907,
+          "vendor": "GadgetWorld"
+        }
+      ],
+      "total_amount": 99507,
+      "status": "COMPLETED",
+      "created_at": "2025-12-27T09:49:44.076832",
+      "shipping_address": "Nairobi, Karen",
+      "notes": "Marketplace order from GadgetWorld"
+    },
+    {
+      "id": "MP_ORDER_b98ba47a",
+      "customer_id": "CUST_4f804229",
+      "vendor": "TechHub",
+      "items": [
+        {
+          "sku": "DECOR",
+          "quantity": 1,
+          "price_per_unit": 18164,
+          "total": 18164,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "SHOES",
+          "quantity": 1,
+          "price_per_unit": 1681,
+          "total": 1681,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "UTENSILS",
+          "quantity": 1,
+          "price_per_unit": 38504,
+          "total": 38504,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "FURNITURE",
+          "quantity": 1,
+          "price_per_unit": 20705,
+          "total": 20705,
+          "vendor": "TechHub"
+        }
+      ],
+      "total_amount": 79054,
+      "status": "COMPLETED",
+      "created_at": "2025-12-26T06:49:44.076840",
+      "shipping_address": "Nairobi, Karen",
+      "notes": "Marketplace order from TechHub"
+    },
+    {
+      "id": "MP_ORDER_3a8085f0",
+      "customer_id": "CUST_56f92fec",
+      "vendor": "TechHub",
+      "items": [
+        {
+          "sku": "DECOR",
+          "quantity": 1,
+          "price_per_unit": 14501,
+          "total": 14501,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "APPLIANCES",
+          "quantity": 1,
+          "price_per_unit": 13953,
+          "total": 13953,
+          "vendor": "TechHub"
+        }
+      ],
+      "total_amount": 28454,
+      "status": "PENDING",
+      "created_at": "2025-12-27T01:49:44.076846",
+      "shipping_address": "Nairobi, Kilimani",
+      "notes": "Marketplace order from TechHub"
+    },
+    {
+      "id": "MP_ORDER_5503e509",
+      "customer_id": "CUST_1d12c81e",
+      "vendor": "TechHub",
+      "items": [
+        {
+          "sku": "DECOR",
+          "quantity": 1,
+          "price_per_unit": 45544,
+          "total": 45544,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "DECOR",
+          "quantity": 1,
+          "price_per_unit": 31637,
+          "total": 31637,
+          "vendor": "TechHub"
+        }
+      ],
+      "total_amount": 77181,
+      "status": "DELIVERED",
+      "created_at": "2025-12-26T08:49:44.076851",
+      "shipping_address": "Nairobi, Westlands",
+      "notes": "Marketplace order from TechHub"
+    },
+    {
+      "id": "MP_ORDER_1a97b5a6",
+      "customer_id": "CUST_077b1a6e",
+      "vendor": "TechHub",
+      "items": [
+        {
+          "sku": "ACCESSORIES",
+          "quantity": 1,
+          "price_per_unit": 41342,
+          "total": 41342,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "SHOES",
+          "quantity": 1,
+          "price_per_unit": 10162,
+          "total": 10162,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "LAPTOPS",
+          "quantity": 1,
+          "price_per_unit": 18561,
+          "total": 18561,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "ACCESSORIES",
+          "quantity": 1,
+          "price_per_unit": 28070,
+          "total": 28070,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "BAGS",
+          "quantity": 1,
+          "price_per_unit": 7145,
+          "total": 7145,
+          "vendor": "TechHub"
+        }
+      ],
+      "total_amount": 105280,
+      "status": "PENDING",
+      "created_at": "2025-12-27T12:49:44.076859",
+      "shipping_address": "Nairobi, Westlands",
+      "notes": "Marketplace order from TechHub"
+    },
+    {
+      "id": "MP_ORDER_889634ab",
+      "customer_id": "CUST_c95bd50e",
+      "vendor": "TechHub",
+      "items": [
+        {
+          "sku": "ACCESSORIES",
+          "quantity": 1,
+          "price_per_unit": 6630,
+          "total": 6630,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "ACCESSORIES",
+          "quantity": 1,
+          "price_per_unit": 3710,
+          "total": 3710,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "UTENSILS",
+          "quantity": 1,
+          "price_per_unit": 45278,
+          "total": 45278,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "SHIRTS",
+          "quantity": 1,
+          "price_per_unit": 20848,
+          "total": 20848,
+          "vendor": "TechHub"
+        }
+      ],
+      "total_amount": 76466,
+      "status": "PENDING",
+      "created_at": "2025-12-25T18:49:44.076865",
+      "shipping_address": "Nairobi, Kilimani",
+      "notes": "Marketplace order from TechHub"
+    },
+    {
+      "id": "MP_ORDER_4e07117a",
+      "customer_id": "CUST_1d12c81e",
+      "vendor": "GadgetWorld",
+      "items": [
+        {
+          "sku": "APPLIANCES",
+          "quantity": 1,
+          "price_per_unit": 10391,
+          "total": 10391,
+          "vendor": "GadgetWorld"
+        }
+      ],
+      "total_amount": 10391,
+      "status": "PENDING",
+      "created_at": "2025-12-25T04:49:44.076871",
+      "shipping_address": "Nairobi, Kilimani",
+      "notes": "Marketplace order from GadgetWorld"
+    },
+    {
+      "id": "MP_ORDER_27a13c13",
+      "customer_id": "CUST_55486113",
+      "vendor": "TechHub",
+      "items": [
+        {
+          "sku": "ACCESSORIES",
+          "quantity": 1,
+          "price_per_unit": 12697,
+          "total": 12697,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "APPLIANCES",
+          "quantity": 1,
+          "price_per_unit": 1887,
+          "total": 1887,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "CHARGERS",
+          "quantity": 1,
+          "price_per_unit": 16508,
+          "total": 16508,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "UTENSILS",
+          "quantity": 1,
+          "price_per_unit": 32377,
+          "total": 32377,
+          "vendor": "TechHub"
+        }
+      ],
+      "total_amount": 63469,
+      "status": "SHIPPED",
+      "created_at": "2025-12-26T19:49:44.076877",
+      "shipping_address": "Nairobi, Kilimani",
+      "notes": "Marketplace order from TechHub"
+    },
+    {
+      "id": "MP_ORDER_84b2517a",
+      "customer_id": "CUST_94936314",
+      "vendor": "GadgetWorld",
+      "items": [
+        {
+          "sku": "APPLIANCES",
+          "quantity": 1,
+          "price_per_unit": 12813,
+          "total": 12813,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "ACCESSORIES",
+          "quantity": 1,
+          "price_per_unit": 34607,
+          "total": 34607,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "ACCESSORIES",
+          "quantity": 1,
+          "price_per_unit": 22447,
+          "total": 22447,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "BAGS",
+          "quantity": 1,
+          "price_per_unit": 29257,
+          "total": 29257,
+          "vendor": "GadgetWorld"
+        }
+      ],
+      "total_amount": 99124,
+      "status": "DELIVERED",
+      "created_at": "2025-12-26T06:49:44.076884",
+      "shipping_address": "Nairobi, Kilimani",
+      "notes": "Marketplace order from GadgetWorld"
+    },
+    {
+      "id": "MP_ORDER_dcd7a0c9",
+      "customer_id": "CUST_4f804229",
+      "vendor": "FashionPlus",
+      "items": [
+        {
+          "sku": "UTENSILS",
+          "quantity": 1,
+          "price_per_unit": 34766,
+          "total": 34766,
+          "vendor": "FashionPlus"
+        },
+        {
+          "sku": "CABLES",
+          "quantity": 1,
+          "price_per_unit": 1528,
+          "total": 1528,
+          "vendor": "FashionPlus"
+        },
+        {
+          "sku": "SHIRTS",
+          "quantity": 1,
+          "price_per_unit": 28600,
+          "total": 28600,
+          "vendor": "FashionPlus"
+        },
+        {
+          "sku": "LAPTOPS",
+          "quantity": 1,
+          "price_per_unit": 22905,
+          "total": 22905,
+          "vendor": "FashionPlus"
+        }
+      ],
+      "total_amount": 87799,
+      "status": "COMPLETED",
+      "created_at": "2025-12-27T12:49:44.076891",
+      "shipping_address": "Nairobi, Westlands",
+      "notes": "Marketplace order from FashionPlus"
+    },
+    {
+      "id": "MP_ORDER_73d6fe8d",
+      "customer_id": "CUST_71597337",
+      "vendor": "TechHub",
+      "items": [
+        {
+          "sku": "PHONES",
+          "quantity": 1,
+          "price_per_unit": 17462,
+          "total": 17462,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "APPLIANCES",
+          "quantity": 1,
+          "price_per_unit": 12837,
+          "total": 12837,
+          "vendor": "TechHub"
+        }
+      ],
+      "total_amount": 30299,
+      "status": "DELIVERED",
+      "created_at": "2025-12-27T11:49:44.076896",
+      "shipping_address": "Nairobi, Karen",
+      "notes": "Marketplace order from TechHub"
+    },
+    {
+      "id": "MP_ORDER_fb60630e",
+      "customer_id": "CUST_077b1a6e",
+      "vendor": "GadgetWorld",
+      "items": [
+        {
+          "sku": "CHARGERS",
+          "quantity": 1,
+          "price_per_unit": 46167,
+          "total": 46167,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "PHONES",
+          "quantity": 1,
+          "price_per_unit": 40448,
+          "total": 40448,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "PHONES",
+          "quantity": 1,
+          "price_per_unit": 39764,
+          "total": 39764,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "ACCESSORIES",
+          "quantity": 1,
+          "price_per_unit": 6679,
+          "total": 6679,
+          "vendor": "GadgetWorld"
+        }
+      ],
+      "total_amount": 133058,
+      "status": "DELIVERED",
+      "created_at": "2025-12-25T12:49:44.076902",
+      "shipping_address": "Nairobi, Karen",
+      "notes": "Marketplace order from GadgetWorld"
+    },
+    {
+      "id": "MP_ORDER_c9407348",
+      "customer_id": "CUST_c95bd50e",
+      "vendor": "GadgetWorld",
+      "items": [
+        {
+          "sku": "CABLES",
+          "quantity": 1,
+          "price_per_unit": 21979,
+          "total": 21979,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "UTENSILS",
+          "quantity": 1,
+          "price_per_unit": 10726,
+          "total": 10726,
+          "vendor": "GadgetWorld"
+        }
+      ],
+      "total_amount": 32705,
+      "status": "SHIPPED",
+      "created_at": "2025-12-25T09:49:44.076908",
+      "shipping_address": "Nairobi, Westlands",
+      "notes": "Marketplace order from GadgetWorld"
+    },
+    {
+      "id": "MP_ORDER_38d742ab",
+      "customer_id": "CUST_e24c460a",
+      "vendor": "GadgetWorld",
+      "items": [
+        {
+          "sku": "UTENSILS",
+          "quantity": 1,
+          "price_per_unit": 10159,
+          "total": 10159,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "FURNITURE",
+          "quantity": 1,
+          "price_per_unit": 4372,
+          "total": 4372,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "UTENSILS",
+          "quantity": 1,
+          "price_per_unit": 41221,
+          "total": 41221,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "HEADPHONES",
+          "quantity": 1,
+          "price_per_unit": 49917,
+          "total": 49917,
+          "vendor": "GadgetWorld"
+        }
+      ],
+      "total_amount": 105669,
+      "status": "COMPLETED",
+      "created_at": "2025-12-25T12:49:44.076915",
+      "shipping_address": "Nairobi, Kilimani",
+      "notes": "Marketplace order from GadgetWorld"
+    },
+    {
+      "id": "MP_ORDER_94ff1d01",
+      "customer_id": "CUST_1d12c81e",
+      "vendor": "GadgetWorld",
+      "items": [
+        {
+          "sku": "APPLIANCES",
+          "quantity": 1,
+          "price_per_unit": 15390,
+          "total": 15390,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "ACCESSORIES",
+          "quantity": 1,
+          "price_per_unit": 24303,
+          "total": 24303,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "UTENSILS",
+          "quantity": 1,
+          "price_per_unit": 29171,
+          "total": 29171,
+          "vendor": "GadgetWorld"
+        }
+      ],
+      "total_amount": 68864,
+      "status": "PENDING",
+      "created_at": "2025-12-27T16:49:44.076920",
+      "shipping_address": "Nairobi, CBD",
+      "notes": "Marketplace order from GadgetWorld"
+    },
+    {
+      "id": "MP_ORDER_4ace8514",
+      "customer_id": "CUST_55486113",
+      "vendor": "GadgetWorld",
+      "items": [
+        {
+          "sku": "LAPTOPS",
+          "quantity": 1,
+          "price_per_unit": 37761,
+          "total": 37761,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "BAGS",
+          "quantity": 1,
+          "price_per_unit": 21218,
+          "total": 21218,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "HEADPHONES",
+          "quantity": 1,
+          "price_per_unit": 1440,
+          "total": 1440,
+          "vendor": "GadgetWorld"
+        },
+        {
+          "sku": "HEADPHONES",
+          "quantity": 1,
+          "price_per_unit": 42969,
+          "total": 42969,
+          "vendor": "GadgetWorld"
+        }
+      ],
+      "total_amount": 103388,
+      "status": "SHIPPED",
+      "created_at": "2025-12-25T06:49:44.076927",
+      "shipping_address": "Nairobi, Karen",
+      "notes": "Marketplace order from GadgetWorld"
+    },
+    {
+      "id": "MP_ORDER_c13c3865",
+      "customer_id": "CUST_1d12c81e",
+      "vendor": "GadgetWorld",
+      "items": [
+        {
+          "sku": "DECOR",
+          "quantity": 1,
+          "price_per_unit": 22188,
+          "total": 22188,
+          "vendor": "GadgetWorld"
+        }
+      ],
+      "total_amount": 22188,
+      "status": "DELIVERED",
+      "created_at": "2025-12-24T19:49:44.076932",
+      "shipping_address": "Nairobi, Westlands",
+      "notes": "Marketplace order from GadgetWorld"
+    },
+    {
+      "id": "MP_ORDER_0de176d1",
+      "customer_id": "CUST_94936314",
+      "vendor": "FashionPlus",
+      "items": [
+        {
+          "sku": "DECOR",
+          "quantity": 1,
+          "price_per_unit": 11286,
+          "total": 11286,
+          "vendor": "FashionPlus"
+        },
+        {
+          "sku": "CHARGERS",
+          "quantity": 1,
+          "price_per_unit": 5637,
+          "total": 5637,
+          "vendor": "FashionPlus"
+        },
+        {
+          "sku": "LAPTOPS",
+          "quantity": 1,
+          "price_per_unit": 21049,
+          "total": 21049,
+          "vendor": "FashionPlus"
+        },
+        {
+          "sku": "SHOES",
+          "quantity": 1,
+          "price_per_unit": 15661,
+          "total": 15661,
+          "vendor": "FashionPlus"
+        }
+      ],
+      "total_amount": 53633,
+      "status": "SHIPPED",
+      "created_at": "2025-12-26T16:49:44.076939",
+      "shipping_address": "Nairobi, Westlands",
+      "notes": "Marketplace order from FashionPlus"
+    },
+    {
+      "id": "MP_ORDER_88ab8bbc",
+      "customer_id": "CUST_1d12c81e",
+      "vendor": "TechHub",
+      "items": [
+        {
+          "sku": "CABLES",
+          "quantity": 1,
+          "price_per_unit": 19666,
+          "total": 19666,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "ACCESSORIES",
+          "quantity": 1,
+          "price_per_unit": 4794,
+          "total": 4794,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "FURNITURE",
+          "quantity": 1,
+          "price_per_unit": 46764,
+          "total": 46764,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "PHONES",
+          "quantity": 1,
+          "price_per_unit": 28973,
+          "total": 28973,
+          "vendor": "TechHub"
+        },
+        {
+          "sku": "UTENSILS",
+          "quantity": 1,
+          "price_per_unit": 23231,
+          "total": 23231,
+          "vendor": "TechHub"
+        }
+      ],
+      "total_amount": 123428,
+      "status": "DELIVERED",
+      "created_at": "2025-12-27T06:49:44.076946",
+      "shipping_address": "Nairobi, Westlands",
+      "notes": "Marketplace order from TechHub"
+    },
+    {
+      "id": "MP_ORDER_9ec0ee8e",
+      "customer_id": "CUST_7c8ab9f8",
+      "vendor": "HomeStore",
+      "items": [
+        {
+          "sku": "FURNITURE",
+          "quantity": 1,
+          "price_per_unit": 3680,
+          "total": 3680,
+          "vendor": "HomeStore"
+        }
+      ],
+      "total_amount": 3680,
+      "status": "DELIVERED",
+      "created_at": "2025-12-26T04:49:44.076952",
+      "shipping_address": "Nairobi, Kilimani",
+      "notes": "Marketplace order from HomeStore"
+    },
+    {
+      "id": "MP_ORDER_0f67a6ca",
+      "customer_id": "CUST_56f92fec",
+      "vendor": "HomeStore",
+      "items": [
+        {
+          "sku": "ACCESSORIES",
+          "quantity": 1,
+          "price_per_unit": 18665,
+          "total": 18665,
+          "vendor": "HomeStore"
+        },
+        {
+          "sku": "FURNITURE",
+          "quantity": 1,
+          "price_per_unit": 30106,
+          "total": 30106,
+          "vendor": "HomeStore"
+        },
+        {
+          "sku": "SHOES",
+          "quantity": 1,
+          "price_per_unit": 7263,
+          "total": 7263,
+          "vendor": "HomeStore"
+        },
+        {
+          "sku": "LAPTOPS",
+          "quantity": 1,
+          "price_per_unit": 29534,
+          "total": 29534,
+          "vendor": "HomeStore"
+        },
+        {
+          "sku": "CABLES",
+          "quantity": 1,
+          "price_per_unit": 44236,
+          "total": 44236,
+          "vendor": "HomeStore"
+        }
+      ],
+      "total_amount": 129804,
+      "status": "DELIVERED",
+      "created_at": "2025-12-26T22:49:44.076960",
+      "shipping_address": "Nairobi, Karen",
+      "notes": "Marketplace order from HomeStore"
+    }
+  ],
+  "payments": [
+    {
+      "id": "PAY_cd644d4a",
+      "order_id": "MP_ORDER_1efc9906",
+      "amount": 99507,
+      "method": "mpesa",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T09:49:44.076832"
+    },
+    {
+      "id": "PAY_16a9c35a",
+      "order_id": "MP_ORDER_b98ba47a",
+      "amount": 79054,
+      "method": "card",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-26T06:49:44.076840"
+    },
+    {
+      "id": "PAY_88484de1",
+      "order_id": "MP_ORDER_3a8085f0",
+      "amount": 21138,
+      "method": "cash",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T13:49:44.076973"
+    },
+    {
+      "id": "PAY_236b8fdc",
+      "order_id": "MP_ORDER_1a97b5a6",
+      "amount": 23309,
+      "method": "cash",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T10:49:44.076977"
+    },
+    {
+      "id": "PAY_b360aef4",
+      "order_id": "MP_ORDER_4e07117a",
+      "amount": 9328,
+      "method": "cash",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T13:49:44.076983"
+    },
+    {
+      "id": "PAY_1ff25a60",
+      "order_id": "MP_ORDER_dcd7a0c9",
+      "amount": 87799,
+      "method": "mpesa",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T12:49:44.076891"
+    },
+    {
+      "id": "PAY_bed10a3b",
+      "order_id": "MP_ORDER_38d742ab",
+      "amount": 105669,
+      "method": "cash",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-25T12:49:44.076915"
+    }
+  ],
+  "event_log": [
+    {
+      "id": "2a998da7-da65-4bb4-aca7-a13da3c3f1ef",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_c13c3865",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_1d12c81e",
+        "total_amount": 22188,
+        "item_count": 1
+      },
+      "created_at": "2025-12-24T19:49:44.076932"
+    },
+    {
+      "id": "ec1ef362-7d89-47d7-9332-c7e701bf5a66",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_4e07117a",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_1d12c81e",
+        "total_amount": 10391,
+        "item_count": 1
+      },
+      "created_at": "2025-12-25T04:49:44.076871"
+    },
+    {
+      "id": "6242c61d-a1f4-40c9-b8e9-1a78e7e1a6ad",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_4ace8514",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_55486113",
+        "total_amount": 103388,
+        "item_count": 4
+      },
+      "created_at": "2025-12-25T06:49:44.076927"
+    },
+    {
+      "id": "7aeea4e6-42be-4dd1-814c-e228aba383ea",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_c9407348",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_c95bd50e",
+        "total_amount": 32705,
+        "item_count": 2
+      },
+      "created_at": "2025-12-25T09:49:44.076908"
+    },
+    {
+      "id": "9c93d087-38c0-4df5-89f0-276e4e780a8d",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_fb60630e",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_077b1a6e",
+        "total_amount": 133058,
+        "item_count": 4
+      },
+      "created_at": "2025-12-25T12:49:44.076902"
+    },
+    {
+      "id": "9db200b2-9adb-4187-8b8e-5bb9da5d4ca6",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_38d742ab",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_e24c460a",
+        "total_amount": 105669,
+        "item_count": 4
+      },
+      "created_at": "2025-12-25T12:49:44.076915"
+    },
+    {
+      "id": "f0c7bb52-50c7-455e-8d2a-92cee739108c",
+      "entity_type": "payment",
+      "entity_id": "PAY_bed10a3b",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "MP_ORDER_38d742ab",
+        "amount": 105669,
+        "method": "cash"
+      },
+      "created_at": "2025-12-25T12:49:44.076915"
+    },
+    {
+      "id": "e11588f6-42f4-4f90-801c-a901a9072680",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_38d742ab",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-25T13:19:44.076915"
+    },
+    {
+      "id": "a5e4154f-76d6-4aad-be6d-bb6104dbbbbb",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_889634ab",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_c95bd50e",
+        "total_amount": 76466,
+        "item_count": 4
+      },
+      "created_at": "2025-12-25T18:49:44.076865"
+    },
+    {
+      "id": "d7a42c9a-eb06-4d77-bd50-bb07ccda98f3",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_6394ccd0",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_e24c460a",
+        "total_amount": 146491,
+        "item_count": 5
+      },
+      "created_at": "2025-12-25T19:49:44.076819"
+    },
+    {
+      "id": "31a0a5ac-b20a-4930-97dd-af815e1f3f4f",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_a62aaef5",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_55486113",
+        "total_amount": 90442,
+        "item_count": 4
+      },
+      "created_at": "2025-12-25T20:49:44.076826"
+    },
+    {
+      "id": "6e718009-7a7f-41e0-8dcf-25e3a4dc9304",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_9ec0ee8e",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_7c8ab9f8",
+        "total_amount": 3680,
+        "item_count": 1
+      },
+      "created_at": "2025-12-26T04:49:44.076952"
+    },
+    {
+      "id": "d2d6c2a9-4518-45bf-b858-3a4fa390dbb7",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_b98ba47a",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_4f804229",
+        "total_amount": 79054,
+        "item_count": 4
+      },
+      "created_at": "2025-12-26T06:49:44.076840"
+    },
+    {
+      "id": "1044ed31-a5d8-4ce3-8882-d69c00ef4660",
+      "entity_type": "payment",
+      "entity_id": "PAY_16a9c35a",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "MP_ORDER_b98ba47a",
+        "amount": 79054,
+        "method": "card"
+      },
+      "created_at": "2025-12-26T06:49:44.076840"
+    },
+    {
+      "id": "a96ecaae-bbe9-4069-a8fb-aadb9a2644f0",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_84b2517a",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_94936314",
+        "total_amount": 99124,
+        "item_count": 4
+      },
+      "created_at": "2025-12-26T06:49:44.076884"
+    },
+    {
+      "id": "3a50d477-b9af-404e-88e5-3de7168bb011",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_b98ba47a",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-26T07:19:44.076840"
+    },
+    {
+      "id": "32ff9c05-282b-48a5-9809-aee8f6a6e0ed",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_5503e509",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_1d12c81e",
+        "total_amount": 77181,
+        "item_count": 2
+      },
+      "created_at": "2025-12-26T08:49:44.076851"
+    },
+    {
+      "id": "fce95d87-92b1-4fe4-8970-63d672a42b44",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_4fc36b27",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_56f92fec",
+        "total_amount": 116923,
+        "item_count": 4
+      },
+      "created_at": "2025-12-26T12:49:44.076812"
+    },
+    {
+      "id": "954e50b3-ef70-4420-9033-53053db21f6b",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_9f62c93b",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_71597337",
+        "total_amount": 68038,
+        "item_count": 4
+      },
+      "created_at": "2025-12-26T16:49:44.076804"
+    },
+    {
+      "id": "0842ee0a-16e2-44e3-90c1-89cb62efc232",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_0de176d1",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_94936314",
+        "total_amount": 53633,
+        "item_count": 4
+      },
+      "created_at": "2025-12-26T16:49:44.076939"
+    },
+    {
+      "id": "9cc4e24e-b4e6-4309-8db6-4f929c50ce66",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_27a13c13",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_55486113",
+        "total_amount": 63469,
+        "item_count": 4
+      },
+      "created_at": "2025-12-26T19:49:44.076877"
+    },
+    {
+      "id": "78873f17-f024-405f-b1d1-8f0741adf724",
+      "entity_type": "inventory",
+      "entity_id": "PHONES",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -10,
+        "reason": "restock"
+      },
+      "created_at": "2025-12-26T19:49:44.077086"
+    },
+    {
+      "id": "9b104718-5200-43d3-b572-39d5d1a43722",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_0f67a6ca",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_56f92fec",
+        "total_amount": 129804,
+        "item_count": 5
+      },
+      "created_at": "2025-12-26T22:49:44.076960"
+    },
+    {
+      "id": "d323a846-6f95-4d57-810f-14880d9d5e9a",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_3a8085f0",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_56f92fec",
+        "total_amount": 28454,
+        "item_count": 2
+      },
+      "created_at": "2025-12-27T01:49:44.076846"
+    },
+    {
+      "id": "e9d7cd03-5658-43c8-a6a0-498c64b5e994",
+      "entity_type": "inventory",
+      "entity_id": "DECOR",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -2,
+        "reason": "restock"
+      },
+      "created_at": "2025-12-27T04:49:44.077095"
+    },
+    {
+      "id": "592fdbf0-203e-4136-8f7b-970ef559b6e6",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_88ab8bbc",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_1d12c81e",
+        "total_amount": 123428,
+        "item_count": 5
+      },
+      "created_at": "2025-12-27T06:49:44.076946"
+    },
+    {
+      "id": "d6fd0248-5e5e-4cb1-bf7c-ddf0d0c89c4e",
+      "entity_type": "inventory",
+      "entity_id": "LAPTOPS",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": 4,
+        "reason": "restock"
+      },
+      "created_at": "2025-12-27T08:49:44.077082"
+    },
+    {
+      "id": "a48b4ba8-c902-4ff1-91f8-de00dece69ca",
+      "entity_type": "inventory",
+      "entity_id": "CHARGERS",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": 5,
+        "reason": "restock"
+      },
+      "created_at": "2025-12-27T08:49:44.077090"
+    },
+    {
+      "id": "5399d624-9031-4f08-8987-d3ace7d6b23d",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_1efc9906",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_664795f9",
+        "total_amount": 99507,
+        "item_count": 3
+      },
+      "created_at": "2025-12-27T09:49:44.076832"
+    },
+    {
+      "id": "2e28be8b-b6e2-40aa-83e4-2a48f6e3a88c",
+      "entity_type": "payment",
+      "entity_id": "PAY_cd644d4a",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "MP_ORDER_1efc9906",
+        "amount": 99507,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-27T09:49:44.076832"
+    },
+    {
+      "id": "1bef61ef-d25f-47f7-9fc8-ee9b355bc58e",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_1efc9906",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-27T10:19:44.076832"
+    },
+    {
+      "id": "af097e38-3590-4e9c-85ea-6fb85b7b0fc5",
+      "entity_type": "payment",
+      "entity_id": "PAY_236b8fdc",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "MP_ORDER_1a97b5a6",
+        "amount": 23309,
+        "method": "cash"
+      },
+      "created_at": "2025-12-27T10:49:44.076977"
+    },
+    {
+      "id": "5e738f3e-1dcd-414e-abae-0d24e556ff76",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_73d6fe8d",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_71597337",
+        "total_amount": 30299,
+        "item_count": 2
+      },
+      "created_at": "2025-12-27T11:49:44.076896"
+    },
+    {
+      "id": "dff182c4-86c5-4f9c-9854-52d8b36aafe3",
+      "entity_type": "inventory",
+      "entity_id": "ACCESSORIES",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -9,
+        "reason": "sale"
+      },
+      "created_at": "2025-12-27T11:49:44.077099"
+    },
+    {
+      "id": "13b308db-161b-4006-ad7a-671180c69c52",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_1a97b5a6",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_077b1a6e",
+        "total_amount": 105280,
+        "item_count": 5
+      },
+      "created_at": "2025-12-27T12:49:44.076859"
+    },
+    {
+      "id": "d1f0bf2b-20bc-424e-98a0-6a097cc2a078",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_dcd7a0c9",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_4f804229",
+        "total_amount": 87799,
+        "item_count": 4
+      },
+      "created_at": "2025-12-27T12:49:44.076891"
+    },
+    {
+      "id": "bce96ba2-7f8e-457c-b0e3-b0e7095e8f1d",
+      "entity_type": "payment",
+      "entity_id": "PAY_1ff25a60",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "MP_ORDER_dcd7a0c9",
+        "amount": 87799,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-27T12:49:44.076891"
+    },
+    {
+      "id": "b05ac135-97b2-4d08-9d46-ebce0d27fab5",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_dcd7a0c9",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-27T13:19:44.076891"
+    },
+    {
+      "id": "e7098cab-a63e-4c79-b7b3-6ce93b98a5ae",
+      "entity_type": "payment",
+      "entity_id": "PAY_88484de1",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "MP_ORDER_3a8085f0",
+        "amount": 21138,
+        "method": "cash"
+      },
+      "created_at": "2025-12-27T13:49:44.076973"
+    },
+    {
+      "id": "8c529d65-cba7-40d2-8618-72fb99be1fe0",
+      "entity_type": "payment",
+      "entity_id": "PAY_b360aef4",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "MP_ORDER_4e07117a",
+        "amount": 9328,
+        "method": "cash"
+      },
+      "created_at": "2025-12-27T13:49:44.076983"
+    },
+    {
+      "id": "42315714-9de0-4ef6-8754-19e3f7f42385",
+      "entity_type": "order",
+      "entity_id": "MP_ORDER_94ff1d01",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_1d12c81e",
+        "total_amount": 68864,
+        "item_count": 3
+      },
+      "created_at": "2025-12-27T16:49:44.076920"
+    }
+  ],
+  "goals": [
+    "Test multi-vendor inventory coordination",
+    "Validate complex order routing",
+    "Simulate marketplace payment delays",
+    "Test vendor-customer communication flows"
+  ],
+  "challenges": [
+    "Multiple vendors, single inventory view needed",
+    "Payment delays affect vendor trust",
+    "Returns and refunds complex across vendors",
+    "Quality control and dispute resolution"
+  ],
+  "notes": [
+    "Represents future of Nairobi e-commerce",
+    "Vendor coordination is key challenge",
+    "Payment reconciliation across multiple parties",
+    "Review and rating systems important"
+  ],
+  "id": "39649555-0392-4e86-946b-7c323af39a32",
+  "industry": "marketplace",
+  "generated_at": "2025-12-27T18:49:44.077109",
+  "complexity": "medium",
+  "version": "1.0",
+  "future_hooks": {
+    "multi_tenant": {
+      "enabled": true,
+      "isolation_level": "database",
+      "scaling_strategy": "horizontal"
+    },
+    "saas_integrations": {
+      "whatsapp_business": {
+        "status": "planned",
+        "priority": "high"
+      },
+      "mpesa_deep_integration": {
+        "status": "planned",
+        "priority": "high"
+      },
+      "email_sms_notifications": {
+        "status": "planned",
+        "priority": "medium"
+      }
+    },
+    "modules": {
+      "vendor_management": {
+        "status": "critical",
+        "complexity": "high"
+      },
+      "review_ratings": {
+        "status": "planned",
+        "complexity": "medium"
+      },
+      "analytics_dashboard": {
+        "status": "planned",
+        "complexity": "high"
+      }
+    }
+  }
+}

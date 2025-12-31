@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContainerX Core + Scenario Lab Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .scenario-card { transition: all 0.3s ease; }
+        .scenario-card:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+        .health-healthy { border-left: 4px solid #28a745; }
+        .health-warning { border-left: 4px solid #ffc107; }
+        .health-critical { border-left: 4px solid #dc3545; }
+
+        .metric-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .alert-card { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+
+        .sidebar { background: #343a40; min-height: 100vh; }
+        .sidebar .nav-link { color: rgba(255,255,255,.75); }
+        .sidebar .nav-link:hover { color: white; }
+        .sidebar .nav-link.active { color: white; background: rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar p-3">
+                <h4 class="text-white mb-4">
+                    <i class="fas fa-cogs"></i> ContainerX Dashboard
+                </h4>
+
+                <div class="mb-3">
+                    <input type="text" id="scenarioSearch" class="form-control" placeholder="Search scenarios...">
+                </div>
+
+                <div class="mb-3">
+                    <select id="industryFilter" class="form-select">
+                        <option value="">All Industries</option>
+                        <option value="retail">Retail</option>
+                        <option value="hospitality">Hospitality</option>
+                        <option value="marketplace">Marketplace</option>
+                        <option value="logistics">Logistics</option>
+                        <option value="construction">Construction</option>
+                        <option value="healthcare">Healthcare</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <select id="statusFilter" class="form-select">
+                        <option value="">All Status</option>
+                        <option value="healthy">Healthy</option>
+                        <option value="warning">Warning</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                </div>
+
+                <hr class="text-white-50">
+
+                <div id="scenarioList">
+                    {% for scenario in scenarios %}
+                    <div class="scenario-item mb-2" data-industry="{{ scenario.industry }}" data-status="{{ scenario.health_status }}">
+                        <a href="{{ url_for('scenario_detail', scenario_id=scenario.id) }}"
+                           class="nav-link d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-bold">{{ scenario.name }}</div>
+                                <small class="text-muted">{{ scenario.industry }}</small>
+                            </div>
+                            <span class="badge bg-{{ 'success' if scenario.health_status == 'healthy' else 'warning' if scenario.health_status == 'warning' else 'danger' }}">
+                                {{ scenario.health_status }}
+                            </span>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2><i class="fas fa-tachometer-alt"></i> Core Health Dashboard</h2>
+                    <div>
+                        <button class="btn btn-outline-primary" onclick="refreshDashboard()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                        <button class="btn btn-outline-secondary" onclick="exportAllScenarios()">
+                            <i class="fas fa-download"></i> Export All
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Summary Cards -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="card metric-card text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="fas fa-shopping-cart"></i> Total Scenarios
+                                </h5>
+                                <h2>{{ scenarios|length }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card metric-card text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="fas fa-check-circle"></i> Healthy
+                                </h5>
+                                <h2>{{ scenarios|selectattr('health_status', 'equalto', 'healthy')|list|length }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card metric-card text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="fas fa-exclamation-triangle"></i> Warnings
+                                </h5>
+                                <h2>{{ scenarios|selectattr('health_status', 'equalto', 'warning')|list|length }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card metric-card text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="fas fa-times-circle"></i> Critical
+                                </h5>
+                                <h2>{{ scenarios|selectattr('health_status', 'equalto', 'critical')|list|length }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alerts Panel -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5><i class="fas fa-bell"></i> System Alerts</h5>
+                    </div>
+                    <div class="card-body">
+                        {% set total_alerts = 0 %}
+                        {% for scenario in scenarios %}
+                            {% set alerts = scenario.metrics.inventory_alerts|length + scenario.violations|length %}
+                            {% if alerts > 0 %}
+                                {% set total_alerts = total_alerts + alerts %}
+                                <div class="alert alert-{{ 'danger' if scenario.violations else 'warning' }} mb-2">
+                                    <strong>{{ scenario.name }}</strong>:
+                                    {% if scenario.violations %}
+                                        {{ scenario.violations|length }} invariant violations
+                                    {% endif %}
+                                    {% if scenario.metrics.inventory_alerts %}
+                                        {{ scenario.metrics.inventory_alerts|length }} low stock alerts
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        {% if total_alerts == 0 %}
+                            <div class="alert alert-success">
+                                <i class="fas fa-check-circle"></i> All systems healthy - no alerts detected
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-play"></i> Quick Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <button class="btn btn-primary w-100 mb-2" onclick="runCoreTests()">
+                                    <i class="fas fa-vial"></i> Run Core Tests
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-success w-100 mb-2" onclick="generateNewScenario()">
+                                    <i class="fas fa-plus"></i> Generate Scenario
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-info w-100 mb-2" onclick="showSystemStatus()">
+                                    <i class="fas fa-info-circle"></i> System Status
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Search and filter functionality
+        document.getElementById('scenarioSearch').addEventListener('input', filterScenarios);
+        document.getElementById('industryFilter').addEventListener('change', filterScenarios);
+        document.getElementById('statusFilter').addEventListener('change', filterScenarios);
+
+        function filterScenarios() {
+            const searchTerm = document.getElementById('scenarioSearch').value.toLowerCase();
+            const industryFilter = document.getElementById('industryFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+
+            const scenarioItems = document.querySelectorAll('.scenario-item');
+
+            scenarioItems.forEach(item => {
+                const name = item.querySelector('.fw-bold').textContent.toLowerCase();
+                const industry = item.dataset.industry;
+                const status = item.dataset.status;
+
+                const matchesSearch = name.includes(searchTerm);
+                const matchesIndustry = !industryFilter || industry === industryFilter;
+                const matchesStatus = !statusFilter || status === statusFilter;
+
+                item.style.display = (matchesSearch && matchesIndustry && matchesStatus) ? 'block' : 'none';
+            });
+        }
+
+        function refreshDashboard() {
+            location.reload();
+        }
+
+        function exportAllScenarios() {
+            // Implement export functionality
+            alert('Export functionality coming soon!');
+        }
+
+        function runCoreTests() {
+            // Implement test runner
+            alert('Core tests running...');
+        }
+
+        function generateNewScenario() {
+            // Implement scenario generator
+            alert('Scenario generator coming soon!');
+        }
+
+        function showSystemStatus() {
+            // Show system information
+            alert('System status: All core functions operational, 7 scenarios loaded');
+        }
+    </script>
+</body>
+</html>

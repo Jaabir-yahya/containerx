@@ -1,0 +1,1390 @@
+{
+  "name": "Luthuli Pharmacy",
+  "description": "A Nairobi pharmacy providing medicines, healthcare products, and medical supplies to customers.",
+  "modules": [
+    "sales",
+    "inventory",
+    "payments",
+    "prescription_tracking",
+    "health_records",
+    "expiry_alerts"
+  ],
+  "inventory": {
+    "PARACETAMOL_500MG": {
+      "quantity": 150,
+      "unit": "tablets",
+      "category": "medicines",
+      "last_updated": "2025-12-27T12:00:00"
+    },
+    "AMOXICILLIN_250MG": {
+      "quantity": 80,
+      "unit": "capsules",
+      "category": "antibiotics",
+      "last_updated": "2025-12-27T11:00:00"
+    },
+    "INSULIN_VIALS": {
+      "quantity": 25,
+      "unit": "vials",
+      "category": "chronic_medication",
+      "last_updated": "2025-12-27T10:00:00"
+    },
+    "BLOOD_PRESSURE_MONITOR": {
+      "quantity": 12,
+      "unit": "units",
+      "category": "medical_devices",
+      "last_updated": "2025-12-27T09:00:00"
+    },
+    "VITAMIN_D_SUPPLEMENTS": {
+      "quantity": 45,
+      "unit": "bottles",
+      "category": "supplements",
+      "last_updated": "2025-12-27T08:00:00"
+    },
+    "FIRST_AID_KIT": {
+      "quantity": 8,
+      "unit": "kits",
+      "category": "emergency_supplies",
+      "last_updated": "2025-12-27T07:00:00"
+    }
+  },
+  "customers": [
+    {
+      "id": "CUST_c0ec9f30",
+      "name": "Mary Wanjiku",
+      "phone": "0749851597",
+      "email": null,
+      "payment_preference": "cash",
+      "total_orders": 10,
+      "total_spent": 4718,
+      "last_order": "2025-12-09T19:32:10.582574"
+    },
+    {
+      "id": "CUST_bea5433b",
+      "name": "Samuel Kipkorir",
+      "phone": "0750293975",
+      "email": null,
+      "payment_preference": "cash",
+      "total_orders": 7,
+      "total_spent": 1196,
+      "last_order": "2025-12-18T19:32:10.582584"
+    },
+    {
+      "id": "CUST_19959c1e",
+      "name": "Peter Kiprop",
+      "phone": "0721871979",
+      "email": null,
+      "payment_preference": "mpesa",
+      "total_orders": 5,
+      "total_spent": 12326,
+      "last_order": "2025-12-11T19:32:10.582590"
+    },
+    {
+      "id": "CUST_2d2cb71f",
+      "name": "Sarah Nyambura",
+      "phone": "0753094496",
+      "email": null,
+      "payment_preference": "mixed",
+      "total_orders": 12,
+      "total_spent": 10656,
+      "last_order": "2025-12-03T19:32:10.582595"
+    },
+    {
+      "id": "CUST_cfa95e8f",
+      "name": "Faith Wanjira",
+      "phone": "0716831412",
+      "email": null,
+      "payment_preference": "mixed",
+      "total_orders": 10,
+      "total_spent": 13336,
+      "last_order": "2025-12-26T19:32:10.582600"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORDER_9427158e",
+      "customer_id": "CUST_19959c1e",
+      "items": [
+        {
+          "sku": "POTATOES",
+          "quantity": 1,
+          "price_per_unit": 106,
+          "total": 106
+        },
+        {
+          "sku": "BANANAS",
+          "quantity": 8,
+          "price_per_unit": 252,
+          "total": 2016
+        },
+        {
+          "sku": "POTATOES",
+          "quantity": 9,
+          "price_per_unit": 276,
+          "total": 2484
+        }
+      ],
+      "total_amount": 4606,
+      "status": "COMPLETED",
+      "created_at": "2025-12-27T09:32:10.582612",
+      "notes": "Quick service"
+    },
+    {
+      "id": "ORDER_8ebce050",
+      "customer_id": "CUST_2d2cb71f",
+      "items": [
+        {
+          "sku": "MILK",
+          "quantity": 7,
+          "price_per_unit": 58,
+          "total": 406
+        },
+        {
+          "sku": "TOMATOES",
+          "quantity": 1,
+          "price_per_unit": 164,
+          "total": 164
+        }
+      ],
+      "total_amount": 570,
+      "status": "COMPLETED",
+      "created_at": "2025-12-22T23:32:10.582621",
+      "notes": "Quick service"
+    },
+    {
+      "id": "ORDER_707e30fc",
+      "customer_id": "CUST_19959c1e",
+      "items": [
+        {
+          "sku": "POTATOES",
+          "quantity": 4,
+          "price_per_unit": 349,
+          "total": 1396
+        },
+        {
+          "sku": "SPINACH",
+          "quantity": 10,
+          "price_per_unit": 62,
+          "total": 620
+        }
+      ],
+      "total_amount": 2016,
+      "status": "FAILED",
+      "created_at": "2025-12-25T16:32:10.582629",
+      "notes": "Order cancelled by customer"
+    },
+    {
+      "id": "ORDER_0d014468",
+      "customer_id": "CUST_cfa95e8f",
+      "items": [
+        {
+          "sku": "CARROTS",
+          "quantity": 2,
+          "price_per_unit": 162,
+          "total": 324
+        },
+        {
+          "sku": "POTATOES",
+          "quantity": 3,
+          "price_per_unit": 450,
+          "total": 1350
+        }
+      ],
+      "total_amount": 1674,
+      "status": "COMPLETED",
+      "created_at": "2025-12-26T01:32:10.582638",
+      "notes": "Smooth transaction"
+    },
+    {
+      "id": "ORDER_552a1f3e",
+      "customer_id": "CUST_c0ec9f30",
+      "items": [
+        {
+          "sku": "PINEAPPLES",
+          "quantity": 7,
+          "price_per_unit": 66,
+          "total": 462
+        }
+      ],
+      "total_amount": 462,
+      "status": "FAILED",
+      "created_at": "2025-12-22T05:32:10.582644",
+      "notes": "Payment failed"
+    },
+    {
+      "id": "ORDER_4c8e2b81",
+      "customer_id": "CUST_cfa95e8f",
+      "items": [
+        {
+          "sku": "ORANGES",
+          "quantity": 4,
+          "price_per_unit": 233,
+          "total": 932
+        },
+        {
+          "sku": "TOMATOES",
+          "quantity": 1,
+          "price_per_unit": 183,
+          "total": 183
+        }
+      ],
+      "total_amount": 1115,
+      "status": "COMPLETED",
+      "created_at": "2025-12-26T13:32:10.582650",
+      "notes": "Quick service"
+    },
+    {
+      "id": "ORDER_80b7f4c1",
+      "customer_id": "CUST_2d2cb71f",
+      "items": [
+        {
+          "sku": "EGGS",
+          "quantity": 5,
+          "price_per_unit": 491,
+          "total": 2455
+        }
+      ],
+      "total_amount": 2455,
+      "status": "PENDING",
+      "created_at": "2025-12-27T04:32:10.582656",
+      "notes": "M-Pesa delay expected"
+    },
+    {
+      "id": "ORDER_28be7a52",
+      "customer_id": "CUST_cfa95e8f",
+      "items": [
+        {
+          "sku": "CARROTS",
+          "quantity": 1,
+          "price_per_unit": 279,
+          "total": 279
+        },
+        {
+          "sku": "BANANAS",
+          "quantity": 9,
+          "price_per_unit": 374,
+          "total": 3366
+        }
+      ],
+      "total_amount": 3645,
+      "status": "COMPLETED",
+      "created_at": "2025-12-20T19:32:10.582662",
+      "notes": "Customer paid in full"
+    },
+    {
+      "id": "ORDER_5840ee25",
+      "customer_id": "CUST_c0ec9f30",
+      "items": [
+        {
+          "sku": "CARROTS",
+          "quantity": 4,
+          "price_per_unit": 305,
+          "total": 1220
+        },
+        {
+          "sku": "BREAD",
+          "quantity": 6,
+          "price_per_unit": 297,
+          "total": 1782
+        },
+        {
+          "sku": "SUGAR",
+          "quantity": 5,
+          "price_per_unit": 120,
+          "total": 600
+        },
+        {
+          "sku": "PINEAPPLES",
+          "quantity": 9,
+          "price_per_unit": 170,
+          "total": 1530
+        }
+      ],
+      "total_amount": 5132,
+      "status": "COMPLETED",
+      "created_at": "2025-12-21T22:32:10.582670",
+      "notes": "Smooth transaction"
+    },
+    {
+      "id": "ORDER_237e96ea",
+      "customer_id": "CUST_c0ec9f30",
+      "items": [
+        {
+          "sku": "MANGOES",
+          "quantity": 9,
+          "price_per_unit": 329,
+          "total": 2961
+        },
+        {
+          "sku": "MANGOES",
+          "quantity": 10,
+          "price_per_unit": 449,
+          "total": 4490
+        }
+      ],
+      "total_amount": 7451,
+      "status": "COMPLETED",
+      "created_at": "2025-12-27T14:32:10.582677",
+      "notes": "Quick service"
+    },
+    {
+      "id": "ORDER_d6110d27",
+      "customer_id": "CUST_bea5433b",
+      "items": [
+        {
+          "sku": "MILK",
+          "quantity": 6,
+          "price_per_unit": 175,
+          "total": 1050
+        },
+        {
+          "sku": "ONIONS",
+          "quantity": 5,
+          "price_per_unit": 325,
+          "total": 1625
+        },
+        {
+          "sku": "BANANAS",
+          "quantity": 7,
+          "price_per_unit": 323,
+          "total": 2261
+        },
+        {
+          "sku": "CARROTS",
+          "quantity": 5,
+          "price_per_unit": 477,
+          "total": 2385
+        }
+      ],
+      "total_amount": 7321,
+      "status": "COMPLETED",
+      "created_at": "2025-12-22T05:32:10.582717",
+      "notes": "Regular customer"
+    },
+    {
+      "id": "ORDER_d9e16241",
+      "customer_id": "CUST_c0ec9f30",
+      "items": [
+        {
+          "sku": "MANGOES",
+          "quantity": 2,
+          "price_per_unit": 331,
+          "total": 662
+        },
+        {
+          "sku": "BANANAS",
+          "quantity": 10,
+          "price_per_unit": 359,
+          "total": 3590
+        },
+        {
+          "sku": "CABBAGE",
+          "quantity": 9,
+          "price_per_unit": 132,
+          "total": 1188
+        }
+      ],
+      "total_amount": 5440,
+      "status": "COMPLETED",
+      "created_at": "2025-12-24T16:32:10.582724",
+      "notes": "Regular customer"
+    },
+    {
+      "id": "ORDER_5c4d10f5",
+      "customer_id": "CUST_c0ec9f30",
+      "items": [
+        {
+          "sku": "PINEAPPLES",
+          "quantity": 9,
+          "price_per_unit": 316,
+          "total": 2844
+        }
+      ],
+      "total_amount": 2844,
+      "status": "PENDING",
+      "created_at": "2025-12-21T05:32:10.582729",
+      "notes": "M-Pesa delay expected"
+    },
+    {
+      "id": "ORDER_21b8d039",
+      "customer_id": "CUST_2d2cb71f",
+      "items": [
+        {
+          "sku": "CARROTS",
+          "quantity": 6,
+          "price_per_unit": 497,
+          "total": 2982
+        }
+      ],
+      "total_amount": 2982,
+      "status": "FAILED",
+      "created_at": "2025-12-20T19:32:10.582735",
+      "notes": "Insufficient stock"
+    },
+    {
+      "id": "ORDER_f555fb26",
+      "customer_id": "CUST_19959c1e",
+      "items": [
+        {
+          "sku": "SUGAR",
+          "quantity": 6,
+          "price_per_unit": 262,
+          "total": 1572
+        }
+      ],
+      "total_amount": 1572,
+      "status": "COMPLETED",
+      "created_at": "2025-12-25T09:32:10.582740",
+      "notes": "Regular customer"
+    },
+    {
+      "id": "ORDER_3ce51c8c",
+      "customer_id": "CUST_c0ec9f30",
+      "items": [
+        {
+          "sku": "EGGS",
+          "quantity": 9,
+          "price_per_unit": 454,
+          "total": 4086
+        },
+        {
+          "sku": "MILK",
+          "quantity": 4,
+          "price_per_unit": 453,
+          "total": 1812
+        }
+      ],
+      "total_amount": 5898,
+      "status": "FAILED",
+      "created_at": "2025-12-27T11:32:10.582747",
+      "notes": "Payment failed"
+    },
+    {
+      "id": "ORDER_bf7a2bd3",
+      "customer_id": "CUST_19959c1e",
+      "items": [
+        {
+          "sku": "ONIONS",
+          "quantity": 2,
+          "price_per_unit": 380,
+          "total": 760
+        }
+      ],
+      "total_amount": 760,
+      "status": "COMPLETED",
+      "created_at": "2025-12-21T23:32:10.582752",
+      "notes": "Regular customer"
+    },
+    {
+      "id": "ORDER_005efeea",
+      "customer_id": "CUST_cfa95e8f",
+      "items": [
+        {
+          "sku": "TOMATOES",
+          "quantity": 4,
+          "price_per_unit": 98,
+          "total": 392
+        },
+        {
+          "sku": "ONIONS",
+          "quantity": 3,
+          "price_per_unit": 60,
+          "total": 180
+        },
+        {
+          "sku": "PINEAPPLES",
+          "quantity": 4,
+          "price_per_unit": 377,
+          "total": 1508
+        }
+      ],
+      "total_amount": 2080,
+      "status": "COMPLETED",
+      "created_at": "2025-12-22T21:32:10.582760",
+      "notes": "Quick service"
+    },
+    {
+      "id": "ORDER_0dba22a1",
+      "customer_id": "CUST_2d2cb71f",
+      "items": [
+        {
+          "sku": "ONIONS",
+          "quantity": 3,
+          "price_per_unit": 205,
+          "total": 615
+        },
+        {
+          "sku": "SPINACH",
+          "quantity": 8,
+          "price_per_unit": 131,
+          "total": 1048
+        },
+        {
+          "sku": "MANGOES",
+          "quantity": 1,
+          "price_per_unit": 335,
+          "total": 335
+        }
+      ],
+      "total_amount": 1998,
+      "status": "COMPLETED",
+      "created_at": "2025-12-27T00:32:10.582767",
+      "notes": "Smooth transaction"
+    },
+    {
+      "id": "ORDER_e6afdc8d",
+      "customer_id": "CUST_bea5433b",
+      "items": [
+        {
+          "sku": "TOMATOES",
+          "quantity": 4,
+          "price_per_unit": 197,
+          "total": 788
+        },
+        {
+          "sku": "EGGS",
+          "quantity": 8,
+          "price_per_unit": 482,
+          "total": 3856
+        }
+      ],
+      "total_amount": 4644,
+      "status": "COMPLETED",
+      "created_at": "2025-12-27T04:32:10.582773",
+      "notes": "Quick service"
+    }
+  ],
+  "payments": [
+    {
+      "id": "PAY_8a78e697",
+      "order_id": "ORDER_9427158e",
+      "amount": 4606,
+      "method": "mpesa",
+      "reference": "REF_df1ca0f1-b97",
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T09:32:10.582612"
+    },
+    {
+      "id": "PAY_db719f0f",
+      "order_id": "ORDER_8ebce050",
+      "amount": 570,
+      "method": "cash",
+      "reference": "REF_2bc3484a-368",
+      "status": "RECEIVED",
+      "created_at": "2025-12-22T23:32:10.582621"
+    },
+    {
+      "id": "PAY_ba16474c",
+      "order_id": "ORDER_0d014468",
+      "amount": 1674,
+      "method": "mpesa",
+      "reference": "REF_1cf6605a-2df",
+      "status": "RECEIVED",
+      "created_at": "2025-12-26T01:32:10.582638"
+    },
+    {
+      "id": "PAY_f6559e33",
+      "order_id": "ORDER_4c8e2b81",
+      "amount": 1115,
+      "method": "card",
+      "reference": "REF_1e77194e-3e2",
+      "status": "RECEIVED",
+      "created_at": "2025-12-26T13:32:10.582650"
+    },
+    {
+      "id": "PAY_bf617000",
+      "order_id": "ORDER_80b7f4c1",
+      "amount": 2153,
+      "method": "mixed",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T16:32:10.582810"
+    },
+    {
+      "id": "PAY_04017bd8",
+      "order_id": "ORDER_28be7a52",
+      "amount": 3645,
+      "method": "card",
+      "reference": "REF_cbeff8ad-8de",
+      "status": "RECEIVED",
+      "created_at": "2025-12-20T19:32:10.582662"
+    },
+    {
+      "id": "PAY_9a9dff06",
+      "order_id": "ORDER_5840ee25",
+      "amount": 5132,
+      "method": "cash",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-21T22:32:10.582670"
+    },
+    {
+      "id": "PAY_af7a1a3b",
+      "order_id": "ORDER_237e96ea",
+      "amount": 7451,
+      "method": "cash",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T14:32:10.582677"
+    },
+    {
+      "id": "PAY_99156f53",
+      "order_id": "ORDER_d6110d27",
+      "amount": 7321,
+      "method": "cash",
+      "reference": "REF_ea5f61df-3a2",
+      "status": "RECEIVED",
+      "created_at": "2025-12-22T05:32:10.582717"
+    },
+    {
+      "id": "PAY_cea701bd",
+      "order_id": "ORDER_d9e16241",
+      "amount": 5440,
+      "method": "cash",
+      "reference": "REF_89bfd7f0-fc0",
+      "status": "RECEIVED",
+      "created_at": "2025-12-24T16:32:10.582724"
+    },
+    {
+      "id": "PAY_e7bb76a5",
+      "order_id": "ORDER_5c4d10f5",
+      "amount": 2372,
+      "method": "cash",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T07:32:10.582837"
+    },
+    {
+      "id": "PAY_539c5bfc",
+      "order_id": "ORDER_f555fb26",
+      "amount": 1572,
+      "method": "mpesa",
+      "reference": "REF_338c8b45-8dd",
+      "status": "RECEIVED",
+      "created_at": "2025-12-25T09:32:10.582740"
+    },
+    {
+      "id": "PAY_0fc51c5e",
+      "order_id": "ORDER_bf7a2bd3",
+      "amount": 760,
+      "method": "mpesa",
+      "reference": "REF_377ca034-d82",
+      "status": "RECEIVED",
+      "created_at": "2025-12-21T23:32:10.582752"
+    },
+    {
+      "id": "PAY_20d8fdd4",
+      "order_id": "ORDER_005efeea",
+      "amount": 2080,
+      "method": "cash",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-22T21:32:10.582760"
+    },
+    {
+      "id": "PAY_a8f33240",
+      "order_id": "ORDER_0dba22a1",
+      "amount": 1998,
+      "method": "mpesa",
+      "reference": "REF_b96d27ba-74c",
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T00:32:10.582767"
+    },
+    {
+      "id": "PAY_7ddb01e7",
+      "order_id": "ORDER_e6afdc8d",
+      "amount": 4644,
+      "method": "cash",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T04:32:10.582773"
+    }
+  ],
+  "event_log": [
+    {
+      "id": "882977e8-7074-4c4d-88d3-0861fe210cf1",
+      "entity_type": "order",
+      "entity_id": "ORDER_28be7a52",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_cfa95e8f",
+        "total_amount": 3645,
+        "item_count": 2
+      },
+      "created_at": "2025-12-20T19:32:10.582662"
+    },
+    {
+      "id": "b46277b5-0387-4731-86f8-66a4bedf297a",
+      "entity_type": "payment",
+      "entity_id": "PAY_04017bd8",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_28be7a52",
+        "amount": 3645,
+        "method": "card"
+      },
+      "created_at": "2025-12-20T19:32:10.582662"
+    },
+    {
+      "id": "c4a4eb5e-c668-4a71-aa03-662620844030",
+      "entity_type": "order",
+      "entity_id": "ORDER_21b8d039",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_2d2cb71f",
+        "total_amount": 2982,
+        "item_count": 1
+      },
+      "created_at": "2025-12-20T19:32:10.582735"
+    },
+    {
+      "id": "e51ba95c-c40c-4529-ab51-78527b98fd89",
+      "entity_type": "order",
+      "entity_id": "ORDER_28be7a52",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-20T20:02:10.582662"
+    },
+    {
+      "id": "7cb3b14a-1fbd-4d3b-b528-de53794f5ad2",
+      "entity_type": "order",
+      "entity_id": "ORDER_5c4d10f5",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_c0ec9f30",
+        "total_amount": 2844,
+        "item_count": 1
+      },
+      "created_at": "2025-12-21T05:32:10.582729"
+    },
+    {
+      "id": "e2be95a2-9b3e-4339-aef9-ae58333f722c",
+      "entity_type": "order",
+      "entity_id": "ORDER_5840ee25",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_c0ec9f30",
+        "total_amount": 5132,
+        "item_count": 4
+      },
+      "created_at": "2025-12-21T22:32:10.582670"
+    },
+    {
+      "id": "91f7e1f5-6a35-4ae2-bbfc-0e5a3f0103cc",
+      "entity_type": "payment",
+      "entity_id": "PAY_9a9dff06",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_5840ee25",
+        "amount": 5132,
+        "method": "cash"
+      },
+      "created_at": "2025-12-21T22:32:10.582670"
+    },
+    {
+      "id": "8a42111a-a608-4105-8dcb-a8c68d24a5e2",
+      "entity_type": "order",
+      "entity_id": "ORDER_5840ee25",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-21T23:02:10.582670"
+    },
+    {
+      "id": "cee55ca6-6e94-4774-94ef-342a8933e0ee",
+      "entity_type": "order",
+      "entity_id": "ORDER_bf7a2bd3",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_19959c1e",
+        "total_amount": 760,
+        "item_count": 1
+      },
+      "created_at": "2025-12-21T23:32:10.582752"
+    },
+    {
+      "id": "2c668703-6777-41d7-8d83-29e2f8665449",
+      "entity_type": "payment",
+      "entity_id": "PAY_0fc51c5e",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_bf7a2bd3",
+        "amount": 760,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-21T23:32:10.582752"
+    },
+    {
+      "id": "8187592b-1848-4b6b-94fb-ae2aab214843",
+      "entity_type": "order",
+      "entity_id": "ORDER_bf7a2bd3",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-22T00:02:10.582752"
+    },
+    {
+      "id": "a1719fed-8c50-4c66-9157-d0b65cf32976",
+      "entity_type": "order",
+      "entity_id": "ORDER_552a1f3e",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_c0ec9f30",
+        "total_amount": 462,
+        "item_count": 1
+      },
+      "created_at": "2025-12-22T05:32:10.582644"
+    },
+    {
+      "id": "bd7ba314-4efb-4e82-85d7-29b3c1757c10",
+      "entity_type": "order",
+      "entity_id": "ORDER_d6110d27",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_bea5433b",
+        "total_amount": 7321,
+        "item_count": 4
+      },
+      "created_at": "2025-12-22T05:32:10.582717"
+    },
+    {
+      "id": "e29a2918-c4e9-4f52-a781-75c1c36edd47",
+      "entity_type": "payment",
+      "entity_id": "PAY_99156f53",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_d6110d27",
+        "amount": 7321,
+        "method": "cash"
+      },
+      "created_at": "2025-12-22T05:32:10.582717"
+    },
+    {
+      "id": "a15b6cb0-2d2d-4321-be5a-0395a5703de0",
+      "entity_type": "order",
+      "entity_id": "ORDER_d6110d27",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-22T06:02:10.582717"
+    },
+    {
+      "id": "e2d7bef9-b360-451e-bb8b-4bd6fd7249e2",
+      "entity_type": "order",
+      "entity_id": "ORDER_005efeea",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_cfa95e8f",
+        "total_amount": 2080,
+        "item_count": 3
+      },
+      "created_at": "2025-12-22T21:32:10.582760"
+    },
+    {
+      "id": "a6eecbca-3b69-4158-878f-4dd7db7fef60",
+      "entity_type": "payment",
+      "entity_id": "PAY_20d8fdd4",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_005efeea",
+        "amount": 2080,
+        "method": "cash"
+      },
+      "created_at": "2025-12-22T21:32:10.582760"
+    },
+    {
+      "id": "864a2ec0-0b97-43d4-93d1-d2e2ef0440f4",
+      "entity_type": "order",
+      "entity_id": "ORDER_005efeea",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-22T22:02:10.582760"
+    },
+    {
+      "id": "4770ddef-3dfc-4642-8711-7db70781dbb7",
+      "entity_type": "order",
+      "entity_id": "ORDER_8ebce050",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_2d2cb71f",
+        "total_amount": 570,
+        "item_count": 2
+      },
+      "created_at": "2025-12-22T23:32:10.582621"
+    },
+    {
+      "id": "397010ad-0814-4342-abec-eb1137ed137d",
+      "entity_type": "payment",
+      "entity_id": "PAY_db719f0f",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_8ebce050",
+        "amount": 570,
+        "method": "cash"
+      },
+      "created_at": "2025-12-22T23:32:10.582621"
+    },
+    {
+      "id": "0cc871f7-b8bb-4dc4-9ae7-d01f75325494",
+      "entity_type": "order",
+      "entity_id": "ORDER_8ebce050",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-23T00:02:10.582621"
+    },
+    {
+      "id": "1eac7edf-c63e-4cd0-88b2-f05ffd8b0c4b",
+      "entity_type": "order",
+      "entity_id": "ORDER_d9e16241",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_c0ec9f30",
+        "total_amount": 5440,
+        "item_count": 3
+      },
+      "created_at": "2025-12-24T16:32:10.582724"
+    },
+    {
+      "id": "4e13617b-b25c-48cb-ba3e-d6d7696085d3",
+      "entity_type": "payment",
+      "entity_id": "PAY_cea701bd",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_d9e16241",
+        "amount": 5440,
+        "method": "cash"
+      },
+      "created_at": "2025-12-24T16:32:10.582724"
+    },
+    {
+      "id": "b499d98a-e917-4084-9937-17d7507a660e",
+      "entity_type": "order",
+      "entity_id": "ORDER_d9e16241",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-24T17:02:10.582724"
+    },
+    {
+      "id": "73a31f42-2f01-4c2f-960d-4a3110b5abe6",
+      "entity_type": "order",
+      "entity_id": "ORDER_f555fb26",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_19959c1e",
+        "total_amount": 1572,
+        "item_count": 1
+      },
+      "created_at": "2025-12-25T09:32:10.582740"
+    },
+    {
+      "id": "f9588b4b-e863-4931-bfe9-7ff15db863cb",
+      "entity_type": "payment",
+      "entity_id": "PAY_539c5bfc",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_f555fb26",
+        "amount": 1572,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-25T09:32:10.582740"
+    },
+    {
+      "id": "7e6c4933-44b9-4bc7-8822-895e1ad08740",
+      "entity_type": "order",
+      "entity_id": "ORDER_f555fb26",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-25T10:02:10.582740"
+    },
+    {
+      "id": "3253568e-c7c2-495c-bbd3-df9b23fed7fd",
+      "entity_type": "order",
+      "entity_id": "ORDER_707e30fc",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_19959c1e",
+        "total_amount": 2016,
+        "item_count": 2
+      },
+      "created_at": "2025-12-25T16:32:10.582629"
+    },
+    {
+      "id": "8de40c95-2661-40a7-87a1-a5f5b3b16bac",
+      "entity_type": "order",
+      "entity_id": "ORDER_0d014468",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_cfa95e8f",
+        "total_amount": 1674,
+        "item_count": 2
+      },
+      "created_at": "2025-12-26T01:32:10.582638"
+    },
+    {
+      "id": "c01e178d-3224-45e0-ab9b-eb4774d2fe05",
+      "entity_type": "payment",
+      "entity_id": "PAY_ba16474c",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_0d014468",
+        "amount": 1674,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-26T01:32:10.582638"
+    },
+    {
+      "id": "ca1a7264-4072-4fe3-bd01-5752384341d6",
+      "entity_type": "order",
+      "entity_id": "ORDER_0d014468",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-26T02:02:10.582638"
+    },
+    {
+      "id": "8c085e22-c91e-4671-bd76-240b4a808ce3",
+      "entity_type": "order",
+      "entity_id": "ORDER_4c8e2b81",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_cfa95e8f",
+        "total_amount": 1115,
+        "item_count": 2
+      },
+      "created_at": "2025-12-26T13:32:10.582650"
+    },
+    {
+      "id": "2d5212a0-2789-47dd-a279-7a7e0413c156",
+      "entity_type": "payment",
+      "entity_id": "PAY_f6559e33",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_4c8e2b81",
+        "amount": 1115,
+        "method": "card"
+      },
+      "created_at": "2025-12-26T13:32:10.582650"
+    },
+    {
+      "id": "ce61a527-0104-4a43-940e-40c57262ecd1",
+      "entity_type": "order",
+      "entity_id": "ORDER_4c8e2b81",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-26T14:02:10.582650"
+    },
+    {
+      "id": "65c1519d-6835-4371-83d3-d438e411ed3a",
+      "entity_type": "inventory",
+      "entity_id": "MANGOES",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -1,
+        "reason": "adjustment"
+      },
+      "created_at": "2025-12-26T19:32:10.583031"
+    },
+    {
+      "id": "8a029e58-b96c-4a55-b8a6-e781c3b37c48",
+      "entity_type": "order",
+      "entity_id": "ORDER_0dba22a1",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_2d2cb71f",
+        "total_amount": 1998,
+        "item_count": 3
+      },
+      "created_at": "2025-12-27T00:32:10.582767"
+    },
+    {
+      "id": "c86ce042-4701-40cf-8206-44e757c67772",
+      "entity_type": "payment",
+      "entity_id": "PAY_a8f33240",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_0dba22a1",
+        "amount": 1998,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-27T00:32:10.582767"
+    },
+    {
+      "id": "eeb4360a-e58e-492b-a172-332664aa18d6",
+      "entity_type": "order",
+      "entity_id": "ORDER_0dba22a1",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-27T01:02:10.582767"
+    },
+    {
+      "id": "79bf327d-8f3b-4bc3-8241-38e8a40b3814",
+      "entity_type": "inventory",
+      "entity_id": "CABBAGE",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -1,
+        "reason": "sale"
+      },
+      "created_at": "2025-12-27T03:32:10.583013"
+    },
+    {
+      "id": "1efada66-7d54-417b-8274-0018ddd2f4e1",
+      "entity_type": "order",
+      "entity_id": "ORDER_80b7f4c1",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_2d2cb71f",
+        "total_amount": 2455,
+        "item_count": 1
+      },
+      "created_at": "2025-12-27T04:32:10.582656"
+    },
+    {
+      "id": "5852b367-cadb-41cf-96bf-a32f2e5a6c26",
+      "entity_type": "order",
+      "entity_id": "ORDER_e6afdc8d",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_bea5433b",
+        "total_amount": 4644,
+        "item_count": 2
+      },
+      "created_at": "2025-12-27T04:32:10.582773"
+    },
+    {
+      "id": "070f4454-5b11-4352-836a-3b742bfe7021",
+      "entity_type": "payment",
+      "entity_id": "PAY_7ddb01e7",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_e6afdc8d",
+        "amount": 4644,
+        "method": "cash"
+      },
+      "created_at": "2025-12-27T04:32:10.582773"
+    },
+    {
+      "id": "a7103943-e5d5-418c-b45d-e996cefdc702",
+      "entity_type": "order",
+      "entity_id": "ORDER_e6afdc8d",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-27T05:02:10.582773"
+    },
+    {
+      "id": "795f803b-20f7-47e7-9161-cc5e83311d03",
+      "entity_type": "inventory",
+      "entity_id": "PINEAPPLES",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -4,
+        "reason": "sale"
+      },
+      "created_at": "2025-12-27T06:32:10.583023"
+    },
+    {
+      "id": "5cd5d697-6025-4d7c-b4b4-f7d8cb92e4bd",
+      "entity_type": "payment",
+      "entity_id": "PAY_e7bb76a5",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_5c4d10f5",
+        "amount": 2372,
+        "method": "cash"
+      },
+      "created_at": "2025-12-27T07:32:10.582837"
+    },
+    {
+      "id": "0a040aed-d53a-4b4c-a0fc-1ea3ec6c3204",
+      "entity_type": "inventory",
+      "entity_id": "SPINACH",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -3,
+        "reason": "sale"
+      },
+      "created_at": "2025-12-27T08:32:10.583027"
+    },
+    {
+      "id": "3c253de5-3729-49a2-b03b-025d0df52fdc",
+      "entity_type": "order",
+      "entity_id": "ORDER_9427158e",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_19959c1e",
+        "total_amount": 4606,
+        "item_count": 3
+      },
+      "created_at": "2025-12-27T09:32:10.582612"
+    },
+    {
+      "id": "ebd31af8-0dc7-42f9-8e01-1819ddfa9f7e",
+      "entity_type": "payment",
+      "entity_id": "PAY_8a78e697",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_9427158e",
+        "amount": 4606,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-27T09:32:10.582612"
+    },
+    {
+      "id": "358e9bc1-b7af-4d9f-a122-58c275ee43d7",
+      "entity_type": "order",
+      "entity_id": "ORDER_9427158e",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-27T10:02:10.582612"
+    },
+    {
+      "id": "d0238acb-9193-4708-951a-c7629b4d228a",
+      "entity_type": "order",
+      "entity_id": "ORDER_3ce51c8c",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_c0ec9f30",
+        "total_amount": 5898,
+        "item_count": 2
+      },
+      "created_at": "2025-12-27T11:32:10.582747"
+    },
+    {
+      "id": "c04d2ead-7b96-4881-b067-89d3e835f0bc",
+      "entity_type": "order",
+      "entity_id": "ORDER_237e96ea",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_c0ec9f30",
+        "total_amount": 7451,
+        "item_count": 2
+      },
+      "created_at": "2025-12-27T14:32:10.582677"
+    },
+    {
+      "id": "552c80d9-09e9-437f-9e05-314ba7f82b56",
+      "entity_type": "payment",
+      "entity_id": "PAY_af7a1a3b",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_237e96ea",
+        "amount": 7451,
+        "method": "cash"
+      },
+      "created_at": "2025-12-27T14:32:10.582677"
+    },
+    {
+      "id": "868710b3-465b-4112-b64a-784c38b4bff6",
+      "entity_type": "order",
+      "entity_id": "ORDER_237e96ea",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-27T15:02:10.582677"
+    },
+    {
+      "id": "c141df3b-c0af-4339-a746-f78686076da0",
+      "entity_type": "payment",
+      "entity_id": "PAY_bf617000",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_80b7f4c1",
+        "amount": 2153,
+        "method": "mixed"
+      },
+      "created_at": "2025-12-27T16:32:10.582810"
+    },
+    {
+      "id": "304c824e-9ffc-492c-9af8-8ddbe77f54f0",
+      "entity_type": "inventory",
+      "entity_id": "MILK",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -4,
+        "reason": "adjustment"
+      },
+      "created_at": "2025-12-27T18:32:10.583018"
+    }
+  ],
+  "goals": [
+    "Test prescription medication tracking",
+    "Validate expiry date management",
+    "Simulate controlled substance handling",
+    "Test healthcare payment methods and insurance"
+  ],
+  "challenges": [
+    "Prescription drugs require special handling",
+    "Expiry dates critical for patient safety",
+    "Insurance claims and reimbursement processing",
+    "Regulatory compliance for controlled medications",
+    "Emergency supply management"
+  ],
+  "notes": [
+    "Represents 80% of Nairobi small businesses",
+    "Cash + M-Pesa mixed payments very common",
+    "Stock levels fluctuate with market supply",
+    "Human error in cash handling and stock counting"
+  ],
+  "id": "bbf624d4-9735-45af-a0fc-c53df908eac0",
+  "industry": "healthcare",
+  "generated_at": "2025-12-27T19:32:10.583043",
+  "complexity": "high",
+  "version": "1.0",
+  "future_hooks": {
+    "multi_tenant": {
+      "enabled": true,
+      "isolation_level": "database",
+      "scaling_strategy": "horizontal"
+    },
+    "saas_integrations": {
+      "whatsapp_business": {
+        "status": "planned",
+        "priority": "high"
+      },
+      "mpesa_deep_integration": {
+        "status": "planned",
+        "priority": "high"
+      },
+      "email_sms_notifications": {
+        "status": "planned",
+        "priority": "medium"
+      }
+    },
+    "modules": {
+      "loyalty_program": {
+        "status": "planned",
+        "complexity": "medium"
+      },
+      "inventory_alerts": {
+        "status": "ready",
+        "complexity": "low"
+      },
+      "customer_history": {
+        "status": "planned",
+        "complexity": "medium"
+      }
+    }
+  }
+}

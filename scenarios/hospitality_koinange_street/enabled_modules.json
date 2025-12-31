@@ -1,0 +1,77 @@
+{
+  "core_modules": {
+    "sales": {
+      "enabled": true,
+      "version": "1.0",
+      "constraints": ["multi_step_service_flow", "advance_payment_handling"],
+      "nairobi_specific": ["peak_hour_surge_capacity", "reservation_deposits"]
+    },
+    "inventory": {
+      "enabled": true,
+      "version": "1.0",
+      "constraints": ["recipe_based_deduction", "fresh_ingredient_tracking"],
+      "nairobi_specific": ["daily_supplier_deliveries", "waste_management"]
+    },
+    "payments": {
+      "enabled": true,
+      "version": "1.0",
+      "constraints": ["mixed_payment_methods", "advance_deposit_handling"],
+      "nairobi_specific": ["cash_during_rush", "mpesa_for_deliveries"]
+    }
+  },
+  "optional_modules": {
+    "bookings": {
+      "enabled": true,
+      "version": "1.0",
+      "features": ["table_reservations", "capacity_management", "deposit_handling"],
+      "nairobi_specific": ["group_bookings", "no_show_penalties"]
+    },
+    "service_tracking": {
+      "enabled": true,
+      "version": "1.0",
+      "features": ["order_progress", "table_turnover", "service_completion"],
+      "nairobi_specific": ["peak_hour_coordination", "customer_satisfaction"]
+    }
+  },
+  "nairobi_adaptations": {
+    "peak_hour_mode": {
+      "enabled": true,
+      "reason": "lunch_and_dinner_rushes_require_special_handling",
+      "capabilities": ["rapid_order_processing", "queue_management", "staff_coordination"]
+    },
+    "reservation_system": {
+      "enabled": true,
+      "reason": "group_bookings_common_in_nairobi",
+      "rules": ["advance_deposits_required", "cancellation_policy", "capacity_limits"]
+    },
+    "ingredient_alerts": {
+      "enabled": true,
+      "reason": "fresh_ingredients_spoil_quickly",
+      "thresholds": {
+        "meat_fish": {"warning": 2, "critical": 1},
+        "vegetables": {"warning": 3, "critical": 2},
+        "dairy": {"warning": 5, "critical": 3}
+      }
+    }
+  },
+  "scenario_local_features": {
+    "table_management": {
+      "enabled": true,
+      "reason": "table_turnover_critical_for_revenue",
+      "implementation": "capacity_tracking",
+      "metrics": ["tables_occupied", "average_turnover_time", "peak_capacity_utilization"]
+    },
+    "menu_availability": {
+      "enabled": true,
+      "reason": "ingredient_stock_affects_menu_offerings",
+      "implementation": "dynamic_menu_updates",
+      "rules": ["hide_unavailable_items", "substitute_suggestions", "stock_based_pricing"]
+    },
+    "service_coordination": {
+      "enabled": true,
+      "reason": "peak_hours_require_staff_coordination",
+      "implementation": "role_based_task_assignment",
+      "roles": ["kitchen", "service", "management", "cleanup"]
+    }
+  }
+}

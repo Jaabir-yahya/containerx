@@ -1,0 +1,898 @@
+{
+  "3211": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [
+          {
+            "id": 102364,
+            "companyName": "Elias Bose",
+            "status": 1,
+            "countryId": 1068,
+            "countryName": "Ethiopia",
+            "enterpriseId": 3211,
+            "companyLogoImage": "",
+            "timeZoneId": 410,
+            "timeZoneName": "(GMT 3:00) GMT+03:00 (Etc/GMT-3)",
+            "timeZone": 3,
+            "languageId": 4,
+            "languageName": "English",
+            "financialStart": "2025-12-17 05:00:00",
+            "currencyName": "Ethiopian Birr",
+            "currencyId": 48,
+            "fromat": "#.###,##",
+            "dateFormat": "dd/MM/yyyy",
+            "decimalPlaces": 2,
+            "industryId": 6,
+            "multiCurrency": 0,
+            "industryName": null,
+            "parentCompanyId": 0,
+            "parentCompanyName": "",
+            "tagType": 0,
+            "customTag": "",
+            "isDeleted": 0,
+            "createUserId": 1003904,
+            "modifyUserId": 1003904,
+            "createUserName": null,
+            "modifyUserName": null,
+            "gmtCreate": "2025-12-17 21:39:01",
+            "gmtModified": "2025-12-17 21:39:01",
+            "isUsedCurrency": null,
+            "currencySymbol": "ETB",
+            "currencyCode": "ETB",
+            "themeType": null,
+            "defaultWhId": null,
+            "defaultWhName": null,
+            "frontDateFormat": "DD/MM/YYYY",
+            "aescompanyId": "@EG@a4c031f1b05f4858d2c060030f92b98c",
+            "vaild": true
+          }
+        ],
+        "total": 1,
+        "size": 10,
+        "current": 1,
+        "pages": 1
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3212": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [
+          {
+            "id": 102366,
+            "companyName": "ADULE AND FAMILY ENTERPRISE",
+            "status": 1,
+            "countryId": 1221,
+            "countryName": "Uganda",
+            "enterpriseId": 3212,
+            "companyLogoImage": "",
+            "timeZoneId": 394,
+            "timeZoneName": "(GMT 3:00) Eastern African Time (Africa/Addis_Ababa)",
+            "timeZone": 3,
+            "languageId": 4,
+            "languageName": "English",
+            "financialStart": "2025-12-17 05:00:00",
+            "currencyName": "Ugandan Shilling",
+            "currencyId": 154,
+            "fromat": "# ###.##",
+            "dateFormat": "dd/MM/yyyy",
+            "decimalPlaces": 2,
+            "industryId": 30,
+            "multiCurrency": 0,
+            "industryName": null,
+            "parentCompanyId": 0,
+            "parentCompanyName": "",
+            "tagType": 0,
+            "customTag": "",
+            "isDeleted": 0,
+            "createUserId": 1003905,
+            "modifyUserId": 1003905,
+            "createUserName": null,
+            "modifyUserName": null,
+            "gmtCreate": "2025-12-17 22:09:36",
+            "gmtModified": "2025-12-17 22:09:36",
+            "isUsedCurrency": null,
+            "currencySymbol": "UGX",
+            "currencyCode": "UGX",
+            "themeType": null,
+            "defaultWhId": null,
+            "defaultWhName": null,
+            "frontDateFormat": "DD/MM/YYYY",
+            "aescompanyId": "@EG@333d6e0802436171a1ce08aa483367ed",
+            "vaild": true
+          }
+        ],
+        "total": 1,
+        "size": 10,
+        "current": 1,
+        "pages": 1
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3213": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [
+          {
+            "id": 102367,
+            "companyName": "Dorcas mbula kinyoto",
+            "status": 1,
+            "countryId": 1112,
+            "countryName": "Kenya",
+            "enterpriseId": 3213,
+            "companyLogoImage": "",
+            "timeZoneId": 394,
+            "timeZoneName": "(GMT 3:00) Eastern African Time (Africa/Addis_Ababa)",
+            "timeZone": 3,
+            "languageId": 4,
+            "languageName": "English",
+            "financialStart": "2025-12-17 05:00:00",
+            "currencyName": "Kenyan Shilling",
+            "currencyId": 77,
+            "fromat": "#,###.##",
+            "dateFormat": "dd/MM/yyyy",
+            "decimalPlaces": 2,
+            "industryId": 1,
+            "multiCurrency": 0,
+            "industryName": null,
+            "parentCompanyId": 0,
+            "parentCompanyName": "",
+            "tagType": 0,
+            "customTag": "",
+            "isDeleted": 0,
+            "createUserId": 1003907,
+            "modifyUserId": 1003907,
+            "createUserName": null,
+            "modifyUserName": null,
+            "gmtCreate": "2025-12-17 22:52:58",
+            "gmtModified": "2025-12-17 22:52:58",
+            "isUsedCurrency": null,
+            "currencySymbol": "KES",
+            "currencyCode": "KES",
+            "themeType": null,
+            "defaultWhId": null,
+            "defaultWhName": null,
+            "frontDateFormat": "DD/MM/YYYY",
+            "aescompanyId": "@EG@345b792605435c7fcc249e6d031a8bc4",
+            "vaild": true
+          }
+        ],
+        "total": 1,
+        "size": 10,
+        "current": 1,
+        "pages": 1
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3214": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [
+          {
+            "id": 102368,
+            "companyName": "Khalifa Mohamed",
+            "status": 1,
+            "countryId": 1112,
+            "countryName": "Kenya",
+            "enterpriseId": 3214,
+            "companyLogoImage": "",
+            "timeZoneId": 394,
+            "timeZoneName": "(GMT 3:00) Eastern African Time (Africa/Addis_Ababa)",
+            "timeZone": 3,
+            "languageId": 4,
+            "languageName": "English",
+            "financialStart": "2025-12-18 05:00:00",
+            "currencyName": "Kenyan Shilling",
+            "currencyId": 77,
+            "fromat": "#,###.##",
+            "dateFormat": "dd/MM/yyyy",
+            "decimalPlaces": 2,
+            "industryId": 3,
+            "multiCurrency": 0,
+            "industryName": null,
+            "parentCompanyId": 0,
+            "parentCompanyName": "",
+            "tagType": 0,
+            "customTag": "",
+            "isDeleted": 0,
+            "createUserId": 1003908,
+            "modifyUserId": 1003908,
+            "createUserName": null,
+            "modifyUserName": null,
+            "gmtCreate": "2025-12-18 00:17:19",
+            "gmtModified": "2025-12-18 00:17:19",
+            "isUsedCurrency": null,
+            "currencySymbol": "KES",
+            "currencyCode": "KES",
+            "themeType": null,
+            "defaultWhId": null,
+            "defaultWhName": null,
+            "frontDateFormat": "DD/MM/YYYY",
+            "aescompanyId": "@EG@6f682750223c7f5bf7243fe3da3de261",
+            "vaild": true
+          }
+        ],
+        "total": 1,
+        "size": 10,
+        "current": 1,
+        "pages": 1
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3215": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [
+          {
+            "id": 102369,
+            "companyName": "Supa ego shop",
+            "status": 1,
+            "countryId": 1112,
+            "countryName": "Kenya",
+            "enterpriseId": 3215,
+            "companyLogoImage": "",
+            "timeZoneId": 394,
+            "timeZoneName": "(GMT 3:00) Eastern African Time (Africa/Addis_Ababa)",
+            "timeZone": 3,
+            "languageId": 4,
+            "languageName": "English",
+            "financialStart": "2025-12-18 05:00:00",
+            "currencyName": "Kenyan Shilling",
+            "currencyId": 77,
+            "fromat": "#,###.##",
+            "dateFormat": "dd/MM/yyyy",
+            "decimalPlaces": 2,
+            "industryId": 33,
+            "multiCurrency": 0,
+            "industryName": null,
+            "parentCompanyId": 0,
+            "parentCompanyName": "",
+            "tagType": 0,
+            "customTag": "",
+            "isDeleted": 0,
+            "createUserId": 1003909,
+            "modifyUserId": 1003909,
+            "createUserName": null,
+            "modifyUserName": null,
+            "gmtCreate": "2025-12-18 00:37:47",
+            "gmtModified": "2025-12-18 00:37:47",
+            "isUsedCurrency": null,
+            "currencySymbol": "KES",
+            "currencyCode": "KES",
+            "themeType": null,
+            "defaultWhId": null,
+            "defaultWhName": null,
+            "frontDateFormat": "DD/MM/YYYY",
+            "aescompanyId": "@EG@9427a9054d8a7b48bb24d6f5191495e7",
+            "vaild": true
+          }
+        ],
+        "total": 1,
+        "size": 10,
+        "current": 1,
+        "pages": 1
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3216": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [
+          {
+            "id": 102371,
+            "companyName": "BlueSky",
+            "status": 1,
+            "countryId": 1112,
+            "countryName": "Kenya",
+            "enterpriseId": 3216,
+            "companyLogoImage": "",
+            "timeZoneId": 394,
+            "timeZoneName": "(GMT 3:00) Eastern African Time (Africa/Addis_Ababa)",
+            "timeZone": 3,
+            "languageId": 4,
+            "languageName": "English",
+            "financialStart": "2025-12-19 05:00:00",
+            "currencyName": "Kenyan Shilling",
+            "currencyId": 77,
+            "fromat": "#,###.##",
+            "dateFormat": "dd/MM/yyyy",
+            "decimalPlaces": 2,
+            "industryId": 14,
+            "multiCurrency": 0,
+            "industryName": null,
+            "parentCompanyId": 0,
+            "parentCompanyName": "",
+            "tagType": 0,
+            "customTag": "",
+            "isDeleted": 0,
+            "createUserId": 1003910,
+            "modifyUserId": 1003910,
+            "createUserName": null,
+            "modifyUserName": null,
+            "gmtCreate": "2025-12-19 00:34:40",
+            "gmtModified": "2025-12-19 00:34:40",
+            "isUsedCurrency": null,
+            "currencySymbol": "KES",
+            "currencyCode": "KES",
+            "themeType": null,
+            "defaultWhId": null,
+            "defaultWhName": null,
+            "frontDateFormat": "DD/MM/YYYY",
+            "aescompanyId": "@EG@28423bb0837502c728a9e7a8d3dc38af",
+            "vaild": true
+          }
+        ],
+        "total": 1,
+        "size": 10,
+        "current": 1,
+        "pages": 1
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3217": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [
+          {
+            "id": 102372,
+            "companyName": "At.Mo'Sphere Boutique",
+            "status": 1,
+            "countryId": 1112,
+            "countryName": "Kenya",
+            "enterpriseId": 3217,
+            "companyLogoImage": "",
+            "timeZoneId": 394,
+            "timeZoneName": "(GMT 3:00) Eastern African Time (Africa/Addis_Ababa)",
+            "timeZone": 3,
+            "languageId": 4,
+            "languageName": "English",
+            "financialStart": "2025-12-19 05:00:00",
+            "currencyName": "Kenyan Shilling",
+            "currencyId": 77,
+            "fromat": "#,###.##",
+            "dateFormat": "dd/MM/yyyy",
+            "decimalPlaces": 2,
+            "industryId": 14,
+            "multiCurrency": 0,
+            "industryName": null,
+            "parentCompanyId": 0,
+            "parentCompanyName": "",
+            "tagType": 0,
+            "customTag": "",
+            "isDeleted": 0,
+            "createUserId": 1003913,
+            "modifyUserId": 1003913,
+            "createUserName": null,
+            "modifyUserName": null,
+            "gmtCreate": "2025-12-19 14:25:15",
+            "gmtModified": "2025-12-19 14:25:15",
+            "isUsedCurrency": null,
+            "currencySymbol": "KES",
+            "currencyCode": "KES",
+            "themeType": null,
+            "defaultWhId": null,
+            "defaultWhName": null,
+            "frontDateFormat": "DD/MM/YYYY",
+            "aescompanyId": "@EG@8b9e5d4a491e55c31eefe647967397f1",
+            "vaild": true
+          }
+        ],
+        "total": 1,
+        "size": 10,
+        "current": 1,
+        "pages": 1
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3218": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [
+          {
+            "id": 102374,
+            "companyName": "Yaan",
+            "status": 1,
+            "countryId": 1112,
+            "countryName": "Kenya",
+            "enterpriseId": 3218,
+            "companyLogoImage": "",
+            "timeZoneId": 394,
+            "timeZoneName": "(GMT 3:00) Eastern African Time (Africa/Addis_Ababa)",
+            "timeZone": 3,
+            "languageId": 4,
+            "languageName": "English",
+            "financialStart": "2025-12-22 05:00:00",
+            "currencyName": "Kenyan Shilling",
+            "currencyId": 77,
+            "fromat": "#,###.##",
+            "dateFormat": "dd/MM/yyyy",
+            "decimalPlaces": 2,
+            "industryId": 16,
+            "multiCurrency": 0,
+            "industryName": null,
+            "parentCompanyId": 0,
+            "parentCompanyName": "",
+            "tagType": 0,
+            "customTag": "",
+            "isDeleted": 0,
+            "createUserId": 1003915,
+            "modifyUserId": 1003915,
+            "createUserName": null,
+            "modifyUserName": null,
+            "gmtCreate": "2025-12-22 16:58:26",
+            "gmtModified": "2025-12-22 16:58:26",
+            "isUsedCurrency": null,
+            "currencySymbol": "KES",
+            "currencyCode": "KES",
+            "themeType": null,
+            "defaultWhId": null,
+            "defaultWhName": null,
+            "frontDateFormat": "DD/MM/YYYY",
+            "aescompanyId": "@EG@ea07d6ccbe5d4f61a3e63a1e81d0748c",
+            "vaild": true
+          }
+        ],
+        "total": 1,
+        "size": 10,
+        "current": 1,
+        "pages": 1
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3219": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [
+          {
+            "id": 102375,
+            "companyName": "大宁烟酒",
+            "status": 1,
+            "countryId": 1112,
+            "countryName": "Kenya",
+            "enterpriseId": 3219,
+            "companyLogoImage": "",
+            "timeZoneId": 394,
+            "timeZoneName": "(GMT 3:00) Eastern African Time (Africa/Addis_Ababa)",
+            "timeZone": 3,
+            "languageId": 23,
+            "languageName": "中文",
+            "financialStart": "2025-12-01 05:00:00",
+            "currencyName": "Kenyan Shilling",
+            "currencyId": 77,
+            "fromat": "#,###.##",
+            "dateFormat": "dd/MM/yyyy",
+            "decimalPlaces": 0,
+            "industryId": 34,
+            "multiCurrency": 0,
+            "industryName": null,
+            "parentCompanyId": 0,
+            "parentCompanyName": "",
+            "tagType": 0,
+            "customTag": "",
+            "isDeleted": 0,
+            "createUserId": 1003916,
+            "modifyUserId": 1003916,
+            "createUserName": null,
+            "modifyUserName": null,
+            "gmtCreate": "2025-12-22 21:51:02",
+            "gmtModified": "2025-12-22 21:51:02",
+            "isUsedCurrency": null,
+            "currencySymbol": "KES",
+            "currencyCode": "KES",
+            "themeType": null,
+            "defaultWhId": null,
+            "defaultWhName": null,
+            "frontDateFormat": "DD/MM/YYYY",
+            "aescompanyId": "@EG@921ce3fb6a64df676a8be64e45e1293f",
+            "vaild": true
+          }
+        ],
+        "total": 1,
+        "size": 10,
+        "current": 1,
+        "pages": 1
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3220": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [
+          {
+            "id": 102376,
+            "companyName": "ealbima snacks",
+            "status": 1,
+            "countryId": 1112,
+            "countryName": "Kenya",
+            "enterpriseId": 3220,
+            "companyLogoImage": "",
+            "timeZoneId": 394,
+            "timeZoneName": "(GMT 3:00) Eastern African Time (Africa/Addis_Ababa)",
+            "timeZone": 3,
+            "languageId": 4,
+            "languageName": "English",
+            "financialStart": "2025-12-25 05:00:00",
+            "currencyName": "Kenyan Shilling",
+            "currencyId": 77,
+            "fromat": "#,###.##",
+            "dateFormat": "dd/MM/yyyy",
+            "decimalPlaces": 2,
+            "industryId": 14,
+            "multiCurrency": 0,
+            "industryName": null,
+            "parentCompanyId": 0,
+            "parentCompanyName": "",
+            "tagType": 0,
+            "customTag": "",
+            "isDeleted": 0,
+            "createUserId": 1003923,
+            "modifyUserId": 1003923,
+            "createUserName": null,
+            "modifyUserName": null,
+            "gmtCreate": "2025-12-25 04:47:11",
+            "gmtModified": "2025-12-25 04:47:11",
+            "isUsedCurrency": null,
+            "currencySymbol": "KES",
+            "currencyCode": "KES",
+            "themeType": null,
+            "defaultWhId": null,
+            "defaultWhName": null,
+            "frontDateFormat": "DD/MM/YYYY",
+            "aescompanyId": "@EG@cb46a95e72ae742cc870cd49c940fb6b",
+            "vaild": true
+          }
+        ],
+        "total": 1,
+        "size": 10,
+        "current": 1,
+        "pages": 1
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3221": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [],
+        "total": 0,
+        "size": 10,
+        "current": 1,
+        "pages": 0
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3222": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [],
+        "total": 0,
+        "size": 10,
+        "current": 1,
+        "pages": 0
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3223": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [],
+        "total": 0,
+        "size": 10,
+        "current": 1,
+        "pages": 0
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3224": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [],
+        "total": 0,
+        "size": 10,
+        "current": 1,
+        "pages": 0
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3225": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [],
+        "total": 0,
+        "size": 10,
+        "current": 1,
+        "pages": 0
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3226": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [],
+        "total": 0,
+        "size": 10,
+        "current": 1,
+        "pages": 0
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3227": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [],
+        "total": 0,
+        "size": 10,
+        "current": 1,
+        "pages": 0
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3228": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [],
+        "total": 0,
+        "size": 10,
+        "current": 1,
+        "pages": 0
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  },
+  "3229": {
+    "https://account.kilimax.com/api/user/company/getAllCompanyPage": {
+      "code": "1",
+      "state": "success",
+      "message": "success",
+      "info": {
+        "records": [],
+        "total": 0,
+        "size": 10,
+        "current": 1,
+        "pages": 0
+      },
+      "notSuccess": false,
+      "success": true
+    },
+    "https://account.kilimax.com/api/user/user/userPage": {
+      "code": "-1",
+      "state": "-1",
+      "message": "Service is recovering",
+      "info": null,
+      "notSuccess": true,
+      "success": false
+    }
+  }
+}

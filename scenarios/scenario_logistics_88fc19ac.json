@@ -1,0 +1,568 @@
+{
+  "name": "Delivery/Logistics - Mall",
+  "description": "A Nairobi logistics company providing delivery services across Mall.",
+  "modules": [
+    "tracking",
+    "sales",
+    "inventory",
+    "payments",
+    "routing",
+    "fleet_management"
+  ],
+  "inventory": {
+    "SMALL_PACKAGES": {
+      "quantity": 24,
+      "unit": "units",
+      "category": "packages",
+      "last_updated": "2025-12-27T16:49:44.078007"
+    },
+    "MEDIUM_PACKAGES": {
+      "quantity": 3,
+      "unit": "units",
+      "category": "packages",
+      "last_updated": "2025-12-27T12:49:44.078010"
+    },
+    "LARGE_PACKAGES": {
+      "quantity": 26,
+      "unit": "units",
+      "category": "packages",
+      "last_updated": "2025-12-26T20:49:44.078012"
+    },
+    "MOTORCYCLES": {
+      "quantity": 24,
+      "unit": "units",
+      "category": "vehicles",
+      "last_updated": "2025-12-27T15:49:44.078014"
+    },
+    "CARS": {
+      "quantity": 36,
+      "unit": "units",
+      "category": "vehicles",
+      "last_updated": "2025-12-26T23:49:44.078016"
+    },
+    "TRUCKS": {
+      "quantity": 23,
+      "unit": "units",
+      "category": "vehicles",
+      "last_updated": "2025-12-26T21:49:44.078018"
+    },
+    "FUEL": {
+      "quantity": 2,
+      "unit": "units",
+      "category": "supplies",
+      "last_updated": "2025-12-27T16:49:44.078020"
+    },
+    "PACKAGING": {
+      "quantity": 46,
+      "unit": "units",
+      "category": "supplies",
+      "last_updated": "2025-12-27T01:49:44.078022"
+    },
+    "LABELS": {
+      "quantity": 47,
+      "unit": "units",
+      "category": "supplies",
+      "last_updated": "2025-12-27T06:49:44.078024"
+    }
+  },
+  "customers": [
+    {
+      "id": "CUST_e8253eb8",
+      "name": "Paul Kipkoech",
+      "phone": "0724418194",
+      "email": null,
+      "payment_preference": "mpesa",
+      "total_orders": 11,
+      "total_spent": 5855,
+      "last_order": "2025-12-02T18:49:44.078031"
+    },
+    {
+      "id": "CUST_23d20666",
+      "name": "Peter Kiprop",
+      "phone": "0780969207",
+      "email": null,
+      "payment_preference": "mpesa",
+      "total_orders": 14,
+      "total_spent": 800,
+      "last_order": "2025-12-02T18:49:44.078037"
+    },
+    {
+      "id": "CUST_2f8c5c8e",
+      "name": "Lucy Adhiambo",
+      "phone": "0781495274",
+      "email": null,
+      "payment_preference": "mixed",
+      "total_orders": 14,
+      "total_spent": 2556,
+      "last_order": "2025-12-08T18:49:44.078042"
+    },
+    {
+      "id": "CUST_8e907a1d",
+      "name": "Lucy Adhiambo",
+      "phone": "0765524958",
+      "email": null,
+      "payment_preference": "mpesa",
+      "total_orders": 2,
+      "total_spent": 7667,
+      "last_order": "2025-12-12T18:49:44.078047"
+    },
+    {
+      "id": "CUST_fe01d0f1",
+      "name": "Samuel Kipkorir",
+      "phone": "0786620359",
+      "email": null,
+      "payment_preference": "mpesa",
+      "total_orders": 10,
+      "total_spent": 10753,
+      "last_order": "2025-11-27T18:49:44.078052"
+    },
+    {
+      "id": "CUST_77dec7c1",
+      "name": "Mary Wanjiku",
+      "phone": "0730683266",
+      "email": null,
+      "payment_preference": "cash",
+      "total_orders": 1,
+      "total_spent": 14980,
+      "last_order": "2025-11-30T18:49:44.078057"
+    }
+  ],
+  "orders": [
+    {
+      "id": "DELIVERY_f360b7a6",
+      "customer_id": "CUST_2f8c5c8e",
+      "package_type": "Medium_Packages",
+      "pickup_location": "Nairobi CBD, Building 25",
+      "delivery_location": "Nairobi Eastlands, Street 59",
+      "total_amount": 409,
+      "delivery_fee": 409,
+      "status": "PENDING",
+      "estimated_delivery": "2025-12-27T21:49:44.078068",
+      "created_at": "2025-12-27T04:49:44.078069",
+      "assigned_rider": "Rider_14",
+      "notes": "Medium Packages delivery"
+    },
+    {
+      "id": "DELIVERY_f16421ba",
+      "customer_id": "CUST_77dec7c1",
+      "package_type": "Large_Packages",
+      "pickup_location": "Nairobi CBD, Building 25",
+      "delivery_location": "Nairobi Westlands, Street 2",
+      "total_amount": 983,
+      "delivery_fee": 983,
+      "status": "PENDING",
+      "estimated_delivery": "2025-12-28T00:49:44.078078",
+      "created_at": "2025-12-26T20:49:44.078080",
+      "assigned_rider": "Rider_16",
+      "notes": "Large Packages delivery"
+    },
+    {
+      "id": "DELIVERY_64014bfd",
+      "customer_id": "CUST_77dec7c1",
+      "package_type": "Small_Packages",
+      "pickup_location": "Nairobi CBD, Building 6",
+      "delivery_location": "Nairobi Westlands, Street 72",
+      "total_amount": 480,
+      "delivery_fee": 480,
+      "status": "DELIVERED",
+      "estimated_delivery": "2025-12-27T19:49:44.078087",
+      "created_at": "2025-12-27T17:49:44.078088",
+      "assigned_rider": "Rider_11",
+      "notes": "Small Packages delivery"
+    },
+    {
+      "id": "DELIVERY_307de76f",
+      "customer_id": "CUST_8e907a1d",
+      "package_type": "Small_Packages",
+      "pickup_location": "Nairobi CBD, Building 33",
+      "delivery_location": "Nairobi Westlands, Street 98",
+      "total_amount": 309,
+      "delivery_fee": 309,
+      "status": "PENDING",
+      "estimated_delivery": "2025-12-27T21:49:44.078094",
+      "created_at": "2025-12-27T15:49:44.078096",
+      "assigned_rider": "Rider_12",
+      "notes": "Small Packages delivery"
+    },
+    {
+      "id": "DELIVERY_23c835a5",
+      "customer_id": "CUST_fe01d0f1",
+      "package_type": "Large_Packages",
+      "pickup_location": "Nairobi CBD, Building 27",
+      "delivery_location": "Nairobi Karen, Street 40",
+      "total_amount": 1067,
+      "delivery_fee": 1067,
+      "status": "PICKED_UP",
+      "estimated_delivery": "2025-12-27T21:49:44.078102",
+      "created_at": "2025-12-27T09:49:44.078103",
+      "assigned_rider": "Rider_17",
+      "notes": "Large Packages delivery"
+    },
+    {
+      "id": "DELIVERY_c58ceb27",
+      "customer_id": "CUST_2f8c5c8e",
+      "package_type": "Large_Packages",
+      "pickup_location": "Nairobi CBD, Building 37",
+      "delivery_location": "Nairobi CBD, Street 6",
+      "total_amount": 781,
+      "delivery_fee": 781,
+      "status": "PICKED_UP",
+      "estimated_delivery": "2025-12-28T00:49:44.078109",
+      "created_at": "2025-12-26T21:49:44.078111",
+      "assigned_rider": "Rider_10",
+      "notes": "Large Packages delivery"
+    },
+    {
+      "id": "DELIVERY_6d75b657",
+      "customer_id": "CUST_fe01d0f1",
+      "package_type": "Medium_Packages",
+      "pickup_location": "Nairobi CBD, Building 24",
+      "delivery_location": "Nairobi Karen, Street 60",
+      "total_amount": 449,
+      "delivery_fee": 449,
+      "status": "DELIVERED",
+      "estimated_delivery": "2025-12-27T19:49:44.078117",
+      "created_at": "2025-12-27T01:49:44.078118",
+      "assigned_rider": "Rider_2",
+      "notes": "Medium Packages delivery"
+    },
+    {
+      "id": "DELIVERY_ec0e809e",
+      "customer_id": "CUST_8e907a1d",
+      "package_type": "Small_Packages",
+      "pickup_location": "Nairobi CBD, Building 3",
+      "delivery_location": "Nairobi Karen, Street 52",
+      "total_amount": 315,
+      "delivery_fee": 315,
+      "status": "PENDING",
+      "estimated_delivery": "2025-12-27T19:49:44.078124",
+      "created_at": "2025-12-27T15:49:44.078125",
+      "assigned_rider": "Rider_11",
+      "notes": "Small Packages delivery"
+    },
+    {
+      "id": "DELIVERY_fd94cad2",
+      "customer_id": "CUST_23d20666",
+      "package_type": "Large_Packages",
+      "pickup_location": "Nairobi CBD, Building 45",
+      "delivery_location": "Nairobi Kilimani, Street 82",
+      "total_amount": 551,
+      "delivery_fee": 551,
+      "status": "IN_TRANSIT",
+      "estimated_delivery": "2025-12-27T23:49:44.078131",
+      "created_at": "2025-12-27T15:49:44.078133",
+      "assigned_rider": "Rider_19",
+      "notes": "Large Packages delivery"
+    },
+    {
+      "id": "DELIVERY_fe6f2be2",
+      "customer_id": "CUST_2f8c5c8e",
+      "package_type": "Large_Packages",
+      "pickup_location": "Nairobi CBD, Building 3",
+      "delivery_location": "Nairobi Eastlands, Street 80",
+      "total_amount": 576,
+      "delivery_fee": 576,
+      "status": "IN_TRANSIT",
+      "estimated_delivery": "2025-12-27T21:49:44.078163",
+      "created_at": "2025-12-27T00:49:44.078165",
+      "assigned_rider": "Rider_1",
+      "notes": "Large Packages delivery"
+    },
+    {
+      "id": "DELIVERY_d3c3ecec",
+      "customer_id": "CUST_e8253eb8",
+      "package_type": "Small_Packages",
+      "pickup_location": "Nairobi CBD, Building 12",
+      "delivery_location": "Nairobi Eastlands, Street 52",
+      "total_amount": 498,
+      "delivery_fee": 498,
+      "status": "DELIVERED",
+      "estimated_delivery": "2025-12-27T23:49:44.078171",
+      "created_at": "2025-12-27T16:49:44.078172",
+      "assigned_rider": "Rider_11",
+      "notes": "Small Packages delivery"
+    },
+    {
+      "id": "DELIVERY_6936afd9",
+      "customer_id": "CUST_8e907a1d",
+      "package_type": "Small_Packages",
+      "pickup_location": "Nairobi CBD, Building 28",
+      "delivery_location": "Nairobi Kilimani, Street 64",
+      "total_amount": 218,
+      "delivery_fee": 218,
+      "status": "IN_TRANSIT",
+      "estimated_delivery": "2025-12-28T00:49:44.078178",
+      "created_at": "2025-12-27T05:49:44.078180",
+      "assigned_rider": "Rider_3",
+      "notes": "Small Packages delivery"
+    }
+  ],
+  "payments": [
+    {
+      "id": "PAY_32caa677",
+      "order_id": "DELIVERY_f16421ba",
+      "amount": 229,
+      "method": "mpesa",
+      "reference": "REF_e334d894-60d",
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T11:49:44.078188"
+    }
+  ],
+  "event_log": [
+    {
+      "id": "6df10927-a09c-404d-a0c3-619a26bf334d",
+      "entity_type": "order",
+      "entity_id": "DELIVERY_f16421ba",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_77dec7c1",
+        "total_amount": 983,
+        "item_count": 0
+      },
+      "created_at": "2025-12-26T20:49:44.078080"
+    },
+    {
+      "id": "1b368027-c658-461c-b51f-37046b5db3d6",
+      "entity_type": "order",
+      "entity_id": "DELIVERY_c58ceb27",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_2f8c5c8e",
+        "total_amount": 781,
+        "item_count": 0
+      },
+      "created_at": "2025-12-26T21:49:44.078111"
+    },
+    {
+      "id": "9375b062-581f-488d-80c5-f67ad58bb954",
+      "entity_type": "inventory",
+      "entity_id": "MEDIUM_PACKAGES",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": 2,
+        "reason": "restock"
+      },
+      "created_at": "2025-12-26T22:49:44.078242"
+    },
+    {
+      "id": "db5011ef-fe1a-4606-b56e-823375cad863",
+      "entity_type": "inventory",
+      "entity_id": "FUEL",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -4,
+        "reason": "restock"
+      },
+      "created_at": "2025-12-26T23:49:44.078246"
+    },
+    {
+      "id": "94087507-3072-4817-a17e-d087d7a9bb18",
+      "entity_type": "order",
+      "entity_id": "DELIVERY_fe6f2be2",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_2f8c5c8e",
+        "total_amount": 576,
+        "item_count": 0
+      },
+      "created_at": "2025-12-27T00:49:44.078165"
+    },
+    {
+      "id": "5764f969-f7bc-4b5c-963c-f9e722a1759f",
+      "entity_type": "order",
+      "entity_id": "DELIVERY_6d75b657",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_fe01d0f1",
+        "total_amount": 449,
+        "item_count": 0
+      },
+      "created_at": "2025-12-27T01:49:44.078118"
+    },
+    {
+      "id": "e2b7f08a-5d09-4336-ab69-97d43a91201a",
+      "entity_type": "order",
+      "entity_id": "DELIVERY_f360b7a6",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_2f8c5c8e",
+        "total_amount": 409,
+        "item_count": 0
+      },
+      "created_at": "2025-12-27T04:49:44.078069"
+    },
+    {
+      "id": "f72e3b91-bdd4-4ab1-982f-1dc5c56c030e",
+      "entity_type": "inventory",
+      "entity_id": "MOTORCYCLES",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -2,
+        "reason": "adjustment"
+      },
+      "created_at": "2025-12-27T04:49:44.078237"
+    },
+    {
+      "id": "0892c071-0df8-4baa-b577-8faec864c9bc",
+      "entity_type": "order",
+      "entity_id": "DELIVERY_6936afd9",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_8e907a1d",
+        "total_amount": 218,
+        "item_count": 0
+      },
+      "created_at": "2025-12-27T05:49:44.078180"
+    },
+    {
+      "id": "51a9bc78-7ea4-4675-be56-ac6c09591b30",
+      "entity_type": "inventory",
+      "entity_id": "LARGE_PACKAGES",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -2,
+        "reason": "restock"
+      },
+      "created_at": "2025-12-27T06:49:44.078233"
+    },
+    {
+      "id": "20ffc8d2-a777-404c-9c26-3b2bb0991c3e",
+      "entity_type": "order",
+      "entity_id": "DELIVERY_23c835a5",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_fe01d0f1",
+        "total_amount": 1067,
+        "item_count": 0
+      },
+      "created_at": "2025-12-27T09:49:44.078103"
+    },
+    {
+      "id": "63799337-3703-4d0b-b5ac-c5b605db17d5",
+      "entity_type": "payment",
+      "entity_id": "PAY_32caa677",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "DELIVERY_f16421ba",
+        "amount": 229,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-27T11:49:44.078188"
+    },
+    {
+      "id": "d595a20f-8720-4103-9b05-fbec86ed0755",
+      "entity_type": "inventory",
+      "entity_id": "PACKAGING",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -8,
+        "reason": "adjustment"
+      },
+      "created_at": "2025-12-27T14:49:44.078228"
+    },
+    {
+      "id": "03c8eec3-dffb-425f-ac0c-4a0ccbeb989a",
+      "entity_type": "order",
+      "entity_id": "DELIVERY_307de76f",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_8e907a1d",
+        "total_amount": 309,
+        "item_count": 0
+      },
+      "created_at": "2025-12-27T15:49:44.078096"
+    },
+    {
+      "id": "f2f7c0f4-3615-4aa2-8db2-d021c43b87ff",
+      "entity_type": "order",
+      "entity_id": "DELIVERY_ec0e809e",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_8e907a1d",
+        "total_amount": 315,
+        "item_count": 0
+      },
+      "created_at": "2025-12-27T15:49:44.078125"
+    },
+    {
+      "id": "481f0b13-ed99-4cf6-ab7b-5ec581456de7",
+      "entity_type": "order",
+      "entity_id": "DELIVERY_fd94cad2",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_23d20666",
+        "total_amount": 551,
+        "item_count": 0
+      },
+      "created_at": "2025-12-27T15:49:44.078133"
+    },
+    {
+      "id": "14d663d7-b7f1-4dac-9ff2-b7d304d4f9c7",
+      "entity_type": "order",
+      "entity_id": "DELIVERY_d3c3ecec",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_e8253eb8",
+        "total_amount": 498,
+        "item_count": 0
+      },
+      "created_at": "2025-12-27T16:49:44.078172"
+    },
+    {
+      "id": "166f7d48-7983-4aac-aa5d-ad9a56fe1bc7",
+      "entity_type": "order",
+      "entity_id": "DELIVERY_64014bfd",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_77dec7c1",
+        "total_amount": 480,
+        "item_count": 0
+      },
+      "created_at": "2025-12-27T17:49:44.078088"
+    }
+  ],
+  "goals": [
+    "Test delivery tracking and routing",
+    "Validate fleet and fuel management",
+    "Simulate traffic and delay scenarios",
+    "Test package status communication"
+  ],
+  "challenges": [
+    "Nairobi traffic causes massive delays",
+    "Fuel shortages affect operations",
+    "Package tracking critical for customer trust",
+    "Weather and road conditions unpredictable"
+  ],
+  "notes": [
+    "Delivery is core Nairobi business need",
+    "Traffic and logistics are major pain points",
+    "Real-time tracking builds customer confidence",
+    "Fuel and maintenance costs significant"
+  ],
+  "id": "88fc19ac-33fd-440d-a36a-201f08900315",
+  "industry": "logistics",
+  "generated_at": "2025-12-27T18:49:44.078253",
+  "complexity": "medium",
+  "version": "1.0",
+  "future_hooks": {
+    "multi_tenant": {
+      "enabled": true,
+      "isolation_level": "database",
+      "scaling_strategy": "horizontal"
+    },
+    "saas_integrations": {
+      "whatsapp_business": {
+        "status": "planned",
+        "priority": "high"
+      },
+      "mpesa_deep_integration": {
+        "status": "planned",
+        "priority": "high"
+      },
+      "email_sms_notifications": {
+        "status": "planned",
+        "priority": "medium"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+Node,Parent,Type,Event/State,Color,Notes
+ContainerX,,Hub,,Dark Blue,Central Hub coordinating ERP workflows, Kenya tweaks, APIs, and data events
+Logistics,ContainerX,Module,,Blue,Order-to-cash, inventory, dispatch
+Order Management,Logistics,Workflow,,Light Blue,Manages the order lifecycle
+Order Placed,Order Management,Atomic,order.created,Yellow,Trigger: customer places order
+Pending,Order Placed,State,Pending,Yellow,Initial order state
+Inventory Check,Order Management,Atomic,inventory.checked,Light Blue,Check stock availability
+Stock Shortage,Inventory Check,Failure,,Red,Triggered if qty < requested_qty
+Dispatch Assignment,Order Management,Atomic,dispatch.assigned,Light Blue,Assign delivery partner
+Delivery Confirmation,Order Management,Atomic,delivery.confirmed,Light Blue,Confirm delivery completion
+SMS Notification,Order Placed,Kenya_Tweak,message.sent,Purple,Send SMS/WhatsApp alert for Kenya
+CRM,ContainerX,Module,,Yellow,Customer relationship management
+Lead Capture,CRM,Workflow,,Light Yellow,Capture leads
+Lead Created,Lead Capture,Atomic,lead.created,Yellow,Trigger: new lead added
+Contact Management,CRM,Workflow,,Light Yellow,Manage customer contacts
+Contact Updated,Contact Management,Atomic,contact.updated,Yellow,Trigger: contact info updated
+Retention & Rewards,CRM,Workflow,,Light Yellow,Loyalty & retention processes
+Reward Issued,Retention & Rewards,Atomic,reward.issued,Yellow,Issue loyalty reward
+POS / Shops,ContainerX,Module,,Green,Point-of-sale integration
+Sales Transaction,POS / Shops,Workflow,,Light Green,Transaction workflow
+Transaction Created,Sales Transaction,Atomic,transaction.created,Yellow,POS transaction recorded
+Restaurants,ContainerX,Module,,Teal,Restaurant order & kitchen workflow
+Order Received,Restaurants,Atomic,order.received,Yellow,Trigger: order received at kitchen
+Payments,ContainerX,Module,,Orange,Payment channels & confirmation
+Payment Initiation,Payments,Atomic,payment.initiated,Yellow,Customer initiates payment
+Payment Confirmation,Payments,Atomic,payment.confirmed,Yellow,Payment successfully completed
+Payment Failure,Payments,Failure,,Red,Payment failed due to network or insufficient funds
+Compliance,ContainerX,Module,,Red,KRA / eTIMS compliance
+Invoice Generation,Compliance,Atomic,compliance.issued,Yellow,Generate KRA-compliant invoice
+Adapter: KRA,Compliance,Kenya_Tweak,,Purple,KRA submission adapter for Kenya
+Adapter: Daraja,Payments,Kenya_Tweak,,Purple,M-Pesa / Daraja adapter
+Data Lake,ContainerX,Module,,Purple,Stores normalized events and metrics
+Events Store,Data Lake,Atomic,,Light Purple,All events from modules stored for analytics

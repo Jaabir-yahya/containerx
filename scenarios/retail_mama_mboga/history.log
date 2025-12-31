@@ -1,0 +1,88 @@
+# Mama Mboga Fresh Produce Stall - Business Event History
+# Generated: 2025-12-27
+# Nairobi Market Context: Westlands fresh produce stall, daily operations
+
+# === DAY 1: TYPICAL SUCCESSFUL DAY ===
+
+2025-12-27T06:30:00 | BUSINESS_OPEN | status=opened | notes="Morning setup complete, inventory verified, stall ready for customers"
+
+2025-12-27T07:15:00 | ORDER_CREATED | entity_type=order | entity_id=ORD_001 | customer=CUST_045 | total_amount=480 | items=[{"sku":"TOMATOES","qty":2,"price":120},{"sku":"ONIONS","qty":1,"price":100},{"sku":"SPINACH","qty":1,"price":80}]
+2025-12-27T07:16:00 | STOCK_VERIFIED | entity_type=inventory | entity_id=TOMATOES | available=5 | requested=2 | status=sufficient
+2025-12-27T07:16:00 | STOCK_VERIFIED | entity_type=inventory | entity_id=ONIONS | available=4 | requested=1 | status=sufficient
+2025-12-27T07:16:00 | STOCK_VERIFIED | entity_type=inventory | entity_id=SPINACH | available=8 | requested=1 | status=sufficient
+2025-12-27T07:18:00 | PAYMENT_RECEIVED | entity_type=payment | entity_id=PAY_001 | order_id=ORD_001 | amount=480 | method=cash | status=RECEIVED
+2025-12-27T07:18:00 | STOCK_DEDUCTED | entity_type=inventory | entity_id=TOMATOES | quantity_change=-2 | reason=sale | order_id=ORD_001
+2025-12-27T07:18:00 | STOCK_DEDUCTED | entity_type=inventory | entity_id=ONIONS | quantity_change=-1 | reason=sale | order_id=ORD_001
+2025-12-27T07:18:00 | STOCK_DEDUCTED | entity_type=inventory | entity_id=SPINACH | quantity_change=-1 | reason=sale | order_id=ORD_001
+2025-12-27T07:18:00 | ORDER_COMPLETED | entity_type=order | entity_id=ORD_001 | status=COMPLETED
+
+2025-12-27T08:30:00 | ORDER_CREATED | entity_type=order | entity_id=ORD_002 | customer=CUST_067 | total_amount=650 | items=[{"sku":"BANANAS","qty":3,"price":60},{"sku":"CARROTS","qty":2,"price":90},{"sku":"CABBAGE","qty":1,"price":150}]
+2025-12-27T08:31:00 | STOCK_VERIFIED | entity_type=inventory | entity_id=BANANAS | available=12 | requested=3 | status=sufficient
+2025-12-27T08:31:00 | STOCK_VERIFIED | entity_type=inventory | entity_id=CARROTS | available=27 | requested=2 | status=sufficient
+2025-12-27T08:31:00 | STOCK_VERIFIED | entity_type=inventory | entity_id=CABBAGE | available=20 | requested=1 | status=sufficient
+2025-12-27T08:35:00 | PAYMENT_RECEIVED | entity_type=payment | entity_id=PAY_002 | order_id=ORD_002 | amount=650 | method=mpesa | status=RECEIVED
+2025-12-27T08:35:00 | STOCK_DEDUCTED | entity_type=inventory | entity_id=BANANAS | quantity_change=-3 | reason=sale | order_id=ORD_002
+2025-12-27T08:35:00 | STOCK_DEDUCTED | entity_type=inventory | entity_id=CARROTS | quantity_change=-2 | reason=sale | order_id=ORD_002
+2025-12-27T08:35:00 | STOCK_DEDUCTED | entity_type=inventory | entity_id=CABBAGE | quantity_change=-1 | reason=sale | order_id=ORD_002
+2025-12-27T08:35:00 | ORDER_COMPLETED | entity_type=order | entity_id=ORD_002 | status=COMPLETED
+
+# === PARTIAL PAYMENT SCENARIO ===
+
+2025-12-27T09:45:00 | ORDER_CREATED | entity_type=order | entity_id=ORD_003 | customer=CUST_089 | total_amount=750 | items=[{"sku":"TOMATOES","qty":3,"price":120},{"sku":"SPINACH","qty":2,"price":80},{"sku":"ORANGES","qty":1,"price":150}]
+2025-12-27T09:46:00 | STOCK_VERIFIED | entity_type=inventory | entity_id=TOMATOES | available=3 | requested=3 | status=sufficient
+2025-12-27T09:46:00 | STOCK_VERIFIED | entity_type=inventory | entity_id=SPINACH | available=7 | requested=2 | status=sufficient
+2025-12-27T09:46:00 | STOCK_VERIFIED | entity_type=inventory | entity_id=ORANGES | available=37 | requested=1 | status=sufficient
+2025-12-27T09:50:00 | PAYMENT_RECEIVED | entity_type=payment | entity_id=PAY_003 | order_id=ORD_003 | amount=400 | method=cash | status=RECEIVED | notes="Customer paid partial amount, will complete later"
+2025-12-27T09:50:00 | ORDER_STATUS_UPDATED | entity_type=order | entity_id=ORD_003 | old_status=CREATED | new_status=PENDING | reason=partial_payment
+2025-12-27T09:50:00 | AMBIGUITY_LOGGED | entity_type=order | entity_id=ORD_003 | ambiguity_type=partial_payment_outstanding | amount_remaining=350 | notes="Customer promised to return with balance"
+
+2025-12-27T11:30:00 | PAYMENT_RECEIVED | entity_type=payment | entity_id=PAY_004 | order_id=ORD_003 | amount=350 | method=cash | status=RECEIVED | notes="Customer returned to complete payment"
+2025-12-27T11:30:00 | STOCK_DEDUCTED | entity_type=inventory | entity_id=TOMATOES | quantity_change=-3 | reason=sale | order_id=ORD_003
+2025-12-27T11:30:00 | STOCK_DEDUCTED | entity_type=inventory | entity_id=SPINACH | quantity_change=-2 | reason=sale | order_id=ORD_003
+2025-12-27T11:30:00 | STOCK_DEDUCTED | entity_type=inventory | entity_id=ORANGES | quantity_change=-1 | reason=sale | order_id=ORD_003
+2025-12-27T11:30:00 | ORDER_COMPLETED | entity_type=order | entity_id=ORD_003 | status=COMPLETED
+
+# === STOCK INSUFFICIENCY FAILURE ===
+
+2025-12-27T10:15:00 | ORDER_CREATED | entity_type=order | entity_id=ORD_004 | customer=CUST_034 | total_amount=1200 | items=[{"sku":"TOMATOES","qty":5,"price":120},{"sku":"POTATOES","qty":3,"price":70}]
+2025-12-27T10:16:00 | STOCK_VERIFIED | entity_type=inventory | entity_id=TOMATOES | available=0 | requested=5 | status=insufficient | notes="Tomatoes sold out during morning rush"
+2025-12-27T10:16:00 | STOCK_VERIFICATION_FAILED | entity_type=inventory | entity_id=TOMATOES | available=0 | requested=5 | reason=insufficient_stock
+2025-12-27T10:16:00 | ORDER_FAILED | entity_type=order | entity_id=ORD_004 | status=FAILED | failure_reason=insufficient_stock | failure_details={"TOMATOES":{"available":0,"requested":5}}
+2025-12-27T10:16:00 | PAYMENT_FAILED | entity_type=payment | entity_id=PAY_005 | order_id=ORD_004 | amount=0 | method=none | status=FAILED | reason=order_failed
+2025-12-27T10:16:00 | AMBIGUITY_LOGGED | entity_type=order | entity_id=ORD_004 | ambiguity_type=stock_availability_changed | notes="Customer expected tomatoes to be available based on yesterday's stock"
+
+# === M-PESA NETWORK FAILURE ===
+
+2025-12-27T12:00:00 | ORDER_CREATED | entity_type=order | entity_id=ORD_005 | customer=CUST_056 | total_amount=320 | items=[{"sku":"BANANAS","qty":2,"price":60},{"sku":"ORANGES","qty":1,"price":150}]
+2025-12-27T12:01:00 | STOCK_VERIFIED | entity_type=inventory | entity_id=BANANAS | available=9 | requested=2 | status=sufficient
+2025-12-27T12:01:00 | STOCK_VERIFIED | entity_type=inventory | entity_id=ORANGES | available=36 | requested=1 | status=sufficient
+2025-12-27T12:05:00 | PAYMENT_ATTEMPTED | entity_type=payment | entity_id=PAY_006 | order_id=ORD_005 | amount=320 | method=mpesa | status=PENDING | notes="M-Pesa STK push initiated"
+2025-12-27T12:07:00 | PAYMENT_TIMEOUT | entity_type=payment | entity_id=PAY_006 | order_id=ORD_005 | timeout_seconds=120 | reason=network_congestion | notes="Peak hour network congestion in Westlands"
+2025-12-27T12:07:00 | PAYMENT_FAILED | entity_type=payment | entity_id=PAY_006 | order_id=ORD_005 | amount=0 | method=mpesa | status=FAILED | reason=timeout
+2025-12-27T12:07:00 | ORDER_STATUS_UPDATED | entity_type=order | entity_id=ORD_005 | old_status=CREATED | new_status=PENDING | reason=payment_pending
+2025-12-27T12:07:00 | AMBIGUITY_LOGGED | entity_type=payment | entity_id=PAY_006 | ambiguity_type=mpesa_timeout_unclear | notes="Unclear if customer received STK push or if payment will arrive later"
+
+2025-12-27T12:45:00 | PAYMENT_RECEIVED | entity_type=payment | entity_id=PAY_007 | order_id=ORD_005 | amount=320 | method=mpesa | status=RECEIVED | reference=MPESA_ABC123 | notes="Delayed payment arrived after network recovery"
+2025-12-27T12:45:00 | STOCK_DEDUCTED | entity_type=inventory | entity_id=BANANAS | quantity_change=-2 | reason=sale | order_id=ORD_005
+2025-12-27T12:45:00 | STOCK_DEDUCTED | entity_type=inventory | entity_id=ORANGES | quantity_change=-1 | reason=sale | order_id=ORD_005
+2025-12-27T12:45:00 | ORDER_COMPLETED | entity_type=order | entity_id=ORD_005 | status=COMPLETED
+
+# === INVENTORY SPOILAGE EVENT ===
+
+2025-12-27T13:30:00 | INVENTORY_INSPECTION | entity_type=inventory | notes="Daily quality check - found spoiled spinach"
+2025-12-27T13:35:00 | STOCK_DEDUCTED | entity_type=inventory | entity_id=SPINACH | quantity_change=-2 | reason=spoilage | notes="2kg spinach spoiled due to heat exposure"
+2025-12-27T13:35:00 | AMBIGUITY_LOGGED | entity_type=inventory | entity_id=SPINACH | ambiguity_type=spoilage_estimation | notes="Estimated 2kg spoilage - actual amount may vary"
+
+# === BUSINESS CLOSURE ===
+
+2025-12-27T14:00:00 | BUSINESS_CLOSE | status=closed | daily_summary={"orders_completed":4,"total_revenue":2200,"stock_sold":{"TOMATOES":5,"ONIONS":1,"SPINACH":3,"BANANAS":5,"CARROTS":2,"CABBAGE":1,"ORANGES":2},"issues":{"partial_payments":1,"stockouts":1,"payment_delays":1}}
+2025-12-27T14:00:00 | DAILY_RECONCILIATION | cash_balance=2200 | mpesa_balance=970 | total_revenue=3170 | notes="Successful day despite network issues"
+
+# === NAIROBI-SPECIFIC OBSERVATIONS ===
+# - Partial payments common due to cash flow constraints
+# - M-Pesa network congestion during peak business hours
+# - Perishable stock requires constant quality monitoring
+# - Customer relationships built on trust for delayed payments
+# - Weather and traffic affect business operations
+# - Bargaining culture influences final transaction amounts
+# - Manual reconciliation required due to mixed payment methods

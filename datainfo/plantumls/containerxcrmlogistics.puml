@@ -1,0 +1,140 @@
+@startuml ContainerX_Full_System
+!theme plain
+skinparam shadowing false
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontSize 14
+
+title ContainerX – Modular Business Process Suite\n(Input-Agnostic Core + Optional Adapters)
+
+package "Optional Input/Output Adapters" #EEEEEE {
+  [WhatsApp Bot] #lightgreen
+  [SMS Gateway] #lightgreen
+  [Web Frontend / POS] #lightgreen
+  note right: Nice-to-have channels\nCore works without any
+}
+
+package "Central Core (Unbreakable Hub)" #lightblue {
+  [Central Hub\n(FastAPI + Event Bus)] as Hub
+  database "PostgreSQL\n(Merchants, Inventory,\nOrders, Customers)" as DB
+  [Logistics Tracker\n(OR-Tools Routing)] as Logistics
+  [Compliance & Payments\n(eTIMS + M-Pesa)] as Compliance
+  [CRM & Loyalty\n(Points, Rewards)] as CRM
+  [Reminder Engine\n(Retries & Fail-safes)] as Reminder
+}
+
+package "Future ContainerX Metered APIs" #FFEBEE {
+  note top: Extracted modules\nbecome public metered services
+  [ /inventory/update ] #pink
+  [ /dispatch/track ] #pink
+  [ /invoice/generate ] #pink
+  [ /pay/route ] #pink
+  [ /crm/reward ] #pink
+  [ /reminder/schedule ] #pink
+}
+
+' Connections
+WhatsApp Bot --> Hub : webhook / API events
+SMS Gateway --> Hub : webhook / API events
+Web Frontend / POS --> Hub : API calls
+
+Hub --> DB : read/write
+Hub --> Logistics
+Hub --> Compliance
+Hub --> CRM
+Hub --> Reminder
+
+Reminder --> SMS Gateway : fail-safe notifications
+Logistics --> Reminder : delay → reminder
+Compliance --> Reminder : payment fail → reminder
+
+' Extraction arrows
+Hub --> /inventory/update : extract
+Logistics --> /dispatch/track : extract
+Compliance --> /invoice/generate : extract
+Compliance --> /pay/route : extract
+CRM --> /crm/reward : extract
+Reminder --> /reminder/schedule : extract
+
+note bottom of Hub
+  Core is completely input-agnostic.
+  All business logic lives here.
+  Adapters are optional plugins.
+end note
+
+@enduml
+
+' ========================
+' Sequence: Order Flow (Core Only)
+@startuml ContainerX_Sequence_Order
+participant "External Adapter\n(WhatsApp/Web/etc)" as Adapter
+participant Hub
+participant DB
+participant Logistics
+participant Compliance
+participant Reminder
+
+Adapter -> Hub: POST /order/create {items, customer}
+activate Hub
+Hub -> DB: validate stock & customer
+alt stock available
+  Hub -> Logistics: allocate & route
+  Logistics --> Hub: route_id, ETA
+  Hub -> Compliance: generate eTIMS invoice
+  Compliance --> Hub: invoice_id, QR
+  Hub -> Compliance: initiate M-Pesa payment
+  Compliance --> Hub: payment_link
+  Hub --> DB: save order (state: pending_payment)
+  Hub --> Adapter: 201 {order_id, payment_link, QR}
+else stock low
+  Hub --> Reminder: queue low-stock reminder
+  Reminder --> Adapter: "Low stock – reorder?"
+  Hub --> Adapter: 200 {warning: low_stock}
+end
+note right: Core handles all logic\nAdapter just forwards
+
+@enduml
+
+' ========================
+' State Machine: Order / Delivery
+@startuml ContainerX_State_Order
+[*] --> Pending
+Pending --> Stock_Check : order received
+Stock_Check --> Low_Stock : insufficient
+Stock_Check --> Allocated : sufficient
+Low_Stock --> Reminder_Queued : trigger restock reminder
+Reminder_Queued --> Stock_Check : retry after delay
+Allocated --> Dispatched : route assigned
+Dispatched --> In_Transit : driver pickup
+In_Transit --> Delayed : ETA missed
+Delayed --> Reminder_Queued : notify customer
+In_Transit --> Delivered : confirmation
+Delivered --> Payment_Pending : invoice sent
+Payment_Pending --> Paid : M-Pesa success
+Paid --> Completed : loyalty points added
+Delivered --> [*]
+Completed --> [*]
+
+state Failed {
+  [*] --> Failed_State
+}
+Low_Stock --> Failed_State : repeated failure
+Delayed --> Failed_State : no resolution
+Failed_State --> [*]
+
+@enduml
+
+' ========================
+' State Machine: Inventory Item
+@startuml ContainerX_State_Inventory
+[*] --> In_Stock
+In_Stock --> Low_Stock : qty < threshold
+Low_Stock --> Critical : qty < critical_threshold
+Critical --> Reminder_Queued : auto SMS to owner
+Reminder_Queued --> Restock_Ordered : owner confirms reorder
+Restock_Ordered --> In_Stock : stock received
+Low_Stock --> In_Stock : manual restock
+Critical --> Out_of_Stock : qty = 0
+Out_of_Stock --> Blocked : prevent new orders
+Blocked --> In_Stock : restock received
+
+@enduml

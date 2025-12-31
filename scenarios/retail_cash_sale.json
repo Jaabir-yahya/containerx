@@ -1,0 +1,7 @@
+{
+    "customer": "John",
+    "items": [
+      { "sku": "MILK001", "qty": 2, "price": 100 }
+    ],
+    "payment": 200
+  }

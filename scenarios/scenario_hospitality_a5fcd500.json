@@ -1,0 +1,1217 @@
+{
+  "name": "Restaurant/Cafe - Estate",
+  "description": "A busy Nairobi restaurant/cafe serving local and continental dishes in Estate.",
+  "modules": [
+    "bookings",
+    "sales",
+    "inventory",
+    "payments",
+    "reservations",
+    "basic_loyalty"
+  ],
+  "inventory": {
+    "RICE": {
+      "quantity": 34,
+      "unit": "kg",
+      "category": "ingredients",
+      "last_updated": "2025-12-26T21:49:44.075681"
+    },
+    "CHICKEN": {
+      "quantity": 22,
+      "unit": "kg",
+      "category": "ingredients",
+      "last_updated": "2025-12-27T14:49:44.075684"
+    },
+    "BEEF": {
+      "quantity": 43,
+      "unit": "kg",
+      "category": "ingredients",
+      "last_updated": "2025-12-27T05:49:44.075686"
+    },
+    "VEGETABLES": {
+      "quantity": 27,
+      "unit": "kg",
+      "category": "ingredients",
+      "last_updated": "2025-12-27T03:49:44.075688"
+    },
+    "OIL": {
+      "quantity": 40,
+      "unit": "kg",
+      "category": "ingredients",
+      "last_updated": "2025-12-27T00:49:44.075690"
+    },
+    "TEA": {
+      "quantity": 19,
+      "unit": "units",
+      "category": "beverages",
+      "last_updated": "2025-12-26T23:49:44.075692"
+    },
+    "COFFEE": {
+      "quantity": 43,
+      "unit": "units",
+      "category": "beverages",
+      "last_updated": "2025-12-26T22:49:44.075694"
+    },
+    "SODA": {
+      "quantity": 23,
+      "unit": "units",
+      "category": "beverages",
+      "last_updated": "2025-12-27T08:49:44.075695"
+    },
+    "JUICE": {
+      "quantity": 5,
+      "unit": "units",
+      "category": "beverages",
+      "last_updated": "2025-12-26T20:49:44.075697"
+    },
+    "WATER": {
+      "quantity": 5,
+      "unit": "units",
+      "category": "beverages",
+      "last_updated": "2025-12-27T05:49:44.075699"
+    },
+    "BREAD": {
+      "quantity": 12,
+      "unit": "units",
+      "category": "bakery",
+      "last_updated": "2025-12-27T16:49:44.075701"
+    },
+    "CAKE": {
+      "quantity": 12,
+      "unit": "units",
+      "category": "bakery",
+      "last_updated": "2025-12-27T10:49:44.075703"
+    },
+    "COOKIES": {
+      "quantity": 4,
+      "unit": "units",
+      "category": "bakery",
+      "last_updated": "2025-12-26T22:49:44.075705"
+    },
+    "MANDAZI": {
+      "quantity": 42,
+      "unit": "units",
+      "category": "bakery",
+      "last_updated": "2025-12-26T23:49:44.075706"
+    }
+  },
+  "customers": [
+    {
+      "id": "CUST_60cf58e3",
+      "name": "Rose Chebet",
+      "phone": "0752333353",
+      "email": null,
+      "payment_preference": "mpesa",
+      "total_orders": 11,
+      "total_spent": 3680,
+      "last_order": "2025-12-02T18:49:44.075715",
+      "preferred_table": "outdoor",
+      "dietary_restrictions": "halal"
+    },
+    {
+      "id": "CUST_a9479509",
+      "name": "Lucy Adhiambo",
+      "phone": "0787813002",
+      "email": null,
+      "payment_preference": "mpesa",
+      "total_orders": 10,
+      "total_spent": 3758,
+      "last_order": "2025-12-12T18:49:44.075721",
+      "preferred_table": null,
+      "dietary_restrictions": null
+    },
+    {
+      "id": "CUST_2c7dea71",
+      "name": "Mary Wanjiku",
+      "phone": "0724033141",
+      "email": null,
+      "payment_preference": "mixed",
+      "total_orders": 14,
+      "total_spent": 588,
+      "last_order": "2025-12-24T18:49:44.075727",
+      "preferred_table": "corner",
+      "dietary_restrictions": null
+    },
+    {
+      "id": "CUST_c64562a6",
+      "name": "Sarah Nyambura",
+      "phone": "0796662334",
+      "email": null,
+      "payment_preference": "mpesa",
+      "total_orders": 10,
+      "total_spent": 13298,
+      "last_order": "2025-12-19T18:49:44.075732",
+      "preferred_table": "corner",
+      "dietary_restrictions": null
+    },
+    {
+      "id": "CUST_1cb52288",
+      "name": "Faith Wanjira",
+      "phone": "0745451485",
+      "email": null,
+      "payment_preference": "mpesa",
+      "total_orders": 5,
+      "total_spent": 11927,
+      "last_order": "2025-12-22T18:49:44.075737",
+      "preferred_table": "outdoor",
+      "dietary_restrictions": null
+    },
+    {
+      "id": "CUST_086ee243",
+      "name": "John Maina",
+      "phone": "0751014349",
+      "email": null,
+      "payment_preference": "cash",
+      "total_orders": 10,
+      "total_spent": 9025,
+      "last_order": "2025-12-25T18:49:44.075742",
+      "preferred_table": "corner",
+      "dietary_restrictions": null
+    },
+    {
+      "id": "CUST_0ecb5ae0",
+      "name": "Peter Kiprop",
+      "phone": "0792765970",
+      "email": null,
+      "payment_preference": "mpesa",
+      "total_orders": 2,
+      "total_spent": 8003,
+      "last_order": "2025-12-20T18:49:44.075748",
+      "preferred_table": null,
+      "dietary_restrictions": null
+    },
+    {
+      "id": "CUST_b4ce6f00",
+      "name": "Samuel Kipkorir",
+      "phone": "0776499622",
+      "email": null,
+      "payment_preference": "mixed",
+      "total_orders": 14,
+      "total_spent": 9996,
+      "last_order": "2025-12-10T18:49:44.075753",
+      "preferred_table": null,
+      "dietary_restrictions": "halal"
+    }
+  ],
+  "orders": [
+    {
+      "id": "BOOKING_9fd8d3fd",
+      "customer_id": "CUST_1cb52288",
+      "type": "booking",
+      "party_size": 12,
+      "total_amount": 13512,
+      "deposit_amount": 1296,
+      "status": "PENDING",
+      "booking_time": "2025-12-27T19:49:44.075761",
+      "created_at": "2025-12-27T12:49:44.075762",
+      "notes": "Table booking for 12 people"
+    },
+    {
+      "id": "ORDER_74bcca43",
+      "customer_id": "CUST_a9479509",
+      "type": "takeaway",
+      "items": [
+        {
+          "sku": "COFFEE",
+          "quantity": 3,
+          "price_per_unit": 498,
+          "total": 1494
+        },
+        {
+          "sku": "CHICKEN",
+          "quantity": 2,
+          "price_per_unit": 128,
+          "total": 256
+        },
+        {
+          "sku": "SODA",
+          "quantity": 3,
+          "price_per_unit": 774,
+          "total": 2322
+        },
+        {
+          "sku": "WATER",
+          "quantity": 3,
+          "price_per_unit": 784,
+          "total": 2352
+        }
+      ],
+      "total_amount": 6424,
+      "status": "CREATED",
+      "created_at": "2025-12-26T20:49:44.075773",
+      "notes": "Takeaway order for Lucy Adhiambo"
+    },
+    {
+      "id": "BOOKING_2bc7961c",
+      "customer_id": "CUST_2c7dea71",
+      "type": "booking",
+      "party_size": 4,
+      "total_amount": 3224,
+      "deposit_amount": 896,
+      "status": "CANCELLED",
+      "booking_time": "2025-12-28T21:49:44.075780",
+      "created_at": "2025-12-26T18:49:44.075782",
+      "notes": "Table booking for 4 people"
+    },
+    {
+      "id": "BOOKING_e4822c0c",
+      "customer_id": "CUST_c64562a6",
+      "type": "booking",
+      "party_size": 3,
+      "total_amount": 4278,
+      "deposit_amount": 561,
+      "status": "CANCELLED",
+      "booking_time": "2025-12-30T14:49:44.075788",
+      "created_at": "2025-12-27T14:49:44.075789",
+      "notes": "Table booking for 3 people"
+    },
+    {
+      "id": "ORDER_e2f8ea6d",
+      "customer_id": "CUST_0ecb5ae0",
+      "type": "takeaway",
+      "items": [
+        {
+          "sku": "BEEF",
+          "quantity": 3,
+          "price_per_unit": 300,
+          "total": 900
+        },
+        {
+          "sku": "SODA",
+          "quantity": 2,
+          "price_per_unit": 670,
+          "total": 1340
+        }
+      ],
+      "total_amount": 2240,
+      "status": "COMPLETED",
+      "created_at": "2025-12-27T07:49:44.075796",
+      "notes": "Takeaway order for Peter Kiprop"
+    },
+    {
+      "id": "ORDER_080257ca",
+      "customer_id": "CUST_60cf58e3",
+      "type": "takeaway",
+      "items": [
+        {
+          "sku": "WATER",
+          "quantity": 2,
+          "price_per_unit": 774,
+          "total": 1548
+        },
+        {
+          "sku": "CAKE",
+          "quantity": 3,
+          "price_per_unit": 385,
+          "total": 1155
+        },
+        {
+          "sku": "MANDAZI",
+          "quantity": 1,
+          "price_per_unit": 699,
+          "total": 699
+        },
+        {
+          "sku": "CHICKEN",
+          "quantity": 3,
+          "price_per_unit": 565,
+          "total": 1695
+        },
+        {
+          "sku": "VEGETABLES",
+          "quantity": 3,
+          "price_per_unit": 768,
+          "total": 2304
+        }
+      ],
+      "total_amount": 7401,
+      "status": "PENDING",
+      "created_at": "2025-12-27T02:49:44.075805",
+      "notes": "Takeaway order for Rose Chebet"
+    },
+    {
+      "id": "ORDER_a98f1362",
+      "customer_id": "CUST_0ecb5ae0",
+      "type": "takeaway",
+      "items": [
+        {
+          "sku": "TEA",
+          "quantity": 2,
+          "price_per_unit": 264,
+          "total": 528
+        },
+        {
+          "sku": "JUICE",
+          "quantity": 1,
+          "price_per_unit": 732,
+          "total": 732
+        }
+      ],
+      "total_amount": 1260,
+      "status": "COMPLETED",
+      "created_at": "2025-12-27T11:49:44.075812",
+      "notes": "Takeaway order for Peter Kiprop"
+    },
+    {
+      "id": "ORDER_5ae673c1",
+      "customer_id": "CUST_b4ce6f00",
+      "type": "dine_in",
+      "items": [
+        {
+          "sku": "COFFEE",
+          "quantity": 3,
+          "price_per_unit": 303,
+          "total": 909
+        },
+        {
+          "sku": "OIL",
+          "quantity": 3,
+          "price_per_unit": 184,
+          "total": 552
+        },
+        {
+          "sku": "SODA",
+          "quantity": 3,
+          "price_per_unit": 115,
+          "total": 345
+        }
+      ],
+      "total_amount": 1806,
+      "status": "PENDING",
+      "created_at": "2025-12-26T19:49:44.075819",
+      "notes": "Dine_In order for Samuel Kipkorir"
+    },
+    {
+      "id": "ORDER_d6814975",
+      "customer_id": "CUST_086ee243",
+      "type": "dine_in",
+      "items": [
+        {
+          "sku": "CHICKEN",
+          "quantity": 1,
+          "price_per_unit": 328,
+          "total": 328
+        },
+        {
+          "sku": "TEA",
+          "quantity": 3,
+          "price_per_unit": 357,
+          "total": 1071
+        },
+        {
+          "sku": "TEA",
+          "quantity": 1,
+          "price_per_unit": 159,
+          "total": 159
+        },
+        {
+          "sku": "SODA",
+          "quantity": 2,
+          "price_per_unit": 180,
+          "total": 360
+        },
+        {
+          "sku": "MANDAZI",
+          "quantity": 3,
+          "price_per_unit": 213,
+          "total": 639
+        },
+        {
+          "sku": "JUICE",
+          "quantity": 3,
+          "price_per_unit": 531,
+          "total": 1593
+        }
+      ],
+      "total_amount": 4150,
+      "status": "PENDING",
+      "created_at": "2025-12-27T12:49:44.075828",
+      "notes": "Dine_In order for John Maina"
+    },
+    {
+      "id": "ORDER_bee0a98d",
+      "customer_id": "CUST_2c7dea71",
+      "type": "dine_in",
+      "items": [
+        {
+          "sku": "MANDAZI",
+          "quantity": 2,
+          "price_per_unit": 648,
+          "total": 1296
+        },
+        {
+          "sku": "JUICE",
+          "quantity": 1,
+          "price_per_unit": 195,
+          "total": 195
+        },
+        {
+          "sku": "JUICE",
+          "quantity": 2,
+          "price_per_unit": 300,
+          "total": 600
+        },
+        {
+          "sku": "MANDAZI",
+          "quantity": 2,
+          "price_per_unit": 481,
+          "total": 962
+        },
+        {
+          "sku": "CAKE",
+          "quantity": 1,
+          "price_per_unit": 342,
+          "total": 342
+        }
+      ],
+      "total_amount": 3395,
+      "status": "PENDING",
+      "created_at": "2025-12-27T06:49:44.075836",
+      "notes": "Dine_In order for Mary Wanjiku"
+    },
+    {
+      "id": "BOOKING_424ce7ed",
+      "customer_id": "CUST_c64562a6",
+      "type": "booking",
+      "party_size": 7,
+      "total_amount": 5642,
+      "deposit_amount": 1722,
+      "status": "COMPLETED",
+      "booking_time": "2025-12-28T04:49:44.075841",
+      "created_at": "2025-12-26T12:49:44.075843",
+      "notes": "Table booking for 7 people"
+    },
+    {
+      "id": "BOOKING_6de42b8b",
+      "customer_id": "CUST_a9479509",
+      "type": "booking",
+      "party_size": 9,
+      "total_amount": 9504,
+      "deposit_amount": 1728,
+      "status": "COMPLETED",
+      "booking_time": "2025-12-30T12:49:44.075848",
+      "created_at": "2025-12-26T02:49:44.075849",
+      "notes": "Table booking for 9 people"
+    },
+    {
+      "id": "ORDER_43ef9295",
+      "customer_id": "CUST_c64562a6",
+      "type": "dine_in",
+      "items": [
+        {
+          "sku": "COFFEE",
+          "quantity": 2,
+          "price_per_unit": 601,
+          "total": 1202
+        },
+        {
+          "sku": "VEGETABLES",
+          "quantity": 2,
+          "price_per_unit": 415,
+          "total": 830
+        },
+        {
+          "sku": "TEA",
+          "quantity": 1,
+          "price_per_unit": 759,
+          "total": 759
+        },
+        {
+          "sku": "COFFEE",
+          "quantity": 3,
+          "price_per_unit": 292,
+          "total": 876
+        },
+        {
+          "sku": "TEA",
+          "quantity": 3,
+          "price_per_unit": 747,
+          "total": 2241
+        }
+      ],
+      "total_amount": 5908,
+      "status": "COMPLETED",
+      "created_at": "2025-12-27T16:49:44.075858",
+      "notes": "Dine_In order for Sarah Nyambura"
+    },
+    {
+      "id": "ORDER_ce6bda1f",
+      "customer_id": "CUST_a9479509",
+      "type": "dine_in",
+      "items": [
+        {
+          "sku": "MANDAZI",
+          "quantity": 3,
+          "price_per_unit": 428,
+          "total": 1284
+        },
+        {
+          "sku": "COFFEE",
+          "quantity": 3,
+          "price_per_unit": 167,
+          "total": 501
+        },
+        {
+          "sku": "SODA",
+          "quantity": 3,
+          "price_per_unit": 368,
+          "total": 1104
+        },
+        {
+          "sku": "BEEF",
+          "quantity": 3,
+          "price_per_unit": 791,
+          "total": 2373
+        },
+        {
+          "sku": "RICE",
+          "quantity": 3,
+          "price_per_unit": 502,
+          "total": 1506
+        }
+      ],
+      "total_amount": 6768,
+      "status": "COMPLETED",
+      "created_at": "2025-12-27T09:49:44.075866",
+      "notes": "Dine_In order for Lucy Adhiambo"
+    },
+    {
+      "id": "ORDER_93b23a3b",
+      "customer_id": "CUST_1cb52288",
+      "type": "dine_in",
+      "items": [
+        {
+          "sku": "WATER",
+          "quantity": 1,
+          "price_per_unit": 664,
+          "total": 664
+        },
+        {
+          "sku": "TEA",
+          "quantity": 3,
+          "price_per_unit": 284,
+          "total": 852
+        },
+        {
+          "sku": "CAKE",
+          "quantity": 2,
+          "price_per_unit": 219,
+          "total": 438
+        }
+      ],
+      "total_amount": 1954,
+      "status": "PENDING",
+      "created_at": "2025-12-27T00:49:44.075873",
+      "notes": "Dine_In order for Faith Wanjira"
+    }
+  ],
+  "payments": [
+    {
+      "id": "PAY_4ef9e224",
+      "order_id": "BOOKING_9fd8d3fd",
+      "amount": 4852,
+      "method": "mpesa",
+      "reference": "REF_68ac8b92-d83",
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T16:49:44.075880"
+    },
+    {
+      "id": "PAY_3205f212",
+      "order_id": "ORDER_74bcca43",
+      "amount": 5338,
+      "method": "mixed",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T16:49:44.075885"
+    },
+    {
+      "id": "PAY_7e0f43e0",
+      "order_id": "ORDER_e2f8ea6d",
+      "amount": 2240,
+      "method": "card",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T07:49:44.075796"
+    },
+    {
+      "id": "PAY_897e3329",
+      "order_id": "ORDER_080257ca",
+      "amount": 1049,
+      "method": "mixed",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T10:49:44.075893"
+    },
+    {
+      "id": "PAY_62ecea9f",
+      "order_id": "ORDER_a98f1362",
+      "amount": 1260,
+      "method": "card",
+      "reference": "REF_50657fba-1ae",
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T11:49:44.075812"
+    },
+    {
+      "id": "PAY_3d668e9d",
+      "order_id": "ORDER_5ae673c1",
+      "amount": 1681,
+      "method": "cash",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T15:49:44.075903"
+    },
+    {
+      "id": "PAY_1a945eea",
+      "order_id": "ORDER_d6814975",
+      "amount": 848,
+      "method": "mpesa",
+      "reference": "REF_3b571ee0-506",
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T11:49:44.075909"
+    },
+    {
+      "id": "PAY_58060cfe",
+      "order_id": "ORDER_bee0a98d",
+      "amount": 3169,
+      "method": "mpesa",
+      "reference": "REF_eaffa72a-d7c",
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T06:49:44.075916"
+    },
+    {
+      "id": "PAY_7af6bc46",
+      "order_id": "BOOKING_424ce7ed",
+      "amount": 5642,
+      "method": "mpesa",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-26T12:49:44.075843"
+    },
+    {
+      "id": "PAY_d8fdca3c",
+      "order_id": "BOOKING_6de42b8b",
+      "amount": 9504,
+      "method": "mpesa",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-26T02:49:44.075849"
+    },
+    {
+      "id": "PAY_882b1788",
+      "order_id": "ORDER_43ef9295",
+      "amount": 5908,
+      "method": "cash",
+      "reference": null,
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T16:49:44.075858"
+    },
+    {
+      "id": "PAY_dcd9add8",
+      "order_id": "ORDER_ce6bda1f",
+      "amount": 6768,
+      "method": "mpesa",
+      "reference": "REF_835416d8-abd",
+      "status": "RECEIVED",
+      "created_at": "2025-12-27T09:49:44.075866"
+    }
+  ],
+  "event_log": [
+    {
+      "id": "cf0b32c9-4608-45c4-bcdb-3ab5ee35f161",
+      "entity_type": "order",
+      "entity_id": "BOOKING_6de42b8b",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_a9479509",
+        "total_amount": 9504,
+        "item_count": 0
+      },
+      "created_at": "2025-12-26T02:49:44.075849"
+    },
+    {
+      "id": "44924068-f86c-47ef-a205-189293241d1c",
+      "entity_type": "payment",
+      "entity_id": "PAY_d8fdca3c",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "BOOKING_6de42b8b",
+        "amount": 9504,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-26T02:49:44.075849"
+    },
+    {
+      "id": "4c67d04b-9526-4696-a326-5ffd72f107ad",
+      "entity_type": "order",
+      "entity_id": "BOOKING_6de42b8b",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-26T03:19:44.075849"
+    },
+    {
+      "id": "994c3ba6-fae6-46d6-9149-20dae6439d4a",
+      "entity_type": "order",
+      "entity_id": "BOOKING_424ce7ed",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_c64562a6",
+        "total_amount": 5642,
+        "item_count": 0
+      },
+      "created_at": "2025-12-26T12:49:44.075843"
+    },
+    {
+      "id": "23f563e9-9a78-4051-b701-24a8c112979a",
+      "entity_type": "payment",
+      "entity_id": "PAY_7af6bc46",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "BOOKING_424ce7ed",
+        "amount": 5642,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-26T12:49:44.075843"
+    },
+    {
+      "id": "f117d86b-cef5-4913-8c8e-a3ce4e6d62c0",
+      "entity_type": "order",
+      "entity_id": "BOOKING_424ce7ed",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-26T13:19:44.075843"
+    },
+    {
+      "id": "b4a552b8-e917-4907-babe-848263acefe8",
+      "entity_type": "order",
+      "entity_id": "BOOKING_2bc7961c",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_2c7dea71",
+        "total_amount": 3224,
+        "item_count": 0
+      },
+      "created_at": "2025-12-26T18:49:44.075782"
+    },
+    {
+      "id": "7e396189-d40c-4aa3-b63d-3d43866f0ffd",
+      "entity_type": "order",
+      "entity_id": "ORDER_5ae673c1",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_b4ce6f00",
+        "total_amount": 1806,
+        "item_count": 3
+      },
+      "created_at": "2025-12-26T19:49:44.075819"
+    },
+    {
+      "id": "7c1fb575-4c9b-444a-ad16-43c15a469b43",
+      "entity_type": "order",
+      "entity_id": "ORDER_74bcca43",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_a9479509",
+        "total_amount": 6424,
+        "item_count": 4
+      },
+      "created_at": "2025-12-26T20:49:44.075773"
+    },
+    {
+      "id": "4694ee41-331a-40ec-a321-f15ec713abcc",
+      "entity_type": "inventory",
+      "entity_id": "SODA",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": 3,
+        "reason": "sale"
+      },
+      "created_at": "2025-12-26T21:49:44.076026"
+    },
+    {
+      "id": "9d325307-ebfc-4820-888e-dc25025da4cd",
+      "entity_type": "inventory",
+      "entity_id": "TEA",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -7,
+        "reason": "adjustment"
+      },
+      "created_at": "2025-12-26T23:49:44.076022"
+    },
+    {
+      "id": "a14978b3-9d3b-4b9c-a5af-9b5fccbf1209",
+      "entity_type": "order",
+      "entity_id": "ORDER_93b23a3b",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_1cb52288",
+        "total_amount": 1954,
+        "item_count": 3
+      },
+      "created_at": "2025-12-27T00:49:44.075873"
+    },
+    {
+      "id": "25d4b642-0310-4516-93db-fa26cd67ebaa",
+      "entity_type": "order",
+      "entity_id": "ORDER_080257ca",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_60cf58e3",
+        "total_amount": 7401,
+        "item_count": 5
+      },
+      "created_at": "2025-12-27T02:49:44.075805"
+    },
+    {
+      "id": "db45266e-5d3d-4a85-b651-46c601e57213",
+      "entity_type": "inventory",
+      "entity_id": "VEGETABLES",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -4,
+        "reason": "sale"
+      },
+      "created_at": "2025-12-27T03:49:44.076030"
+    },
+    {
+      "id": "6b317004-3a91-434a-bfff-2ee9b742b6a1",
+      "entity_type": "order",
+      "entity_id": "ORDER_bee0a98d",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_2c7dea71",
+        "total_amount": 3395,
+        "item_count": 5
+      },
+      "created_at": "2025-12-27T06:49:44.075836"
+    },
+    {
+      "id": "52a31881-4889-48ee-9b6e-c2e19a3a2868",
+      "entity_type": "payment",
+      "entity_id": "PAY_58060cfe",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_bee0a98d",
+        "amount": 3169,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-27T06:49:44.075916"
+    },
+    {
+      "id": "242e042d-3181-4dc4-afd2-bc0d3a2f916e",
+      "entity_type": "order",
+      "entity_id": "ORDER_e2f8ea6d",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_0ecb5ae0",
+        "total_amount": 2240,
+        "item_count": 2
+      },
+      "created_at": "2025-12-27T07:49:44.075796"
+    },
+    {
+      "id": "26b511d8-9d4c-41ac-acb9-f8ea53e29fbf",
+      "entity_type": "payment",
+      "entity_id": "PAY_7e0f43e0",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_e2f8ea6d",
+        "amount": 2240,
+        "method": "card"
+      },
+      "created_at": "2025-12-27T07:49:44.075796"
+    },
+    {
+      "id": "d4920935-4645-48f6-a542-08f4c780cfb4",
+      "entity_type": "order",
+      "entity_id": "ORDER_e2f8ea6d",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-27T08:19:44.075796"
+    },
+    {
+      "id": "d9920731-f0f2-448d-9870-1055c91b7573",
+      "entity_type": "order",
+      "entity_id": "ORDER_ce6bda1f",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_a9479509",
+        "total_amount": 6768,
+        "item_count": 5
+      },
+      "created_at": "2025-12-27T09:49:44.075866"
+    },
+    {
+      "id": "598ebefe-6ada-4eb6-bd37-dabd74664a42",
+      "entity_type": "payment",
+      "entity_id": "PAY_dcd9add8",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_ce6bda1f",
+        "amount": 6768,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-27T09:49:44.075866"
+    },
+    {
+      "id": "6a198e67-0dce-4c66-ae9c-968113fc3639",
+      "entity_type": "order",
+      "entity_id": "ORDER_ce6bda1f",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-27T10:19:44.075866"
+    },
+    {
+      "id": "db3a4958-0db8-4dfb-8998-84e0d4afa628",
+      "entity_type": "payment",
+      "entity_id": "PAY_897e3329",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_080257ca",
+        "amount": 1049,
+        "method": "mixed"
+      },
+      "created_at": "2025-12-27T10:49:44.075893"
+    },
+    {
+      "id": "68700a7e-eb59-4d9e-8add-4b99b4563bd2",
+      "entity_type": "order",
+      "entity_id": "ORDER_a98f1362",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_0ecb5ae0",
+        "total_amount": 1260,
+        "item_count": 2
+      },
+      "created_at": "2025-12-27T11:49:44.075812"
+    },
+    {
+      "id": "1420cc4f-6b0c-4553-82f3-6193f9f58018",
+      "entity_type": "payment",
+      "entity_id": "PAY_62ecea9f",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_a98f1362",
+        "amount": 1260,
+        "method": "card"
+      },
+      "created_at": "2025-12-27T11:49:44.075812"
+    },
+    {
+      "id": "e6aff6dd-6d63-4859-85ba-8e646f397f3e",
+      "entity_type": "payment",
+      "entity_id": "PAY_1a945eea",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_d6814975",
+        "amount": 848,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-27T11:49:44.075909"
+    },
+    {
+      "id": "2a24ce79-48af-4d6b-8ec7-56eeb0b12514",
+      "entity_type": "order",
+      "entity_id": "ORDER_a98f1362",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-27T12:19:44.075812"
+    },
+    {
+      "id": "2bc3ef83-3a25-40dd-b75b-8c83cb2213ae",
+      "entity_type": "order",
+      "entity_id": "BOOKING_9fd8d3fd",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_1cb52288",
+        "total_amount": 13512,
+        "item_count": 0
+      },
+      "created_at": "2025-12-27T12:49:44.075762"
+    },
+    {
+      "id": "155d0308-ca84-47f8-98c5-6f0b9ce1847a",
+      "entity_type": "order",
+      "entity_id": "ORDER_d6814975",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_086ee243",
+        "total_amount": 4150,
+        "item_count": 6
+      },
+      "created_at": "2025-12-27T12:49:44.075828"
+    },
+    {
+      "id": "ef96bf5c-08a3-4287-9e98-c0f8ae16293f",
+      "entity_type": "order",
+      "entity_id": "BOOKING_e4822c0c",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_c64562a6",
+        "total_amount": 4278,
+        "item_count": 0
+      },
+      "created_at": "2025-12-27T14:49:44.075789"
+    },
+    {
+      "id": "307faef9-0bb7-414c-b2a5-1b18dc7c19c7",
+      "entity_type": "payment",
+      "entity_id": "PAY_3d668e9d",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_5ae673c1",
+        "amount": 1681,
+        "method": "cash"
+      },
+      "created_at": "2025-12-27T15:49:44.075903"
+    },
+    {
+      "id": "3df3bd66-36c2-4775-adc8-1d681f4aa633",
+      "entity_type": "order",
+      "entity_id": "ORDER_43ef9295",
+      "action": "created",
+      "metadata": {
+        "customer_id": "CUST_c64562a6",
+        "total_amount": 5908,
+        "item_count": 5
+      },
+      "created_at": "2025-12-27T16:49:44.075858"
+    },
+    {
+      "id": "ca5c8d4a-84db-4e25-8acb-8d4d87fd2d5c",
+      "entity_type": "payment",
+      "entity_id": "PAY_882b1788",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_43ef9295",
+        "amount": 5908,
+        "method": "cash"
+      },
+      "created_at": "2025-12-27T16:49:44.075858"
+    },
+    {
+      "id": "c9bb06b3-161e-402a-b6e9-6de128d370c6",
+      "entity_type": "payment",
+      "entity_id": "PAY_4ef9e224",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "BOOKING_9fd8d3fd",
+        "amount": 4852,
+        "method": "mpesa"
+      },
+      "created_at": "2025-12-27T16:49:44.075880"
+    },
+    {
+      "id": "d9009325-f027-4731-a443-b30df22b5ea6",
+      "entity_type": "payment",
+      "entity_id": "PAY_3205f212",
+      "action": "recorded",
+      "metadata": {
+        "order_id": "ORDER_74bcca43",
+        "amount": 5338,
+        "method": "mixed"
+      },
+      "created_at": "2025-12-27T16:49:44.075885"
+    },
+    {
+      "id": "ad80ac9a-521f-4696-be76-84efd5027999",
+      "entity_type": "inventory",
+      "entity_id": "RICE",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -4,
+        "reason": "sale"
+      },
+      "created_at": "2025-12-27T16:49:44.076018"
+    },
+    {
+      "id": "a36db74d-1c13-4ac2-bc04-40aa9859c2a7",
+      "entity_type": "inventory",
+      "entity_id": "BEEF",
+      "action": "adjusted",
+      "metadata": {
+        "quantity_change": -3,
+        "reason": "adjustment"
+      },
+      "created_at": "2025-12-27T16:49:44.076034"
+    },
+    {
+      "id": "3a9d53ac-e720-4913-b52d-69b0af5e7c05",
+      "entity_type": "order",
+      "entity_id": "ORDER_43ef9295",
+      "action": "completed",
+      "metadata": {
+        "reason": "full_payment"
+      },
+      "created_at": "2025-12-27T17:19:44.075858"
+    }
+  ],
+  "goals": [
+    "Test booking and reservation workflows",
+    "Validate ingredient stock management",
+    "Simulate peak hour chaos and delays",
+    "Test deposit and advance payment handling"
+  ],
+  "challenges": [
+    "Peak hours cause booking conflicts",
+    "Ingredients spoil or run out unexpectedly",
+    "Customers cancel or no-show after deposits",
+    "M-Pesa payments delay during busy periods"
+  ],
+  "notes": [
+    "Multi-step customer journey (book \u2192 arrive \u2192 order \u2192 pay)",
+    "Advance deposits common for groups",
+    "Ingredient stock affects menu availability",
+    "Table/reservation management critical"
+  ],
+  "id": "a5fcd500-474e-4cbd-9a1c-a4562ecccec0",
+  "industry": "hospitality",
+  "generated_at": "2025-12-27T18:49:44.076044",
+  "complexity": "medium",
+  "version": "1.0",
+  "future_hooks": {
+    "multi_tenant": {
+      "enabled": true,
+      "isolation_level": "database",
+      "scaling_strategy": "horizontal"
+    },
+    "saas_integrations": {
+      "whatsapp_business": {
+        "status": "planned",
+        "priority": "high"
+      },
+      "mpesa_deep_integration": {
+        "status": "planned",
+        "priority": "high"
+      },
+      "email_sms_notifications": {
+        "status": "planned",
+        "priority": "medium"
+      }
+    },
+    "modules": {
+      "table_reservations": {
+        "status": "implemented",
+        "complexity": "high"
+      },
+      "menu_management": {
+        "status": "planned",
+        "complexity": "medium"
+      },
+      "customer_loyalty": {
+        "status": "planned",
+        "complexity": "medium"
+      }
+    }
+  }
+}

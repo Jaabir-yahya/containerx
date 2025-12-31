@@ -1,0 +1,83 @@
+{
+  "core_modules": {
+    "sales": {
+      "enabled": true,
+      "version": "1.0",
+      "constraints": ["perishable_stock_verification", "partial_payment_support"],
+      "nairobi_specific": ["cash_bargaining", "mpesa_network_delays"]
+    },
+    "inventory": {
+      "enabled": true,
+      "version": "1.0",
+      "constraints": ["real_time_stock_tracking", "expiry_alerts"],
+      "nairobi_specific": ["visual_quality_inspection", "daily_restocking"]
+    },
+    "payments": {
+      "enabled": true,
+      "version": "1.0",
+      "constraints": ["idempotent_processing", "mixed_payment_methods"],
+      "nairobi_specific": ["mpesa_async_callbacks", "cash_reconciliation"]
+    }
+  },
+  "optional_modules": {
+    "basic_analytics": {
+      "enabled": true,
+      "version": "1.0",
+      "features": ["daily_sales_summary", "popular_items_tracking"],
+      "nairobi_specific": ["cash_flow_analysis", "seasonal_demand_patterns"]
+    },
+    "customer_loyalty": {
+      "enabled": false,
+      "version": "1.0",
+      "reason": "scenario_local_only",
+      "nairobi_specific": ["verbal_relationships", "neighborhood_customers"]
+    },
+    "supplier_management": {
+      "enabled": false,
+      "version": "1.0",
+      "reason": "scenario_local_only",
+      "nairobi_specific": ["daily_market_visits", "cash_wholesale_payments"]
+    }
+  },
+  "nairobi_adaptations": {
+    "offline_mode": {
+      "enabled": true,
+      "reason": "market_has_poor_connectivity",
+      "capabilities": ["manual_stock_entry", "cash_payment_logging", "daily_sync"]
+    },
+    "partial_payments": {
+      "enabled": true,
+      "reason": "customers_pay_what_they_can_afford",
+      "rules": ["allow_pending_orders", "prevent_stock_deduction_until_full_payment", "support_payment_completion"]
+    },
+    "perishable_alerts": {
+      "enabled": true,
+      "reason": "vegetables_spoil_quickly",
+      "thresholds": {
+        "vegetables": {"warning": 2, "critical": 1},
+        "fruits": {"warning": 3, "critical": 2},
+        "essentials": {"warning": 10, "critical": 5}
+      }
+    }
+  },
+  "scenario_local_features": {
+    "bargaining_support": {
+      "enabled": true,
+      "reason": "nairobi_market_culture",
+      "implementation": "price_negotiation_logging",
+      "notes": "Tracks final agreed prices vs base prices"
+    },
+    "weather_impact_logging": {
+      "enabled": true,
+      "reason": "rain_affects_business_dramatically",
+      "implementation": "daily_weather_notes",
+      "impact_levels": ["none", "light_rain", "heavy_rain", "closed"]
+    },
+    "supplier_relationship_tracking": {
+      "enabled": true,
+      "reason": "daily_restocking_critical",
+      "implementation": "supplier_reliability_scores",
+      "metrics": ["on_time_delivery", "product_quality", "price_stability"]
+    }
+  }
+}
