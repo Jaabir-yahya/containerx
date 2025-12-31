@@ -176,13 +176,34 @@ class TimerService:
         else:
             trust_score = 0.5  # Default neutral trust
         
-        # Calculate SLA hours based on trust score
-        sla_hours = self._calculate_sla_hours(trust_score)
+        # Get base SLA from metadata if provided, otherwise use default 24
+        # Metadata structure: commitment metadata may have nested 'metadata' field
+        base_sla = 24  # Default
+        metadata_provided_sla = None
+        if isinstance(metadata, dict):
+            # Check direct metadata field first
+            if 'sla_hours' in metadata:
+                metadata_provided_sla = metadata.get('sla_hours')
+            # Check nested metadata field
+            elif 'metadata' in metadata and isinstance(metadata.get('metadata'), dict):
+                nested_meta = metadata.get('metadata', {})
+                if 'sla_hours' in nested_meta:
+                    metadata_provided_sla = nested_meta.get('sla_hours')
         
-        # Get SLA from metadata if provided, otherwise use calculated
-        metadata_sla = metadata.get('metadata', {}).get('sla_hours') if isinstance(metadata.get('metadata'), dict) else None
-        if metadata_sla:
-            sla_hours = metadata_sla
+        # If metadata provides explicit SLA, use it as base
+        if metadata_provided_sla is not None:
+            base_sla = float(metadata_provided_sla)
+            # For very short SLAs (< 1 hour), use as-is without trust adjustment
+            # (likely test scenarios or special cases)
+            if base_sla < 1.0:
+                sla_hours = base_sla  # Keep as float for sub-hour SLAs
+            else:
+                # Apply trust-based adjustment to base SLA
+                trust_adjustment = self._calculate_trust_adjustment(trust_score, base_sla)
+                sla_hours = int(trust_adjustment)
+        else:
+            # No metadata SLA provided, calculate purely from trust
+            sla_hours = self._calculate_sla_hours(trust_score)
         
         # Calculate fire time
         try:
@@ -360,6 +381,47 @@ class TimerService:
         finally:
             conn.close()
     
+    def _calculate_trust_adjustment(self, trust_score: float, base_sla: float) -> float:
+        """
+        Calculate trust-based adjustment to base SLA.
+        
+        Higher trust = shorter SLA (faster expected delivery).
+        Lower trust = longer SLA (more time allowed).
+        
+        Formula:
+        - Trust 0.05 (min): base_sla * 2.0 (maximum time)
+        - Trust 0.5 (neutral): base_sla * 1.0 (no change)
+        - Trust 0.95 (max): base_sla * 0.04 (minimum time, ~1 hour for 24h base)
+        
+        Linear interpolation between these points.
+        """
+        min_sla = 1    # Minimum 1 hour
+        max_sla = 48   # Maximum 48 hours
+        
+        # Normalize trust score to 0.0-1.0 range (it's already 0.05-0.95)
+        # Map: 0.05 -> 0.0, 0.5 -> 0.5, 0.95 -> 1.0
+        normalized = (trust_score - 0.05) / (0.95 - 0.05)  # Maps 0.05-0.95 to 0.0-1.0
+        
+        # Calculate adjustment factor
+        # For trust > 0.5 (normalized > 0.5), reduce SLA below base
+        # For trust < 0.5 (normalized < 0.5), increase SLA above base
+        if normalized >= 0.5:
+            # High trust: interpolate between base_sla (at 0.5) and min_sla (at 1.0)
+            # normalized 0.5 -> 1.0, normalized 1.0 -> min_sla/base_sla
+            factor = (normalized - 0.5) / 0.5  # 0.0 to 1.0
+            target_ratio = 1.0 - (1.0 - min_sla / base_sla) * factor
+            adjusted_sla = base_sla * target_ratio
+        else:
+            # Low trust: interpolate between max_sla (at 0.0) and base_sla (at 0.5)
+            # normalized 0.0 -> max_sla/base_sla, normalized 0.5 -> 1.0
+            factor = normalized / 0.5  # 0.0 to 1.0
+            target_ratio = (max_sla / base_sla) - ((max_sla / base_sla) - 1.0) * factor
+            adjusted_sla = base_sla * target_ratio
+        
+        # Bound between 1 and 48 hours (safety check)
+        adjusted_sla = max(min_sla, min(max_sla, adjusted_sla))
+        return adjusted_sla
+    
     def _calculate_sla_hours(self, trust_score: float) -> int:
         """
         Calculate SLA hours based on trust score.
@@ -367,14 +429,36 @@ class TimerService:
         Higher trust = shorter SLA (faster expected delivery).
         Lower trust = longer SLA (more time allowed).
         
-        Formula: base_sla - (trust_score - 0.5) * reduction_factor
-        """
-        base_sla = 24  # Default 24 hours
-        max_reduction = 12  # Maximum reduction for high trust
-        reduction = max_reduction * (trust_score - 0.5) * 2
+        Formula:
+        - Trust 0.05 (min): 48 hours (maximum time)
+        - Trust 0.5 (neutral): 24 hours (default)
+        - Trust 0.95 (max): 1 hour (minimum time)
         
-        # Bound between 1 and 48 hours
-        sla_hours = max(1, min(48, base_sla - reduction))
+        Linear interpolation between these points.
+        """
+        base_sla = 24  # Default 24 hours for neutral trust (0.5)
+        min_sla = 1    # Minimum 1 hour for highest trust (0.95)
+        max_sla = 48   # Maximum 48 hours for lowest trust (0.05)
+        
+        # Normalize trust score to 0.0-1.0 range (it's already 0.05-0.95)
+        # Map: 0.05 -> 0.0, 0.5 -> 0.5, 0.95 -> 1.0
+        normalized = (trust_score - 0.05) / (0.95 - 0.05)  # Maps 0.05-0.95 to 0.0-1.0
+        
+        # For trust > 0.5 (normalized > 0.5), reduce SLA below 24
+        # For trust < 0.5 (normalized < 0.5), increase SLA above 24
+        if normalized >= 0.5:
+            # High trust: interpolate between 24 (at 0.5) and 1 (at 1.0)
+            # normalized 0.5 -> 24, normalized 1.0 -> 1
+            factor = (normalized - 0.5) / 0.5  # 0.0 to 1.0
+            sla_hours = base_sla - (base_sla - min_sla) * factor
+        else:
+            # Low trust: interpolate between 48 (at 0.0) and 24 (at 0.5)
+            # normalized 0.0 -> 48, normalized 0.5 -> 24
+            factor = normalized / 0.5  # 0.0 to 1.0
+            sla_hours = max_sla - (max_sla - base_sla) * factor
+        
+        # Bound between 1 and 48 hours (safety check)
+        sla_hours = max(min_sla, min(max_sla, sla_hours))
         return int(sla_hours)
     
     def _save_timer_to_db(self, timer_id: str, commitment_id: str, 
